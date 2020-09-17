@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../data.dart';
+import 'package:green/widgets/books_type.dart';
+import 'package:green/widgets/list_book_review.dart';
+import 'package:green/widgets/list_department.dart';
+import 'package:green/widgets/month_lists.dart';
+import 'package:green/widgets/title_department.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -51,111 +54,63 @@ class _HomePageState extends State<HomePage> {
         ),
         body: SingleChildScrollView(
           child: Container(
-              // padding: EdgeInsets.all(10),
-              height: MediaQuery.of(context).size.height -
-                  AppBar().preferredSize.height,
-              child: Column(
-                children: <Widget>[
-                  booksDepartment(
-                      title: 'الأقسام',
-                      function: () {
-                        print('alaksam');
-                      }),
-                  listDepartment(context)
-                ],
-              )),
-        ),
-      ),
-    );
-  }
-
-  Container listDepartment(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 200,
-      padding: EdgeInsets.symmetric(vertical: 5),
-      margin: EdgeInsets.only(right: 5),
-      // color: Colors.red,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 8,
-          itemBuilder: (context, index) {
-            return Container(
-              // color: Colors.amber,
-              height: 195,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Center(
-                      child: Icon(
-                        DataSource.iconDepart[index],
-                        color: Colors.white,
-                        size: 70,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    // color: Colors.blue,
-                    margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: 30,
-                    child: Center(
-                        child: Text(
-                      "${DataSource.namesDepart[index]}",
-                      style: TextStyle(fontSize: 14),
-                    )),
-                  )
-                ],
-              ),
-            );
-          }),
-    );
-  }
-
-  Widget booksDepartment(
-      {@required String title, @required Function function}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18,
-              height: .9,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          GestureDetector(
-            onTap: function,
-            child: Container(
-              height: 30,
-              width: 60,
               // color: Colors.red,
-              child: Center(
-                child: Text(
-                  'المزيد...',
-                  style: TextStyle(
-                    fontSize: 16,
-                    height: .9,
-                    color: Colors.grey[700],
-                    fontWeight: FontWeight.w500,
-                  ),
+              // padding: EdgeInsets.all(10),
+              // height: MediaQuery.of(context).size.height*2,
+              child: Column(
+            children: <Widget>[
+              titleDepartment(
+                  title: 'الأقسام',
+                  function: () {
+                    print('alaksam');
+                  }),
+              listDepartment(context),
+              SizedBox(height: 10),
+              titleDepartment(
+                  title: 'أفكار الكتب',
+                  function: () {
+                    print('afkar elkotob');
+                  }),
+              listBookReview(context),
+              titleDepartment(
+                  title: 'خصيصا لك',
+                  function: () {
+                    print('5sysan lk');
+                  }),
+              booksType(context),
+              titleDepartment(
+                  title: 'الأكثر قراءة',
+                  function: () {
+                    print('alaksr kra2h');
+                  }),
+              booksType(context),
+              titleDepartment(
+                  title: 'جديد الكتب',
+                  function: () {
+                    print('gaded elkotb');
+                  }),
+              booksType(context),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      'القوائم',
+                      style: TextStyle(
+                        fontSize: 18,
+                        height: .9,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ),
-          ),
-        ],
+              monthLists(context),
+              SizedBox(height: 50)
+            ],
+          )),
+        ),
       ),
     );
   }

@@ -32,7 +32,7 @@ List<Widget> bodyPages=[
           showSelectedLabels: false,
           unselectedIconTheme: IconThemeData(size: 30, color: Colors.black87),
           iconSize: 30.0,
-          selectedItemColor: Colors.green,
+          selectedItemColor: Colors.green[800],
           unselectedItemColor: Colors.black87,
           currentIndex: bottomIndex,
           onTap: (value) {
