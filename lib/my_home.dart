@@ -26,10 +26,12 @@ List<Widget> bodyPages=[
       child: Scaffold(
         body: bodyPages[bottomIndex],
         bottomNavigationBar: BottomNavigationBar(
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
           selectedFontSize: 0.0,
           selectedIconTheme: IconThemeData(size: 30, color: Colors.green),
           unselectedFontSize: 0.0,
-          showSelectedLabels: false,
+          showSelectedLabels: true,
           unselectedIconTheme: IconThemeData(size: 30, color: Colors.black87),
           iconSize: 30.0,
           selectedItemColor: Colors.green[800],
