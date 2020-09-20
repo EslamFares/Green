@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data.dart';
+import '../../Data/data.dart';
 Widget listDepartment(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,

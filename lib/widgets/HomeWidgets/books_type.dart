@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../data.dart';
+import '../../Data/data.dart';
 
 Widget booksType(BuildContext context) {
   return Container(

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:green/widgets/books_library.dart';
+import 'package:green/widgets/LibraryWidgets/books_idea_library.dart';
+import 'package:green/widgets/LibraryWidgets/books_library.dart';
+import 'package:green/widgets/LibraryWidgets/markes_library.dart';
 
 class MyLibraryPage extends StatefulWidget {
   @override
@@ -9,7 +11,7 @@ class MyLibraryPage extends StatefulWidget {
 
 class _MyLibraryPageState extends State<MyLibraryPage>
     with SingleTickerProviderStateMixin {
-      GlobalKey scafolldBookLibrary = GlobalKey<ScaffoldState>();
+  GlobalKey scafolldBookLibrary = GlobalKey<ScaffoldState>();
   TabController _tabController;
   @override
   void initState() {
@@ -20,7 +22,7 @@ class _MyLibraryPageState extends State<MyLibraryPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scafolldBookLibrary,
+        key: scafolldBookLibrary,
         appBar: AppBar(
             backgroundColor: ThemeData.light().scaffoldBackgroundColor,
             elevation: 0,
@@ -43,9 +45,11 @@ class _MyLibraryPageState extends State<MyLibraryPage>
               ],
             )),
         body: TabBarView(controller: _tabController, children: [
-          BooksLibrary(scafolldBookLibrary: scafolldBookLibrary,),
-          Text('العلامات'),
-          Text('أفكار الكتب'),
+          BooksLibrary(
+            scafolldBookLibrary: scafolldBookLibrary,
+          ),
+          MarkesLibrary(),
+          BooksIdeaLibrary(scafolldBookLibrary: scafolldBookLibrary,),
         ]));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class BooksLibrary extends StatefulWidget {
   final GlobalKey<ScaffoldState> scafolldBookLibrary;
@@ -93,15 +94,19 @@ class _BooksLibraryState extends State<BooksLibrary> {
                                                 .showSnackBar(SnackBar(
                                                     backgroundColor:
                                                         Colors.green[700],
-                                                    content: Container(height: 30,
+                                                    content: Container(
+                                                      height: 30,
                                                       child: Center(
                                                         child: Text(
                                                           'تم الحذف من المكتبة',
                                                           style: TextStyle(
-                                                              color: Colors.white,
+                                                              color:
+                                                                  Colors.white,
                                                               fontWeight:
-                                                                  FontWeight.w700,
-                                                              fontFamily: 'cairo'),
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontFamily:
+                                                                  'cairo'),
                                                         ),
                                                       ),
                                                     )));
@@ -121,7 +126,7 @@ class _BooksLibraryState extends State<BooksLibrary> {
                                       color: Colors.green[900],
                                     )
                                   : Icon(
-                                      Icons.file_download,
+                                      Icons.save_alt,
                                       size: 30,
                                       color: Colors.grey,
                                     ),
@@ -139,12 +144,22 @@ class _BooksLibraryState extends State<BooksLibrary> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        color: Colors.green,
-                        height: 5,
+                      LinearPercentIndicator(
+                        isRTL: true,
                         width: MediaQuery.of(context).size.width * .45,
+                        animation: true,
+                        lineHeight: 5.0,
+                        animationDuration: 1000,
+                        percent: 0.3,
+                        // center: Text("90.0%"),
+                        linearStrokeCap: LinearStrokeCap.roundAll,
+                        progressColor: Colors.green[800],
                       ),
-                      Text('11 %')
+                      Text(
+                        '30 %',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      )
                     ],
                   )
                 ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../discoverModel.dart';
+import '../Data/discoverModel.dart';
 
 class DiscoverPage extends StatefulWidget {
   @override
@@ -14,7 +14,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
       child: Scaffold(
           appBar: AppBar(
             elevation: 0.0,
-            toolbarHeight: 60,
             backgroundColor: Colors.white,
             title: Padding(
               padding: const EdgeInsets.only(right: 2.0),
@@ -89,6 +88,7 @@ Widget questionWidget(String question) {
               fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
       ));
@@ -141,8 +141,10 @@ Widget quoteWidget(String quote) {
                   ),
                 )),
                 Positioned(
-                    top: 250,
-                    left: 250,
+                    // top: 250,
+                    // left: 250,
+                    right: 10,
+                    bottom: 10,
                     child: Column(
                       children: [
                         Text('أخضر',

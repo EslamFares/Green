@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:green/widgets/books_type.dart';
-import 'package:green/widgets/list_book_review.dart';
-import 'package:green/widgets/list_department.dart';
-import 'package:green/widgets/month_lists.dart';
-import 'package:green/widgets/title_department.dart';
+import 'package:green/widgets/HomeWidgets/books_type.dart';
+import 'package:green/widgets/HomeWidgets/list_book_review.dart';
+import 'package:green/widgets/HomeWidgets/list_department.dart';
+import 'package:green/widgets/HomeWidgets/month_lists.dart';
+import 'package:green/widgets/HomeWidgets/title_department.dart';
 
 class HomePage extends StatefulWidget {
   @override
