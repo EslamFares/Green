@@ -85,7 +85,7 @@ List<Widget> bodyPages=[
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.person_outline,
+                Icons.person,
                 size: 30,
               ),
               title: Text(

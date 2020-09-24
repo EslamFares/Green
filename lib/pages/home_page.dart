@@ -25,31 +25,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           actions: <Widget>[
-            GestureDetector(
-              onTap: () {
-                print('notifications');
-              },
-              child: Container(
-                margin: EdgeInsets.only(left: 10),
-                width: 35,
-                height: 35,
-                child: Center(
-                  child: Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Colors.black12.withOpacity(.1),
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                      child: Transform.rotate(
-                          angle: -0.7,
-                          child: Icon(
-                            Icons.notifications_none,
-                            size: 30,
-                          ))),
-                ),
-              ),
-            )
+            actionAppBarButton()
           ],
         ),
         body: SingleChildScrollView(
@@ -113,5 +89,33 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Widget actionAppBarButton() {
+    return GestureDetector(
+            onTap: () {
+              print('notifications');
+            },
+            child: Container(
+              margin: EdgeInsets.only(left: 10),
+              width: 35,
+              height: 35,
+              child: Center(
+                child: Container(
+                    width: 35,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      color: Colors.black12.withOpacity(.1),
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    child: Transform.rotate(
+                        angle: -0.7,
+                        child: Icon(
+                          Icons.notifications_none,
+                          size: 30,
+                        ))),
+              ),
+            ),
+          );
   }
 }
