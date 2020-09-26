@@ -12,20 +12,22 @@ class MyHome extends StatefulWidget {
 
 class _MyHomeState extends State<MyHome> {
   int bottomIndex = 0;
-List<Widget> bodyPages=[
-  HomePage(),
-  SearchPage(),
-  DiscoverPage(),
-  MyLibraryPage(),
-  AccountPage(),
-];
+  List<Widget> bodyPages = [
+    HomePage(),
+    SearchPage(),
+    DiscoverPage(),
+    MyLibraryPage(),
+    AccountPage(),
+  ];
   @override
   Widget build(BuildContext context) {
+    GlobalKey keyButtNav = GlobalKey();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         body: bodyPages[bottomIndex],
         bottomNavigationBar: BottomNavigationBar(
+          key: keyButtNav,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: 0.0,
@@ -41,6 +43,7 @@ List<Widget> bodyPages=[
             setState(() {
               bottomIndex = value;
             });
+            // print('height = ${keyButtNav.currentContext.size.height}');
           },
           items: [
             BottomNavigationBarItem(

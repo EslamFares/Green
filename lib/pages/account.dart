@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:green/pages/setting_pages/setting_page.dart';
 
+import '../loading_page.dart';
+
 class AccountPage extends StatefulWidget {
   @override
   _AccountPageState createState() => _AccountPageState();
 }
 
 class _AccountPageState extends State<AccountPage> {
+  bool loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        loading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +62,9 @@ class _AccountPageState extends State<AccountPage> {
           )
         ],
       ),
+      body: loading
+          ? LoadingPage()
+          : Container(child: Center(child: Icon(Icons.account_circle))),
     );
   }
 }

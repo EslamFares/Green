@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Data/discoverModel.dart';
+import '../loading_page.dart';
 
 class DiscoverPage extends StatefulWidget {
   @override
@@ -7,6 +8,18 @@ class DiscoverPage extends StatefulWidget {
 }
 
 class _DiscoverPageState extends State<DiscoverPage> {
+  bool loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        loading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -14,7 +27,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
       child: Scaffold(
           appBar: AppBar(
             elevation: 0.0,
-            backgroundColor: Colors.white,
+            backgroundColor: ThemeData.light().scaffoldBackgroundColor,
             title: Padding(
               padding: const EdgeInsets.only(right: 2.0),
               child: Align(
@@ -39,15 +52,17 @@ class _DiscoverPageState extends State<DiscoverPage> {
               ),
             ],
           ),
-          body: ListView.builder(
-              itemCount: discoverInfo.length,
-              itemBuilder: (BuildContext context, int index) {
-                return DisplayDiscoverInfo(
-                  question: discoverInfo[index].question,
-                  qoute: discoverInfo[index].quote,
-                  hashtag: discoverInfo[index].hashtag,
-                );
-              })),
+          body: loading
+              ? LoadingPage()
+              : ListView.builder(
+                  itemCount: discoverInfo.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return DisplayDiscoverInfo(
+                      question: discoverInfo[index].question,
+                      qoute: discoverInfo[index].quote,
+                      hashtag: discoverInfo[index].hashtag,
+                    );
+                  })),
     );
   }
 }
@@ -64,7 +79,7 @@ class DisplayDiscoverInfo extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          quoteWidget(qoute),
+          QuoteWidget(qoute),
           questionWidget(question),
           hashtagWidget(hashtag),
           Divider(
@@ -113,109 +128,154 @@ Widget hashtagWidget(List<String> hashtag) {
   );
 }
 
-Widget quoteWidget(String quote) {
-  return Column(
-    children: [
-      Container(
-        height: 300,
-        width: 300,
-        child: Card(
-            color: Colors.green[900],
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-            child: Stack(
-              children: [
-                Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(
-                    28.0,
-                  ),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(quote,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        )),
-                  ),
-                )),
-                Positioned(
-                    // top: 250,
-                    // left: 250,
-                    right: 10,
-                    bottom: 10,
-                    child: Column(
-                      children: [
-                        Text('أخضر',
+// Widget quoteWidget(BuildContext context, String quote) {
+//    return quoteWidget();
+// }
+
+class QuoteWidget extends StatefulWidget {
+  final String quote;
+  QuoteWidget(this.quote);
+
+  @override
+  _QuoteWidgetState createState() => _QuoteWidgetState();
+}
+
+class _QuoteWidgetState extends State<QuoteWidget> {
+  bool favourite = false;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GestureDetector(
+          onDoubleTap: () {
+            setState(() {
+              favourite = !favourite;
+            });
+          },
+          child: Container(
+            margin: EdgeInsets.only(top: 10),
+            height: MediaQuery.of(context).size.height * .47,
+            width: MediaQuery.of(context).size.width * .92,
+            child: Card(
+                color: Colors.green[900],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14)),
+                child: Stack(
+                  children: [
+                    Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(
+                        28.0,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(widget.quote,
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             )),
-                        Text('a5dr.com',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 8,
-                              fontWeight: FontWeight.normal,
-                            )),
-                      ],
+                      ),
                     )),
-                Positioned(
-                  left: 250,
-                  top: 10,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Container(
-                      height: 32,
-                      width: 32,
-                      color: Colors.green,
-                      child: Center(
-                        child: Text(
-                          'I',
-                          style: TextStyle(color: Colors.white, fontSize: 17),
+                    Positioned(
+                        // top: 250,
+                        // left: 250,
+                        right: 10,
+                        bottom: 10,
+                        child: Column(
+                          children: [
+                            Text('أخضر',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            Text('a5dr.com',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                )),
+                          ],
+                        )),
+                    Positioned(
+                      right: 20,
+                      top: 15,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          height: 35,
+                          width: 35,
+                          color: Colors.greenAccent[400],
+                          child: Center(
+                            child: Text(
+                              'I',
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 17),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                )
-              ],
-            )),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 10, right: 10.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 166.0),
-              child: Text(
-                '1 / 11',
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 20,
-                    color: Colors.grey),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Text(
-                '10',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: GestureDetector(
-                  onDoubleTap: () {}, child: Icon(Icons.favorite_border)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.share),
-            ),
-          ],
+                    )
+                  ],
+                )),
+          ),
         ),
-      ),
-    ],
-  );
+        Padding(
+          padding: const EdgeInsets.only(top: 10, right: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 166.0),
+                child: Text(
+                  '1 / 11',
+                  style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 20,
+                      color: Colors.grey),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text(
+                  '10',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: favourite
+                    ? IconButton(
+                        icon: Icon(Icons.favorite_border),
+                        onPressed: () {
+                          setState(() {
+                            favourite = !favourite;
+                          });
+                        },
+                      )
+                    : IconButton(
+                        onPressed: () {
+                          setState(() {
+                            favourite = !favourite;
+                          });
+                        },
+                        icon: Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        ),
+                      ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.share),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 }
