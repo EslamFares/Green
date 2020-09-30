@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green/pages/setting_pages/setting_page.dart';
+import 'package:green/pages/setting_pages/setting_home_page.dart';
 
 import '../loading_page.dart';
 
