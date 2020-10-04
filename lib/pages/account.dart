@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 
 import 'package:green/pages/setting_pages/setting_page.dart';
+=======
+import 'package:green/pages/setting_pages/setting_home_page.dart';
+
+import '../loading_page.dart';
+>>>>>>> 75f46e58a69b52dad32208e012ff558d5d32b0bb
 
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({Key key}) : super(key: key);
@@ -9,6 +15,7 @@ class ProfileScreen extends StatefulWidget {
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
+<<<<<<< HEAD
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
@@ -24,6 +31,19 @@ class _ProfileScreenState extends State<ProfileScreen>
   void dispose() {
     _tabController.dispose();
     super.dispose();
+=======
+class _AccountPageState extends State<AccountPage> {
+  bool loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        loading = false;
+      });
+    });
+>>>>>>> 75f46e58a69b52dad32208e012ff558d5d32b0bb
   }
 
   @override
@@ -435,6 +455,9 @@ class _ProfileScreenState extends State<ProfileScreen>
           ),
         ),
       ),
+      body: loading
+          ? LoadingPage()
+          : Container(child: Center(child: Icon(Icons.account_circle))),
     );
   }
 

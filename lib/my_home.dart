@@ -22,11 +22,13 @@ class _MyHomeState extends State<MyHome> {
   ];
   @override
   Widget build(BuildContext context) {
+    GlobalKey keyButtNav = GlobalKey();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         body: bodyPages[bottomIndex],
         bottomNavigationBar: BottomNavigationBar(
+          key: keyButtNav,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: 0.0,
@@ -42,6 +44,7 @@ class _MyHomeState extends State<MyHome> {
             setState(() {
               bottomIndex = value;
             });
+            // print('height = ${keyButtNav.currentContext.size.height}');
           },
           items: [
             BottomNavigationBarItem(

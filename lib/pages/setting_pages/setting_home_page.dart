@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:green/pages/setting_pages/segl.dart';
+import 'package:green/pages/setting_pages/likes.dart';
+import 'package:green/pages/setting_pages/help.dart';
+import 'package:green/pages/setting_pages/setting_account.dart';
 import 'package:green/widgets/SettingWidgets/back_version.dart';
 import 'package:green/widgets/SettingWidgets/setting_title.dart';
 import 'setting_account.dart';
@@ -41,21 +44,27 @@ class _SettingPageState extends State<SettingPage> {
                         settingTitle(
                             context: context,
                             function: () {
-                              print('like');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => LikesPage()));
                             },
                             icon: Icons.favorite,
                             title: 'الإعجابات'),
                         settingTitle(
                             context: context,
                             function: () {
-                              print('help');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => HelpPage()));
                             },
                             icon: Icons.info_outline,
                             title: 'مساعدة'),
                         settingTitle(
                             context: context,
                             function: () {
+<<<<<<< HEAD:lib/pages/setting_pages/setting_page.dart
                               Navigator.of(context).push(MaterialPageRoute(
+=======
+                           Navigator.of(context).push(MaterialPageRoute(
+>>>>>>> 75f46e58a69b52dad32208e012ff558d5d32b0bb:lib/pages/setting_pages/setting_home_page.dart
                                   builder: (context) => SettingAcountpage()));
                             },
                             icon: Icons.settings,

@@ -4,6 +4,8 @@ import 'package:green/widgets/LibraryWidgets/books_idea_library.dart';
 import 'package:green/widgets/LibraryWidgets/books_library.dart';
 import 'package:green/widgets/LibraryWidgets/markes_library.dart';
 
+import '../loading_page.dart';
+
 class MyLibraryPage extends StatefulWidget {
   @override
   _MyLibraryPageState createState() => _MyLibraryPageState();
@@ -13,10 +15,16 @@ class _MyLibraryPageState extends State<MyLibraryPage>
     with SingleTickerProviderStateMixin {
   GlobalKey scafolldBookLibrary = GlobalKey<ScaffoldState>();
   TabController _tabController;
+  bool loading = true;
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        loading = false;
+      });
+    });
   }
 
   @override
@@ -44,12 +52,16 @@ class _MyLibraryPageState extends State<MyLibraryPage>
                 Tab(child: Text('أفكار الكتب')),
               ],
             )),
-        body: TabBarView(controller: _tabController, children: [
+        body: loading
+              ? LoadingPage()
+              :TabBarView(controller: _tabController, children: [
           BooksLibrary(
             scafolldBookLibrary: scafolldBookLibrary,
           ),
           MarkesLibrary(),
-          BooksIdeaLibrary(scafolldBookLibrary: scafolldBookLibrary,),
+          BooksIdeaLibrary(
+            scafolldBookLibrary: scafolldBookLibrary,
+          ),
         ]));
   }
 }
