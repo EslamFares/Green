@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green/pages/account.dart';
+
 import 'package:green/pages/discover_page.dart';
 import 'package:green/pages/library_page.dart';
 import 'package:green/pages/search_page.dart';
@@ -12,13 +13,13 @@ class MyHome extends StatefulWidget {
 
 class _MyHomeState extends State<MyHome> {
   int bottomIndex = 0;
-List<Widget> bodyPages=[
-  HomePage(),
-  SearchPage(),
-  DiscoverPage(),
-  MyLibraryPage(),
-  AccountPage(),
-];
+  List<Widget> bodyPages = [
+    HomePage(),
+    SearchPage(),
+    DiscoverPage(),
+    MyLibraryPage(),
+    AccountPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Directionality(

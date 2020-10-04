@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green/pages/setting_pages/segl.dart';
 import 'package:green/widgets/SettingWidgets/back_version.dart';
 import 'package:green/widgets/SettingWidgets/setting_title.dart';
+import 'setting_account.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -54,7 +55,8 @@ class _SettingPageState extends State<SettingPage> {
                         settingTitle(
                             context: context,
                             function: () {
-                              print('setting');
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => SettingAcountpage()));
                             },
                             icon: Icons.settings,
                             title: 'الإعدادات'),
@@ -75,6 +77,4 @@ class _SettingPageState extends State<SettingPage> {
       ),
     );
   }
-
- 
 }
