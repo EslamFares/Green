@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-
-import 'package:green/pages/setting_pages/setting_page.dart';
-=======
 import 'package:green/pages/setting_pages/setting_home_page.dart';
 
 import '../loading_page.dart';
->>>>>>> 75f46e58a69b52dad32208e012ff558d5d32b0bb
+
 
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({Key key}) : super(key: key);
@@ -15,15 +11,18 @@ class ProfileScreen extends StatefulWidget {
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-<<<<<<< HEAD
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-
+bool loading = true;
   @override
   void initState() {
     _tabController = TabController(vsync: this, length: 3, initialIndex: 2);
-
+Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        loading = false;
+      });
+    });
     super.initState();
   }
 
@@ -31,19 +30,6 @@ class _ProfileScreenState extends State<ProfileScreen>
   void dispose() {
     _tabController.dispose();
     super.dispose();
-=======
-class _AccountPageState extends State<AccountPage> {
-  bool loading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() {
-        loading = false;
-      });
-    });
->>>>>>> 75f46e58a69b52dad32208e012ff558d5d32b0bb
   }
 
   @override
@@ -52,6 +38,7 @@ class _AccountPageState extends State<AccountPage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           iconTheme: new IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           title: Padding(
@@ -101,136 +88,9 @@ class _AccountPageState extends State<AccountPage> {
             )
           ],
         ),
-        //  drawer: Container(
-        // width: 800,
-        // color: Colors.green[900],
-        //child: Drawer(
-        //child: Container(
-        //color: Colors.green[800],
-        //child: ListView(
-        // Important: Remove any padding from the ListView.
-        //padding: EdgeInsets.zero,
-        //children: <Widget>[
-        //SizedBox(
-        //height: 210,
-        //),
-        //Row(
-        //mainAxisAlignment: MainAxisAlignment.end,
-        //children: [
-        //Padding(
-        //padding: const EdgeInsets.only(right: 207.0),
-        //child: Icon(
-        //Icons.arrow_back_ios,
-        // size: 25,
-        //color: Colors.white,
-        // ),
-        // ),
-        // Text('السجل',
-        // style: TextStyle(
-        //    fontSize: 25.0,
-        //   fontWeight: FontWeight.bold,
-        //   color: Colors.white)),
-        // Padding(
-        //  padding: const EdgeInsets.all(18.0),
-        //  child: Icon(
-        //   Icons.watch,
-        //   color: Colors.white,
-        //   size: 35,
-        // ))
-        // ],
-        // ),
-        // Row(
-        //  mainAxisAlignment: MainAxisAlignment.end,
-        //  children: [
-        //  Padding(
-        //  padding: const EdgeInsets.only(right: 180.0),
-        //child: Icon(
-        //Icons.arrow_back_ios,
-        //size: 25,
-        //color: Colors.white,
-        // ),
-        // ),
-        // Text('الإعجابات',
-        //  style: TextStyle(
-        //    fontSize: 25.0,
-        //  fontWeight: FontWeight.bold,
-        //color: Colors.white)),
-        //  Padding(
-        //    padding: const EdgeInsets.all(18.0),
-        //  child: Icon(
-        //  Icons.favorite,
-        //color: Colors.white,
-        //size: 35,
-        // ))
-        //  ],
-        //   ),
-        //  Row(
-        //   mainAxisAlignment: MainAxisAlignment.end,
-        //  children: [
-        //    Padding(
-        //    padding: const EdgeInsets.only(right: 172.0),
-        //   child: Icon(
-        //   Icons.arrow_back_ios,
-        // size: 25,
-        //color: Colors.white,
-        //  ),
-        // ),
-        //Text('مساعدة ',
-        //  style: TextStyle(
-        //    fontSize: 25.0,
-        //  fontWeight: FontWeight.bold,
-        //color: Colors.white)),
-        //      Padding(
-        //        padding: const EdgeInsets.all(18.0),
-        //      child: Icon(
-        //      Icons.info_outline,
-        //    color: Colors.white,
-        //  size: 35,
-        //      ))
-        // ],
-        // ),
-        // Row(
-        // mainAxisAlignment: MainAxisAlignment.end,
-        // children: [
-        //   Padding(
-        //    padding: const EdgeInsets.only(right: 178.0),
-        //  child: Icon(
-        //  Icons.arrow_back_ios,
-        //size: 25,
-        //color: Colors.white,
-        // ),
-        // ),
-        // Text('الإعدادات',
-        //   style: TextStyle(
-        //     fontSize: 25.0,
-        //   fontWeight: FontWeight.bold,
-        // color: Colors.white)),
-        //Padding(
-        //  padding: const EdgeInsets.all(18.0),
-        //child: Icon(
-        //Icons.settings,
-        //color: Colors.white,
-        //size: 35,
-        //))
-        //],
-        // ),
-        //  Padding(
-        //  padding: const EdgeInsets.only(top: 90.0),
-        //child: InkWell(
-        //onTap: () {
-        //Navigator.pop(context);
-        // },
-        // child: Icon(
-        //   Icons.cancel,
-        //   color: Colors.white,
-        //  size: 39,
-
-        //   ],
-        //  ),
-        //  ),
-        // ),
-        //),
-        body: NestedScrollView(
+     
+        body: loading
+          ? LoadingPage() :NestedScrollView(
           //   controller: _scrollController,
           headerSliverBuilder:
               (BuildContext context, bool innerViewIsScrolled) {
@@ -455,24 +315,11 @@ class _AccountPageState extends State<AccountPage> {
           ),
         ),
       ),
-      body: loading
-          ? LoadingPage()
-          : Container(child: Center(child: Icon(Icons.account_circle))),
+      // body: loading
+      //     ? LoadingPage()
+      //     : Container(child: Center(child: Icon(Icons.account_circle))),
     );
   }
-
-//   Widget stackName() {
-//     return Stack(
-//       children: [
-//         ClipRRect(
-//           borderRadius: BorderRadius.circular(50),
-//           child: Container(
-//             height: 40,
-//             width: 40,
-//             color: Colors.green,
-//           ),
-
-//   }
 }
 
 class ChartsInfo extends StatefulWidget {

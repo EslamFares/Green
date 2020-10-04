@@ -60,11 +60,7 @@ class _SettingPageState extends State<SettingPage> {
                         settingTitle(
                             context: context,
                             function: () {
-<<<<<<< HEAD:lib/pages/setting_pages/setting_page.dart
                               Navigator.of(context).push(MaterialPageRoute(
-=======
-                           Navigator.of(context).push(MaterialPageRoute(
->>>>>>> 75f46e58a69b52dad32208e012ff558d5d32b0bb:lib/pages/setting_pages/setting_home_page.dart
                                   builder: (context) => SettingAcountpage()));
                             },
                             icon: Icons.settings,

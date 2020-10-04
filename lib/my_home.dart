@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:green/pages/account.dart';
-
 import 'package:green/pages/discover_page.dart';
 import 'package:green/pages/library_page.dart';
 import 'package:green/pages/search_page.dart';
@@ -18,7 +17,7 @@ class _MyHomeState extends State<MyHome> {
     SearchPage(),
     DiscoverPage(),
     MyLibraryPage(),
-    AccountPage(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
