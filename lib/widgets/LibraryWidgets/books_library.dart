@@ -54,11 +54,11 @@ class _BooksLibraryState extends State<BooksLibrary> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'لعبة الثقه',
+                            'لعبة الثقة',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w700),
                           ),
-                          Text('إسلام فارس'),
+                          Text('ماريا كونيكوفا'),
                         ],
                       ),
                       Row(
