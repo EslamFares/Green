@@ -11,7 +11,9 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
     return Directionality(
       textDirection: TextDirection.rtl,
           child: Scaffold(
-        appBar: AppBar(title: Text('الاعدادت'),),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Text('الاعدادت'),),
       ),
     );
   }

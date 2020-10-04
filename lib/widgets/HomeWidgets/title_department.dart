@@ -23,12 +23,12 @@ Widget titleDepartment({@required String title, @required Function function}) {
             // color: Colors.red,
             child: Center(
               child: Text(
-                'المزيد...',
+                'الكل',
                 style: TextStyle(
                   fontSize: 16,
-                  height: .9,
+                  height: .7,
                   color: Colors.grey[700],
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

@@ -1,6 +1,30 @@
 import 'package:flutter/material.dart';
 
 class DataSource {
+  static List<Map<String, dynamic>> departInfo = [
+    {'name': 'النمو الشخصى', 'icon': Icons.insert_chart},
+    {
+      'name': 'السياسة والإقتصاد',
+      'icon': Icons.monetization_on,
+    },
+    {'name': 'ريادة الأعمال', 'icon': Icons.work},
+    {
+      'name': 'التسويق والمبيعات',
+      'icon': Icons.person_outline,
+    },
+    {'name': 'الصحة واللياقة', 'icon': Icons.fitness_center},
+    {'name': 'القيادةوالإدارة', 'icon': Icons.headset_mic},
+    {'name': 'مهارات التواصل', 'icon': Icons.people},
+    {'name': 'الفكر والفلسفه', 'icon': Icons.chat},
+    {'name': 'المال والاستثمار', 'icon': Icons.payment},
+    {'name': 'علوم إسلامية', 'icon': Icons.near_me},
+    {'name': 'نفس واجتماع', 'icon': Icons.person_add},
+    {'name': 'السير والتاريخ', 'icon': Icons.playlist_add},
+    {'name': 'العلوم والمعارف', 'icon': Icons.settings_input_composite},
+    {'name': 'الأبوة والأمومه', 'icon': Icons.child_care},
+    {'name': 'العلاقات العاطفية', 'icon': Icons.favorite},
+    {'name': 'التكنولوجيا والمستقبل', 'icon': Icons.filter_center_focus},
+  ];
   static List namesDepart = [
     'النمو الشخصى',
     'السياسة والإقتصاد',
@@ -9,6 +33,7 @@ class DataSource {
     'الصحة واللياقة',
     'القيادةوالإدارة',
     'مهارات التواصل',
+    'الفكر والفلسفه',
     'المال والاستثمار',
   ];
   static List iconDepart = [
@@ -19,8 +44,8 @@ class DataSource {
     Icons.fitness_center,
     Icons.headset_mic,
     Icons.people,
-    Icons.speaker_notes,
     Icons.payment,
+    Icons.favorite,
   ];
   static List booksInfo = [
     {
@@ -55,6 +80,34 @@ class DataSource {
       'name': 'السعادة تنبع من الداخل ',
       'imgurl': 'non',
       'writer': 'جان باول اليسوعى',
+      'content':
+          'لا شك ان هناك اختلافا بين علم النفس والدين في علاج الأمراض النفسية .فعلم النفس لا يري إمكنا لتبديل النفس أو تغيرها جوهرياز لأنها تأخذ شكلها النهائي في السنوات الخمس الأولى من الطفولة ....',
+    },
+    {
+      'name': 'دماغك تحت تأثير الاجابية ',
+      'imgurl': 'non',
+      'writer': 'جاري ويلسون',
+      'content':
+          'لا شك ان هناك اختلافا بين علم النفس والدين في علاج الأمراض النفسية .فعلم النفس لا يري إمكنا لتبديل النفس أو تغيرها جوهرياز لأنها تأخذ شكلها النهائي في السنوات الخمس الأولى من الطفولة ....',
+    },
+    {
+      'name': 'الهشاشة النفسيه',
+      'imgurl': 'non',
+      'writer': 'الين مازليش واديل نابلر',
+      'content':
+          'لا شك ان هناك اختلافا بين علم النفس والدين في علاج الأمراض النفسية .فعلم النفس لا يري إمكنا لتبديل النفس أو تغيرها جوهرياز لأنها تأخذ شكلها النهائي في السنوات الخمس الأولى من الطفولة ....',
+    },
+    {
+      'name': ' أدر مهامك اليومية',
+      'imgurl': 'non',
+      'writer': 'جوسلين كية جلاى',
+      'content':
+          'لا شك ان هناك اختلافا بين علم النفس والدين في علاج الأمراض النفسية .فعلم النفس لا يري إمكنا لتبديل النفس أو تغيرها جوهرياز لأنها تأخذ شكلها النهائي في السنوات الخمس الأولى من الطفولة ....',
+    },
+    {
+      'name': ' نظام التفاهة',
+      'imgurl': 'non',
+      'writer': 'ألان دونو',
       'content':
           'لا شك ان هناك اختلافا بين علم النفس والدين في علاج الأمراض النفسية .فعلم النفس لا يري إمكنا لتبديل النفس أو تغيرها جوهرياز لأنها تأخذ شكلها النهائي في السنوات الخمس الأولى من الطفولة ....',
     },
