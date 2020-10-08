@@ -20,7 +20,6 @@ class _SettingPageState extends State<SettingPage> {
       child: Scaffold(
         backgroundColor: Colors.green,
         body: Container(
-          // color: Colors.amber,
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
           child: Stack(
             children: <Widget>[
@@ -28,7 +27,6 @@ class _SettingPageState extends State<SettingPage> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Container(
-                    // color: Colors.pink,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +42,7 @@ class _SettingPageState extends State<SettingPage> {
                         settingTitle(
                             context: context,
                             function: () {
-                            Navigator.of(context).push(MaterialPageRoute(
+                              Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => LikesPage()));
                             },
                             icon: Icons.favorite,
@@ -52,7 +50,7 @@ class _SettingPageState extends State<SettingPage> {
                         settingTitle(
                             context: context,
                             function: () {
-                            Navigator.of(context).push(MaterialPageRoute(
+                              Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => HelpPage()));
                             },
                             icon: Icons.info_outline,
