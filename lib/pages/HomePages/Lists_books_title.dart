@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
 import 'package:green/pages/HomePages/show_book.dart';
 
-class OneOfDerpatPage extends StatefulWidget {
+class ListsOfBooksByTitle extends StatefulWidget {
+  final String appbarTitle;
+  ListsOfBooksByTitle({@required this.appbarTitle});
   @override
-  _OneOfDerpatPageState createState() => _OneOfDerpatPageState();
+  _ListsOfBooksByTitleState createState() => _ListsOfBooksByTitleState();
 }
 
-class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
+class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -15,7 +17,7 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: CustomScrollView(
-            semanticChildCount: 4, slivers: <Widget>[appbar(context), body()]),
+            semanticChildCount: 4, slivers: <Widget>[appbar(context,widget.appbarTitle), body()]),
       ),
     );
   }
@@ -124,7 +126,7 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
     );
   }
 
-  SliverAppBar appbar(BuildContext context) {
+  SliverAppBar appbar(BuildContext context,String appbarTitle) {
     return SliverAppBar(
       backgroundColor: Colors.white,
       floating: false,
@@ -133,10 +135,10 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
       expandedHeight: 100.0,
       automaticallyImplyLeading: false,
       titleSpacing: 15.0,
-      flexibleSpace: const FlexibleSpaceBar(
+      flexibleSpace:  FlexibleSpaceBar(
           titlePadding: EdgeInsets.only(right: 50, bottom: 10),
           collapseMode: CollapseMode.pin,
-          title: Text('الأقسام',
+          title: Text(appbarTitle,
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 14.0,

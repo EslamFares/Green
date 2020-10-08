@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
+import 'package:green/pages/HomePages/show_book.dart';
 
 class BooksReviewPage extends StatefulWidget {
   @override
@@ -20,13 +21,12 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
                 floating: false,
                 pinned: true,
                 snap: false,
-                              expandedHeight: 100.0,
+                expandedHeight: 100.0,
                 automaticallyImplyLeading: false,
                 titleSpacing: 15.0,
-                flexibleSpace: 
-                const FlexibleSpaceBar(
+                flexibleSpace: const FlexibleSpaceBar(
                     // centerTitle: true,
-                    titlePadding: EdgeInsets.only(right: 50,bottom: 10),
+                    titlePadding: EdgeInsets.only(right: 50, bottom: 10),
                     collapseMode: CollapseMode.pin,
                     title: Text('مراجعات الكتب',
                         style: TextStyle(
@@ -55,72 +55,84 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
   List listBokReview(BuildContext context, int count) {
     List<Widget> listItems = List();
     for (int index = 0; index < count; index++) {
-      listItems.add(Container(
-        width: MediaQuery.of(context).size.width,
-        height: 150,
-        decoration: BoxDecoration(
-            //  color: Colors.amber,
-            border: Border(
-                bottom: BorderSide(
-                    color: Colors.green, width: 1, style: BorderStyle.solid))),
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: Row(
-          children: <Widget>[
-            stackContainer(index),
-            SizedBox(width: 10),
-            Expanded(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+      listItems.add(
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: 150,
+          decoration: BoxDecoration(
+              // color: Colors.amber,
+              border: Border(
+                  bottom: BorderSide(
+                      color: Colors.green,
+                      width: 1,
+                      style: BorderStyle.solid))),
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => ShowBook()));
+            },
+            child: Row(
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                stackContainer(index),
+                SizedBox(width: 10),
+                Expanded(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'مراجعة كتاب',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w800),
+                            ),
+                            Text(
+                              DataSource.booksInfo[index]['name'],
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w900),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'مراجعة كتاب',
+                          'للكاتب : ',
                           style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w800),
+                              fontSize: 12, fontWeight: FontWeight.w700),
                         ),
                         Text(
-                          DataSource.booksInfo[index]['name'],
+                          DataSource.booksInfo[index]['writer']
+                                      .toString()
+                                      .length >
+                                  20
+                              ? '${DataSource.booksInfo[index]['writer'].toString().substring(1, 18)}..'
+                              : DataSource.booksInfo[index]['writer'],
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w900),
+                              fontSize: 12, fontWeight: FontWeight.w700),
                         ),
                       ],
-                    ),
+                    )
                   ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'للكاتب : ',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                    ),
-                    Text(
-                      DataSource.booksInfo[index]['writer'].toString().length >
-                              20
-                          ? '${DataSource.booksInfo[index]['writer'].toString().substring(1, 18)}..'
-                          : DataSource.booksInfo[index]['writer'],
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                )
+                ))
               ],
-            ))
-          ],
+            ),
+          ),
         ),
-      ));
+      );
     }
     return listItems;
   }

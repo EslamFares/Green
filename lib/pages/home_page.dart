@@ -1,11 +1,12 @@
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:green/widgets/HomeWidgets/book_in_month.dart';
+import 'package:green/widgets/HomeWidgets/book_review_carousel.dart';
 import 'package:green/widgets/HomeWidgets/books_type.dart';
 import 'package:green/widgets/HomeWidgets/list_department.dart';
 import 'package:green/widgets/HomeWidgets/month_lists.dart';
-import 'package:green/widgets/HomeWidgets/bookreveiw_carouselchild.dart';
 import 'package:green/widgets/HomeWidgets/title_department.dart';
+import 'HomePages/Lists_books_title.dart';
 import 'HomePages/departments.dart';
 import 'HomePages/books_reviw.dart';
 
@@ -36,60 +37,55 @@ class _HomePageState extends State<HomePage> {
               titleDepartment(
                   title: 'الأقسام',
                   function: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>DepartmentsPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DepartmentsPage()));
                   }),
               listDepartment(context),
               SizedBox(height: 10),
               titleDepartment(
                   title: 'مراجعة الكتب',
                   function: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BooksReviewPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BooksReviewPage()));
                   }),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 220,
-                child: Carousel(
-                  images: [
-                    bookReveiwCarouselChild(context, 0),
-                    bookReveiwCarouselChild(context, 1),
-                    bookReveiwCarouselChild(context, 2),
-                    bookReveiwCarouselChild(context, 3),
-                    bookReveiwCarouselChild(context, 4),
-                  ],
-                  dotSize: 4.0,
-                  dotSpacing: 15.0,
-                  dotColor: Colors.grey,
-                  dotPosition: DotPosition.bottomCenter,
-              
-                  dotIncreasedColor: Colors.green[900],
-                  indicatorBgPadding: 5.0,
-                  dotBgColor: ThemeData.light().scaffoldBackgroundColor,
-                  borderRadius: true,
-                ),
-              ),
+              bookReviewCarousel(context),
               // listBookReview(context),
               titleDepartment(
                   title: 'خصيصا لك',
                   function: () {
-                    print('5sysan lk');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ListsOfBooksByTitle(
+                              appbarTitle: 'خصيصا لك',
+                            )));
                   }),
               booksType(context),
               titleDepartment(
                   title: 'الأكثر قراءة',
                   function: () {
-                    print('alaksr kra2h');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ListsOfBooksByTitle(
+                              appbarTitle: 'الأكثر قراءة',
+                            )));
                   }),
               booksType(context),
               titleDepartment(
                   title: 'جديد الكتب',
                   function: () {
-                    print('gaded elkotb');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ListsOfBooksByTitle(
+                              appbarTitle: 'جديد الكتب',
+                            )));
                   }),
               booksType(context),
-               titleDepartment(
+              titleDepartment(
                   title: 'القوائم',
                   function: () {
-                    print('alkwa2em');
+                   Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => BookInMonth()));
                   }),
               monthLists(context),
               SizedBox(height: 50)

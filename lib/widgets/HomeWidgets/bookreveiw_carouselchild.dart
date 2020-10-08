@@ -1,14 +1,19 @@
-
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
+import 'package:green/pages/HomePages/show_book.dart';
 
 Widget bookReveiwCarouselChild(BuildContext context, int index) {
-    return Container(
+  return InkWell(
+    onTap: () {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => ShowBook()));
+    },
+    child: Container(
       margin: EdgeInsets.only(left: 5, right: 5, bottom: 20),
       width: MediaQuery.of(context).size.width,
       height: 200,
       decoration: BoxDecoration(
-          color: Colors.green[900], borderRadius: BorderRadius.circular(15.0)),
+          color: Colors.green[800], borderRadius: BorderRadius.circular(15.0)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,5 +68,6 @@ Widget bookReveiwCarouselChild(BuildContext context, int index) {
           SizedBox(height: 10),
         ],
       ),
-    );
-  }
+    ),
+  );
+}

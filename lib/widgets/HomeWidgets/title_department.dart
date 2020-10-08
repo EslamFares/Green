@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget titleDepartment({@required String title, @required Function function}) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+    padding: const EdgeInsets.only(bottom: 5, left: 10,right: 10,top: 15),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,7 +19,7 @@ Widget titleDepartment({@required String title, @required Function function}) {
           onTap: function,
           child: Container(
             height: 30,
-            width: 60,
+            width: 70,
             // color: Colors.red,
             child: Center(
               child: Text(

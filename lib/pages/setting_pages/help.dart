@@ -132,8 +132,24 @@ class _HelpPageState extends State<HelpPage> {
                               children: [
                                 Expanded(
                                   flex: 2,
-                                  child: Container(
-                                    child: Image.network('${list[i].image}'),
+                                  child: Material(
+                                    elevation: 5,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10.0))),
+                                      width:
+                                          MediaQuery.of(context).size.width / 2,
+                                      height: 200,
+                                      child: Image.network(
+                                        '${list[i].image}',
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -156,54 +172,47 @@ class _HelpPageState extends State<HelpPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.white10,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                        child: Image.network(
-                            'https://tse2.mm.bing.net/th?id=OIP.MZ8_ysmKtnmRyIajYN_nLgAAAA&pid=Api&P=0&w=300&h=300')),
-                  ),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                        child: Image.network(
-                            'https://tse4.mm.bing.net/th?id=OIP.7yOg7GNHSnRH91EBNLM_0gHaFa&pid=Api&P=0&w=233&h=171')),
-                  ),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                        child: Image.network(
-                            ' https://tse1.mm.bing.net/th?id=OIP.HAQgKYEC29DUhrS7ZGn-4AHaHa&pid=Api&P=0&w=300&h=300')),
-                  ),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                        child: Image.network(
-                            'https://tse1.mm.bing.net/th?id=OIP.MzldIcrgHd0Jvhg3w8TdvAAAAA&pid=Api&P=0&w=300&h=300')),
-                  ),
+                  socialMediaIcon(
+                      context, 'assets/socialMediaIcon/insta.png', () {}),
+                  socialMediaIcon(
+                      context, 'assets/socialMediaIcon/youtube.png', () {}),
+                  socialMediaIcon(
+                      context, 'assets/socialMediaIcon/twitter.png', () {}),
+                  socialMediaIcon(
+                      context, 'assets/socialMediaIcon/facebook.png', () {}),
                 ],
-              )
+              ),
+              SizedBox(height: 50.0),
             ],
           )),
+    );
+  }
+
+  Widget socialMediaIcon(
+      BuildContext context, String imgPath, Function function) {
+    return InkWell(
+      onTap: function,
+      child: Material(
+        elevation: 5,
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        child: Container(
+          margin: EdgeInsets.only(left: 10),
+          padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
+          height: MediaQuery.of(context).size.width / 5,
+          width: MediaQuery.of(context).size.width / 5,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          ),
+          child: Center(
+              child: Image.asset(
+            imgPath,
+            fit: BoxFit.contain,
+            width: MediaQuery.of(context).size.width / 5,
+            height: MediaQuery.of(context).size.width / 5,
+          )),
+        ),
+      ),
     );
   }
 }
