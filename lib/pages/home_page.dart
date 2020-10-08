@@ -1,10 +1,13 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green/widgets/HomeWidgets/books_type.dart';
-import 'package:green/widgets/HomeWidgets/list_book_review.dart';
 import 'package:green/widgets/HomeWidgets/list_department.dart';
 import 'package:green/widgets/HomeWidgets/month_lists.dart';
+import 'package:green/widgets/HomeWidgets/bookreveiw_carouselchild.dart';
 import 'package:green/widgets/HomeWidgets/title_department.dart';
+import 'HomePages/departments.dart';
+import 'HomePages/books_reviw.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,30 +27,47 @@ class _HomePageState extends State<HomePage> {
             'الرئيسية',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
-          actions: <Widget>[
-            actionAppBarButton()
-          ],
+          actions: <Widget>[actionAppBarButton()],
         ),
         body: SingleChildScrollView(
           child: Container(
-              // color: Colors.red,
-              // padding: EdgeInsets.all(10),
-              // height: MediaQuery.of(context).size.height*2,
               child: Column(
             children: <Widget>[
               titleDepartment(
                   title: 'الأقسام',
                   function: () {
-                    print('alaksam');
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>DepartmentsPage()));
                   }),
               listDepartment(context),
               SizedBox(height: 10),
               titleDepartment(
-                  title: 'أفكار الكتب',
+                  title: 'مراجعة الكتب',
                   function: () {
-                    print('afkar elkotob');
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BooksReviewPage()));
                   }),
-              listBookReview(context),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 220,
+                child: Carousel(
+                  images: [
+                    bookReveiwCarouselChild(context, 0),
+                    bookReveiwCarouselChild(context, 1),
+                    bookReveiwCarouselChild(context, 2),
+                    bookReveiwCarouselChild(context, 3),
+                    bookReveiwCarouselChild(context, 4),
+                  ],
+                  dotSize: 4.0,
+                  dotSpacing: 15.0,
+                  dotColor: Colors.grey,
+                  dotPosition: DotPosition.bottomCenter,
+              
+                  dotIncreasedColor: Colors.green[900],
+                  indicatorBgPadding: 5.0,
+                  dotBgColor: ThemeData.light().scaffoldBackgroundColor,
+                  borderRadius: true,
+                ),
+              ),
+              // listBookReview(context),
               titleDepartment(
                   title: 'خصيصا لك',
                   function: () {
@@ -66,22 +86,11 @@ class _HomePageState extends State<HomePage> {
                     print('gaded elkotb');
                   }),
               booksType(context),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      'القوائم',
-                      style: TextStyle(
-                        fontSize: 18,
-                        height: .9,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    )
-                  ],
-                ),
-              ),
+               titleDepartment(
+                  title: 'القوائم',
+                  function: () {
+                    print('alkwa2em');
+                  }),
               monthLists(context),
               SizedBox(height: 50)
             ],
@@ -93,29 +102,29 @@ class _HomePageState extends State<HomePage> {
 
   Widget actionAppBarButton() {
     return GestureDetector(
-            onTap: () {
-              print('notifications');
-            },
-            child: Container(
-              margin: EdgeInsets.only(left: 10),
+      onTap: () {
+        print('notifications');
+      },
+      child: Container(
+        margin: EdgeInsets.only(left: 10),
+        width: 35,
+        height: 35,
+        child: Center(
+          child: Container(
               width: 35,
               height: 35,
-              child: Center(
-                child: Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      color: Colors.black12.withOpacity(.1),
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                    child: Transform.rotate(
-                        angle: -0.7,
-                        child: Icon(
-                          Icons.notifications_none,
-                          size: 30,
-                        ))),
+              decoration: BoxDecoration(
+                color: Colors.black12.withOpacity(.1),
+                borderRadius: BorderRadius.circular(50.0),
               ),
-            ),
-          );
+              child: Transform.rotate(
+                  angle: -0.7,
+                  child: Icon(
+                    Icons.notifications_none,
+                    size: 30,
+                  ))),
+        ),
+      ),
+    );
   }
 }

@@ -32,6 +32,7 @@ dependencies:
   percent_indicator: ^2.1.6
   animated_text_kit: ^2.2.0
   modal_bottom_sheet: ^0.2.2
+  carousel_pro: ^1.0.0
 
 
 dev_dependencies:
