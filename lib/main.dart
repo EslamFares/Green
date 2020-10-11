@@ -5,7 +5,7 @@ import 'my_home.dart';
 void main() {
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.green,
+    statusBarColor: Color(0xff1E7145),
   ));
 }
 
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'أخضر',
+      color: Color(0xff1E7145),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'cairo',

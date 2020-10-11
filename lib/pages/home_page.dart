@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
                             builder: (context) => DepartmentsPage()));
                   }),
               listDepartment(context),
-              SizedBox(height: 10),
               titleDepartment(
                   title: 'مراجعة الكتب',
                   function: () {

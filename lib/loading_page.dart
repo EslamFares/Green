@@ -23,23 +23,23 @@ class _LoadingPageState extends State<LoadingPage> {
                 'أخضر',
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 35.0,
+                    fontSize: 60.0,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
-                      ..strokeWidth = 1
-                      ..color = Colors.green),
+                      ..strokeWidth = .1
+                      ..color = Color(0xff1E7145)),
               ),
             ),
           ),
           Center(
             child: TextLiquidFill(
               text: 'أخضر',
-              waveColor: Colors.green,
-              loadDuration: Duration(milliseconds: 1000),
-              waveDuration: Duration(milliseconds: 2000),
+              waveColor: Color(0xff1E7145),
+              loadDuration: Duration(milliseconds: 2500),
+              waveDuration: Duration(milliseconds: 2500),
               boxBackgroundColor: ThemeData.light().scaffoldBackgroundColor,
               textStyle: TextStyle(
-                fontSize: 35.0,
+                fontSize: 60.0,
                 fontWeight: FontWeight.w900,
               ),
               boxHeight: MediaQuery.of(context).size.height -

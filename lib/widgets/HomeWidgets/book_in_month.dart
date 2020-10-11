@@ -25,7 +25,7 @@ class _BookInMonthState extends State<BookInMonth> {
         crossAxisCount: 2,
         crossAxisSpacing: 1,
         mainAxisSpacing: 7,
-        childAspectRatio: .8,
+        childAspectRatio: .9,
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -53,7 +53,7 @@ class _BookInMonthState extends State<BookInMonth> {
                         children: <Widget>[
                           Center(
                               child: FlutterLogo(
-                            size: 350.0,
+                            size: 300.0,
                           )),
                           Container(
                             height: 240,
@@ -91,7 +91,7 @@ class _BookInMonthState extends State<BookInMonth> {
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.0),
                               bottomRight: Radius.circular(20.0))),
-                      height: 50,
+                      height: 40,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
