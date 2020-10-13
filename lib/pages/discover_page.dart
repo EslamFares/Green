@@ -223,13 +223,31 @@ class _QuoteWidgetState extends State<QuoteWidget> {
                           ),
                         ),
                       ),
+                    ),
+                    Positioned(
+                      right: 15.5,
+                      top: 10.5,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          height: 45,
+                          width: 45,
+                          decoration: BoxDecoration(
+                              // color: Colors.greenAccent[400],
+                              
+                              border: Border.all(
+                                  color: Colors.greenAccent[400], width: 2),
+                                  shape: BoxShape.circle
+                                  ),
+                        ),
+                      ),
                     )
                   ],
                 )),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 5, right: 15.0,left: 15),
+          padding: const EdgeInsets.only(top: 5, right: 15.0, left: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

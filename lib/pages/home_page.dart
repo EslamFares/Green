@@ -9,6 +9,7 @@ import 'package:green/widgets/HomeWidgets/title_department.dart';
 import 'HomePages/Lists_books_title.dart';
 import 'HomePages/departments.dart';
 import 'HomePages/books_reviw.dart';
+import 'HomePages/notification.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -83,8 +84,8 @@ class _HomePageState extends State<HomePage> {
               titleDepartment(
                   title: 'القوائم',
                   function: () {
-                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => BookInMonth()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => BookInMonth()));
                   }),
               monthLists(context),
               SizedBox(height: 50)
@@ -98,25 +99,36 @@ class _HomePageState extends State<HomePage> {
   Widget actionAppBarButton() {
     return GestureDetector(
       onTap: () {
-        print('notifications');
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => NotificationPage()),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(left: 10),
-        width: 35,
+        width: 60,
         height: 35,
+        //  color: Colors.amber,
         child: Center(
           child: Container(
-              width: 35,
-              height: 35,
+              width: 45,
+              height: 45,
               decoration: BoxDecoration(
                 color: Colors.black12.withOpacity(.1),
                 borderRadius: BorderRadius.circular(50.0),
               ),
               child: Transform.rotate(
-                  angle: -0.7,
-                  child: Icon(
-                    Icons.notifications_none,
-                    size: 30,
+                  angle: -0.5,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => NotificationPage()),
+                      );
+                    },
+                    child: Icon(
+                      Icons.notifications_none,
+                      size: 30,
+                    ),
                   ))),
         ),
       ),

@@ -27,7 +27,7 @@ Widget backAndVersion(BuildContext context) {
           ),
           SizedBox(height: 20),
           Text(
-            'إصدار 2.2.3',
+            'إصدار 2.3.3',
             style: TextStyle(color: Colors.white70),
           )
         ],

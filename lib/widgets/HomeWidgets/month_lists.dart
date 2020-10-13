@@ -72,7 +72,7 @@ Widget monthLists(BuildContext context) {
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       width: MediaQuery.of(context).size.width / 1.9,
                       decoration: BoxDecoration(
-                          color: Colors.green[900], //Color(0xff1E7145),
+                          color: Colors.black26, //Color(0xff1E7145),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.0),
                               bottomRight: Radius.circular(20.0))),
@@ -84,7 +84,7 @@ Widget monthLists(BuildContext context) {
                             'كتب مايو المفتوحة',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 14),
                           ),
                           Center(

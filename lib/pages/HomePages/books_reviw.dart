@@ -36,7 +36,7 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
                 leading: IconButton(
                     icon: Icon(
                       Icons.arrow_back,
-                      color: Colors.green[800],
+                      color: Color(0xff1E7145),
                       size: 30,
                     ),
                     onPressed: () {
@@ -63,7 +63,7 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
               // color: Colors.amber,
               border: Border(
                   bottom: BorderSide(
-                      color: Colors.green,
+                      color: Color(0xff1E7145),
                       width: 1,
                       style: BorderStyle.solid))),
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -143,7 +143,7 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
       width: 130,
       height: 150,
       decoration: BoxDecoration(
-          color: Colors.green[900], borderRadius: BorderRadius.circular(15.0)),
+          color:Color(0xff1E7145), borderRadius: BorderRadius.circular(15.0)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

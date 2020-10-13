@@ -20,29 +20,23 @@ class _SgelPageState extends State<SgelPage> {
           backgroundColor: ThemeData.light().scaffoldBackgroundColor,
           elevation: 0,
           centerTitle: false,
-          title: GestureDetector(
-            onTap: () {
+           title: FlatButton(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                      color: Color(0xff1E7145),
+                    ),
+                  ],
+                )),
+            onPressed: () {
               Navigator.pop(context);
             },
-            child: Container(
-              width: 150,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.green,
-                    size: 25,
-                  ),
-                  Text('رجوع',
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16)),
-                ],
-              ),
-            ),
           ),
           actions: <Widget>[
             actionAppBarButton(
@@ -73,7 +67,7 @@ class _SgelPageState extends State<SgelPage> {
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '8',
+                      '20',
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
@@ -97,14 +91,14 @@ class _SgelPageState extends State<SgelPage> {
               Row(
                 children: <Widget>[
                   Text(
-                    'أفكار الكتب',
+                    'مراجعات الكتب',
                     style:
                         TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
                   ),
                 ],
               ),
               BookIdeaInSegl(),
-              SizedBox(height: 20),
+              SizedBox(height: 50),
             ],
           ),
         ),

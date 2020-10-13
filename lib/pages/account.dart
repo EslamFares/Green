@@ -59,27 +59,27 @@ class _ProfileScreenState extends State<ProfileScreen>
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SettingPage()));
               },
-              //  Navigator.of(context).pushAndRemoveUntil(
-              //    MaterialPageRoute(
-              //      builder: (context) => SettingAcountpage()),
-              // (Route<dynamic> route) => false);
-              //  },
-              child: Container(
-                margin: EdgeInsets.only(left: 10),
-                width: 35,
-                height: 35,
-                child: Center(
-                  child: Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      color: Colors.black12.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                    child: Icon(
-                      Icons.menu,
-                      color: Colors.black,
-                      size: 30,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10,top:8),
+                child: Container(
+                  
+                  margin: EdgeInsets.only(left: 10),
+                  // color: Colors.amber,
+                  width: 40,
+                  height: 40,
+                  child: Center(
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.black12.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      child: Icon(
+                        Icons.menu,
+                        color: Colors.black,
+                        size: 30,
+                      ),
                     ),
                   ),
                 ),

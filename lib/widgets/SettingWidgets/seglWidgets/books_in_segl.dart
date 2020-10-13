@@ -11,7 +11,7 @@ class BooksInSegl extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 340,
+      height: 310,
       padding: EdgeInsets.symmetric(vertical: 5),
       margin: EdgeInsets.only(right: 5),
       // color: Colors.red,
@@ -27,10 +27,10 @@ class BooksInSegl extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.only(left: 15),
-                    width: MediaQuery.of(context).size.width / 1.8,
-                    height: 255,
+                    width: MediaQuery.of(context).size.width / 2,
+                    height: 220,
                     decoration: BoxDecoration(
-                        color: Colors.green[800],
+                        color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Stack(
                       children: <Widget>[
@@ -73,7 +73,7 @@ class BooksInSegl extends StatelessWidget {
                           right: 0,
                           child: Container(
                               padding: EdgeInsets.only(right: 8),
-                              width: MediaQuery.of(context).size.width / 1.8,
+                              width: MediaQuery.of(context).size.width / 2,
                               color: Colors.black26,
                               height: 30,
                               child: Text(
@@ -91,7 +91,7 @@ class BooksInSegl extends StatelessWidget {
                     // color: Colors.deepPurple,
                     padding: EdgeInsets.all(5),
                     margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 1.8,
+                    width: MediaQuery.of(context).size.width / 2,
                     height: 75,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -111,13 +111,13 @@ class BooksInSegl extends StatelessWidget {
                         //==========
                         LinearPercentIndicator(
                           isRTL: true,
-                          width: MediaQuery.of(context).size.width / 1.8 - 45,
+                          width: MediaQuery.of(context).size.width / 2 - 45,
                           animation: true,
                           lineHeight: 8.0,
                           animationDuration: 1000,
                           percent: 0.1,
                           linearStrokeCap: LinearStrokeCap.roundAll,
-                          progressColor: Colors.green[800],
+                          progressColor: Color(0xff1E7145),
                           trailing: Text(
                             '10 %',
                             style: TextStyle(

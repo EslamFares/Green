@@ -18,7 +18,7 @@ class _SettingPageState extends State<SettingPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xff1E7145),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
           child: Stack(
@@ -31,38 +31,47 @@ class _SettingPageState extends State<SettingPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        settingTitle(
-                            context: context,
-                            function: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => SgelPage()));
-                            },
-                            icon: Icons.history,
-                            title: 'السجل'),
-                        settingTitle(
-                            context: context,
-                            function: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => LikesPage()));
-                            },
-                            icon: Icons.favorite,
-                            title: 'الإعجابات'),
-                        settingTitle(
-                            context: context,
-                            function: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => HelpPage()));
-                            },
-                            icon: Icons.info_outline,
-                            title: 'مساعدة'),
-                        settingTitle(
-                            context: context,
-                            function: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => SettingAcountpage()));
-                            },
-                            icon: Icons.settings,
-                            title: 'الإعدادات'),
+                        FlatButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => SgelPage()));
+                          },
+                          child: flatButtonTitle(
+                              context: context,
+                              icon: Icons.history,
+                              title: 'السجل'),
+                        ),
+                        FlatButton(
+                          colorBrightness: Brightness.light,
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => LikesPage()));
+                          },
+                          child: flatButtonTitle(
+                              context: context,
+                              icon: Icons.favorite,
+                              title: 'الإعجابات'),
+                        ),
+                        FlatButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HelpPage()));
+                          },
+                          child: flatButtonTitle(
+                              context: context,
+                              icon: Icons.info_outline,
+                              title: 'مساعدة'),
+                        ),
+                        FlatButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => SettingAcountpage()));
+                          },
+                          child: flatButtonTitle(
+                              context: context,
+                              icon: Icons.settings,
+                              title: 'الإعدادات'),
+                        ),
                       ],
                     ),
                   ),
@@ -76,6 +85,44 @@ class _SettingPageState extends State<SettingPage> {
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget flatButtonTitle(
+      {BuildContext context, String title, IconData icon}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Container(
+        height: 60,
+        width: MediaQuery.of(context).size.width - 30,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              icon,
+              size: 35,
+              color: Colors.white,
+            ),
+            SizedBox(width: 20),
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            Spacer(
+              flex: 6,
+            ),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 25,
+              color: Colors.white,
+            ),
+            Spacer(
+              flex: 1,
+            ),
+          ],
         ),
       ),
     );

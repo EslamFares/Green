@@ -87,7 +87,7 @@ class _BookInMonthState extends State<BookInMonth> {
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       width: MediaQuery.of(context).size.width / 2 - 12,
                       decoration: BoxDecoration(
-                          color: Colors.green[800], //Color(0xff1E7145),
+                          color: Colors.black12, //Color(0xff1E7145),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.0),
                               bottomRight: Radius.circular(20.0))),
@@ -134,7 +134,7 @@ class _BookInMonthState extends State<BookInMonth> {
       flexibleSpace: FlexibleSpaceBar(
           titlePadding: EdgeInsets.only(right: 50, bottom: 10),
           collapseMode: CollapseMode.pin,
-          title: Text('قؤائم الكتب',
+          title: Text('قوائم الكتب',
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 14.0,

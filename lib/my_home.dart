@@ -51,6 +51,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.home,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -61,6 +62,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.search,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -71,6 +73,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.blur_circular,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -81,6 +84,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.book,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -91,6 +95,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.person,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),

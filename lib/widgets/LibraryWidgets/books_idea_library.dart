@@ -23,7 +23,7 @@ class _BooksIdeaLibraryState extends State<BooksIdeaLibrary> {
           decoration: BoxDecoration(
               border: Border(
                   bottom: BorderSide(
-                      color: Colors.green,
+                      color: Color(0xff1E7145),
                       width: 1,
                       style: BorderStyle.solid))),
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -32,7 +32,7 @@ class _BooksIdeaLibraryState extends State<BooksIdeaLibrary> {
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.green[900],
+                    color: Color(0xff1E7145),
                     borderRadius: BorderRadius.circular(10.0)),
                 width: MediaQuery.of(context).size.width * .33,
                 height: 140,
@@ -70,7 +70,7 @@ class _BooksIdeaLibraryState extends State<BooksIdeaLibrary> {
                               icon: Icon(
                                 Icons.turned_in,
                                 size: 30,
-                                color: Colors.green[900],
+                                color: Color(0xff1E7145),
                               ),
                               onPressed: () {
                                 return showDialog(
@@ -94,7 +94,7 @@ class _BooksIdeaLibraryState extends State<BooksIdeaLibrary> {
                                                 .currentState
                                                 .showSnackBar(SnackBar(
                                                     backgroundColor:
-                                                        Colors.green[700],
+                                                        Color(0xff1E7145),
                                                     content: Container(
                                                       height: 30,
                                                       child: Center(

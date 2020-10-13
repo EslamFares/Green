@@ -18,18 +18,26 @@ Widget titleDepartment({@required String title, @required Function function}) {
         GestureDetector(
           onTap: function,
           child: Container(
-            height: 30,
-            width: 70,
+            height: 35,
+            width: 100,
             // color: Colors.red,
             child: Center(
-              child: Text(
-                'الكل',
-                style: TextStyle(
-                  fontSize: 16,
-                  height: .7,
-                  color: Colors.grey[700],
-                  fontWeight: FontWeight.w600,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                
+                  Text(
+                    'الكل',
+                    style: TextStyle(
+                      fontSize: 16,
+                      height: .7,
+                      color: Colors.grey[700],
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                    SizedBox(width: 10),
+                ],
               ),
             ),
           ),

@@ -45,7 +45,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                     width: MediaQuery.of(context).size.width / 2.1,
                     height: 210,
                     decoration: BoxDecoration(
-                        color: Colors.green[800],
+                        color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Stack(
                       children: <Widget>[
@@ -84,7 +84,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                     padding: EdgeInsets.all(5),
                     // margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 2.1,
-                    height: 75,
+                    height: 100,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,7 +146,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
       leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.green[800],
+            color: Color(0xff1E7145),
             size: 30,
           ),
           onPressed: () {

@@ -19,29 +19,23 @@ class _LikesPageState extends State<LikesPage> {
           backgroundColor: ThemeData.light().scaffoldBackgroundColor,
           elevation: 0,
           centerTitle: false,
-          title: GestureDetector(
-            onTap: () {
+          title: FlatButton(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                      color: Color(0xff1E7145),
+                    ),
+                  ],
+                )),
+            onPressed: () {
               Navigator.pop(context);
             },
-            child: Container(
-              width: 150,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.green,
-                    size: 25,
-                  ),
-                  Text('رجوع',
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16)),
-                ],
-              ),
-            ),
           ),
         ),
         body: Container(
@@ -74,21 +68,20 @@ class _LikesPageState extends State<LikesPage> {
               ),
               Expanded(
                 child: Container(
-                  height: MediaQuery.of(context).size.height -
-                      AppBar().preferredSize.height -
-                      90,
-                  width: MediaQuery.of(context).size.width,
-                  // color: Colors.blue,
-                  child: ListView.builder(
-                  itemCount: 3,//discoverInfo.length
-                  itemBuilder: (BuildContext context, int index) {
-                    return DisplayDiscoverInfo(
-                      question: discoverInfo[index].question,
-                      qoute: discoverInfo[index].quote,
-                      hashtag: discoverInfo[index].hashtag,
-                    );
-                  })
-                ),
+                    height: MediaQuery.of(context).size.height -
+                        AppBar().preferredSize.height -
+                        90,
+                    width: MediaQuery.of(context).size.width,
+                    // color: Colors.blue,
+                    child: ListView.builder(
+                        itemCount: 3, //discoverInfo.length
+                        itemBuilder: (BuildContext context, int index) {
+                          return DisplayDiscoverInfo(
+                            question: discoverInfo[index].question,
+                            qoute: discoverInfo[index].quote,
+                            hashtag: discoverInfo[index].hashtag,
+                          );
+                        })),
               )
             ],
           ),

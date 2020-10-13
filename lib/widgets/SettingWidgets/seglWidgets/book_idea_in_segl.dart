@@ -11,7 +11,7 @@ class BookIdeaInSegl extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 180,
+      height: 185,
       padding: EdgeInsets.symmetric(vertical: 5),
       margin: EdgeInsets.only(right: 5, left: 5),
       decoration: BoxDecoration(
@@ -26,7 +26,7 @@ class BookIdeaInSegl extends StatelessWidget {
               width: MediaQuery.of(context).size.width - 90,
               height: 180,
               decoration: BoxDecoration(
-                  color: Colors.green[800], // Colors.red
+                  color: Color(0xff1E7145), // Colors.red
                   borderRadius: BorderRadius.circular(10.0)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -78,15 +78,15 @@ class BookIdeaInSegl extends StatelessWidget {
                   Container(
                     color: Colors.white,
                     height: 30,
-                    width: (MediaQuery.of(context).size.width - 10) * 0.6,
+                    width: (MediaQuery.of(context).size.width - 10) * 0.52,
                     child: Center(
                         child: Text(
                       'كيف تتحدث فيصغى الصغار',
                       style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                     )),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 20),
                 ],
               ),
             );

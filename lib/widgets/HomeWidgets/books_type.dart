@@ -6,7 +6,7 @@ import '../../Data/data.dart';
 Widget booksType(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 260,
+    height: 275,
     padding: EdgeInsets.symmetric(vertical: 2),
     margin: EdgeInsets.only(right: 5,bottom: 10),
     // color: Colors.red,
@@ -70,7 +70,7 @@ Widget booksType(BuildContext context) {
                     padding: EdgeInsets.all(5),
                     margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 2.1,
-                    height: 65,
+                    height: 80,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
