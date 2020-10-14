@@ -43,7 +43,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                   Container(
                     // margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 2.1,
-                    height: 210,
+                    height: 200,
                     decoration: BoxDecoration(
                         color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(10.0)),
@@ -57,7 +57,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                               decoration: BoxDecoration(
                                   // color: Colors.amber,
                                   borderRadius: BorderRadius.circular(10.0)),
-                              height: 230,
+                              height: 200,
                               child: FlutterLogo()),
                         ),
                         Positioned(
@@ -84,7 +84,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                     padding: EdgeInsets.all(5),
                     // margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 2.1,
-                    height: 100,
+                    height: 80,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -97,38 +97,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget actionAppBarButton() {
-    return GestureDetector(
-      onTap: () {
+    return FlatButton(
+      // color: Colors.red,
+     
+      onPressed: () {
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => NotificationPage()),
         );
       },
       child: Container(
-        margin: EdgeInsets.only(left: 10),
-        width: 60,
-        height: 35,
+        width: 40,
+        height: 40,
         //  color: Colors.amber,
         child: Center(
           child: Container(
-              width: 45,
-              height: 45,
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
                 color: Colors.black12.withOpacity(.1),
                 borderRadius: BorderRadius.circular(50.0),
               ),
               child: Transform.rotate(
                   angle: -0.5,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => NotificationPage()),
-                      );
-                    },
-                    child: Icon(
-                      Icons.notifications_none,
-                      size: 30,
-                    ),
+                  child: Icon(
+                    Icons.notifications_none,
+                    size: 30,
                   ))),
         ),
       ),

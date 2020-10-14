@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget titleDepartment({@required String title, @required Function function}) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 5, left: 10,right: 10,top: 15),
+    padding: const EdgeInsets.only(bottom: 0, left: 10,right: 10,top: 15),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -15,11 +15,12 @@ Widget titleDepartment({@required String title, @required Function function}) {
             fontWeight: FontWeight.w800,
           ),
         ),
-        GestureDetector(
-          onTap: function,
+        FlatButton(
+          onPressed: function,
+          // color: Colors.amber,
           child: Container(
             height: 35,
-            width: 100,
+            width: 70,
             // color: Colors.red,
             child: Center(
               child: Row(

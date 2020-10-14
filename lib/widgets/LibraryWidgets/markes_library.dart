@@ -15,7 +15,7 @@ class MarkesLibrary extends StatelessWidget {
             Icon(
               Icons.lightbulb_outline,
               size: 50,
-              color: Colors.greenAccent
+              color: Colors.green[700]
             ),
             SizedBox(height: 10),
             Text(

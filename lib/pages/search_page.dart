@@ -58,7 +58,7 @@ class _SearchPageState extends State<SearchPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Container(
-              height: 55,
+              height: 50,
               width: MediaQuery.of(context).size.width,
               child: TextFormField(
                 textAlign: TextAlign.right,

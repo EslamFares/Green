@@ -17,7 +17,7 @@ class _MyLibraryPageState extends State<MyLibraryPage>
   GlobalKey scafolldBookLibrary = GlobalKey<ScaffoldState>();
   TabController _tabController;
   bool loading = true;
-  int indexTabBar;
+  int indexTabBar=0;
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
@@ -44,15 +44,16 @@ class _MyLibraryPageState extends State<MyLibraryPage>
               indexTabBar == 0
                   ? Padding(
                       padding:
-                          const EdgeInsets.only(top: 10, left: 15, bottom: 5),
-                      child: InkWell(
-                        onTap: () {
+                          const EdgeInsets.only(top: 10, left: 10, bottom: 10),
+                      child: FlatButton(
+                        height: 40,
+                        onPressed: () {
                           print('mylibrart app bar');
                           bottomSheetLibrary(context);
                         },
                         child: Container(
                           width: 90,
-                          height: 20,
+                          height: 30,
                           decoration: BoxDecoration(
                               color: Colors.black12,
                               borderRadius: BorderRadius.circular(50.0)),
@@ -81,6 +82,7 @@ class _MyLibraryPageState extends State<MyLibraryPage>
                     )
             ],
             bottom: TabBar(
+              physics:ScrollPhysics(parent: ScrollPhysics()),
               indicatorColor: Colors.green,
               indicatorSize: TabBarIndicatorSize.label,
               indicatorWeight: 3.0,
@@ -94,29 +96,32 @@ class _MyLibraryPageState extends State<MyLibraryPage>
                 });
                 print(index);
               },
+
               isScrollable: true,
               tabs: <Widget>[
                 Tab(
                   child: Container(
-                    width: MediaQuery.of(context).size.width / 4,
+                    width: MediaQuery.of(context).size.width / 4.4,
                     child: Center(child: Text('الكتب')),
                   ),
                 ),
                 Tab(
                   child: Container(
-                    width: MediaQuery.of(context).size.width / 4,
+                    width: MediaQuery.of(context).size.width / 4.4,
                     child: Center(child: Text('العلامات')),
                   ),
                 ),
                 Tab(
                     child: Container(
-                        width: MediaQuery.of(context).size.width / 3.5,
+                        width: MediaQuery.of(context).size.width / 3.7,
                         child: Center(child: Text('مراجعات الكتب')))),
               ],
             )),
         body: loading
             ? LoadingPage()
-            : TabBarView(controller: _tabController, children: [
+            : TabBarView(
+              physics: NeverScrollableScrollPhysics(),
+              controller: _tabController, children: [
                 BooksLibrary(
                   scafolldBookLibrary: scafolldBookLibrary,
                 ),

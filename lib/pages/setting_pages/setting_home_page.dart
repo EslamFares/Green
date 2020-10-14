@@ -4,7 +4,6 @@ import 'package:green/pages/setting_pages/likes.dart';
 import 'package:green/pages/setting_pages/help.dart';
 import 'package:green/pages/setting_pages/setting_account.dart';
 import 'package:green/widgets/SettingWidgets/back_version.dart';
-import 'package:green/widgets/SettingWidgets/setting_title.dart';
 import 'setting_account.dart';
 
 class SettingPage extends StatefulWidget {

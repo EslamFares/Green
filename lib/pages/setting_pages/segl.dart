@@ -4,12 +4,25 @@ import 'package:green/widgets/SettingWidgets/seglWidgets/book_idea_in_segl.dart'
 import 'package:green/widgets/SettingWidgets/seglWidgets/books_in_segl.dart';
 import 'package:green/widgets/SettingWidgets/seglWidgets/bottom_setting_Segl.dart';
 
+import '../../loading_page.dart';
+
 class SgelPage extends StatefulWidget {
   @override
   _SgelPageState createState() => _SgelPageState();
 }
 
 class _SgelPageState extends State<SgelPage> {
+   bool loading = true;
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        loading = false;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -47,7 +60,8 @@ class _SgelPageState extends State<SgelPage> {
                 })
           ],
         ),
-        body: Container(
+        body:loading
+            ? LoadingPage(): Container(
           padding: EdgeInsets.only(right: 15),
           height: MediaQuery.of(context).size.height -
               AppBar().preferredSize.height,

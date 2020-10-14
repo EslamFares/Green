@@ -34,7 +34,6 @@ dependencies:
   modal_bottom_sheet: ^0.2.2
   carousel_pro: ^1.0.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

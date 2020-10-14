@@ -54,32 +54,30 @@ class _ProfileScreenState extends State<ProfileScreen>
             ),
           ),
           actions: <Widget>[
-            GestureDetector(
-              onTap: () {
+            FlatButton(
+              // color: Colors.amber,
+              
+              onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SettingPage()));
               },
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10,top:8),
-                child: Container(
-                  
-                  margin: EdgeInsets.only(left: 10),
-                  // color: Colors.amber,
-                  width: 40,
-                  height: 40,
-                  child: Center(
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.black12.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                      child: Icon(
-                        Icons.menu,
-                        color: Colors.black,
-                        size: 30,
-                      ),
+              child: Container(
+                // margin: EdgeInsets.only(left: 10),
+                // color: Colors.red,
+                width: 50,
+                height: 50,
+                child: Center(
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.black12.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    child: Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                      size: 25,
                     ),
                   ),
                 ),

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'my_home.dart';
 
 void main() {
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Color(0xff1E7145),
-  ));
+      statusBarColor: Colors.green[800],
+      statusBarBrightness: Brightness.dark,
+    ));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //StatusBar hide in first way .so I use this
+    // FlutterStatusbarcolor.setStatusBarColor(Colors.green[800]);
     return MaterialApp(
       title: 'أخضر',
       color: Color(0xff1E7145),
