@@ -17,29 +17,23 @@ class _AccountDataState extends State<AccountData> {
             backgroundColor: ThemeData.light().scaffoldBackgroundColor,
             elevation: 0,
             centerTitle: false,
-            title: GestureDetector(
-              onTap: () {
+            title: FlatButton(
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                        color: Color(0xff1E7145),
+                      ),
+                    ],
+                  )),
+              onPressed: () {
                 Navigator.pop(context);
               },
-              child: Container(
-                width: 150,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.green,
-                      size: 25,
-                    ),
-                    Text('رجوع',
-                        style: TextStyle(
-                            color: Colors.green,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16)),
-                  ],
-                ),
-              ),
             ),
           ),
           body: Column(
@@ -89,23 +83,24 @@ class _AccountDataState extends State<AccountData> {
                       SizedBox(
                         height: 40.0,
                       ),
-                      Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30.0),
-                          topRight: Radius.circular(30.0),
-                        )),
-                        child: Material(
-                          color: Colors.green[800],
-                          elevation: 7.0,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Center(
-                              child: Text(
-                                'حفظ',
-                                style: TextStyle(color: Colors.white),
-                              ),
+                      InkWell(
+                        onTap: () {
+                          print('save');
+                        },
+                        child: Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width - 20,
+                          decoration: BoxDecoration(
+                              color: Color(0xff1E7145).withOpacity(.8),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15.0))),
+                          child: Center(
+                            child: Text(
+                              'حفظ',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 18),
                             ),
                           ),
                         ),

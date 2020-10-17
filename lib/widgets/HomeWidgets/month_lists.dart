@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 Widget monthLists(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 300,
+    height: 220,
     padding: EdgeInsets.symmetric(vertical: 5),
     margin: EdgeInsets.only(right: 5),
     // color: Colors.red,
@@ -14,8 +14,8 @@ Widget monthLists(BuildContext context) {
         itemBuilder: (context, index) {
           return Container(
             margin: EdgeInsets.only(left: 10),
-            width: MediaQuery.of(context).size.width / 1.6,
-            height: 290,
+            width: MediaQuery.of(context).size.width / 1.9,
+            height: 210,
             decoration: BoxDecoration(
                 color: Color(0xff1E7145),
                 borderRadius: BorderRadius.circular(20.0)),
@@ -30,7 +30,7 @@ Widget monthLists(BuildContext context) {
                         color: Color(0xff1E7145).withOpacity(.7),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      height: 240,
+                      height: 210,
                       child: Stack(
                         alignment: Alignment.center,
                         fit: StackFit.expand,
@@ -42,13 +42,13 @@ Widget monthLists(BuildContext context) {
                           Container(
                             height: 240,
                             decoration: BoxDecoration(
-                                color: Colors.green[900].withOpacity(.4),
+                                color: Color(0xff1E7145).withOpacity(.4),
                                 borderRadius: BorderRadius.circular(20.0)),
                           ),
                           Center(
                               child: Container(
                             width:
-                                (MediaQuery.of(context).size.width / 1.6) / 1.1,
+                                (MediaQuery.of(context).size.width / 1.9) / 1.1,
                             height: 120,
                             // color: Colors.amber,
                             child: Center(
@@ -70,13 +70,13 @@ Widget monthLists(BuildContext context) {
                   right: 0,
                   child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      width: MediaQuery.of(context).size.width / 1.6,
+                      width: MediaQuery.of(context).size.width / 1.9,
                       decoration: BoxDecoration(
-                          color: Colors.green[800], //Color(0xff1E7145),
+                          color: Colors.black26, //Color(0xff1E7145),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.0),
                               bottomRight: Radius.circular(20.0))),
-                      height: 50,
+                      height: 40,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -84,7 +84,7 @@ Widget monthLists(BuildContext context) {
                             'كتب مايو المفتوحة',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 14),
                           ),
                           Center(

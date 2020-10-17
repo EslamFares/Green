@@ -31,13 +31,13 @@ class _MyHomeState extends State<MyHome> {
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: 0.0,
-          selectedIconTheme: IconThemeData(size: 30, color: Colors.green),
+          selectedIconTheme: IconThemeData(size: 30, color: Color(0xff1E7145)),
           unselectedFontSize: 0.0,
           showSelectedLabels: true,
-          unselectedIconTheme: IconThemeData(size: 30, color: Colors.black87),
+          unselectedIconTheme: IconThemeData(size: 30, color: Colors.grey),
           iconSize: 30.0,
-          selectedItemColor: Colors.green[800],
-          unselectedItemColor: Colors.black87,
+          selectedItemColor: Color(0xff1E7145),
+          unselectedItemColor: Colors.grey,
           currentIndex: bottomIndex,
           onTap: (value) {
             setState(() {
@@ -51,6 +51,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.home,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -61,6 +62,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.search,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -71,6 +73,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.blur_circular,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -81,6 +84,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.book,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),
@@ -91,6 +95,7 @@ class _MyHomeState extends State<MyHome> {
                 Icons.person,
                 size: 30,
               ),
+              // ignore: deprecated_member_use
               title: Text(
                 '',
                 style: TextStyle(fontSize: 0.0),

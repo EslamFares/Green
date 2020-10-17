@@ -11,9 +11,9 @@ Widget bookReveiwCarouselChild(BuildContext context, int index) {
     child: Container(
       margin: EdgeInsets.only(left: 5, right: 5, bottom: 20),
       width: MediaQuery.of(context).size.width,
-      height: 200,
+      height: 180,
       decoration: BoxDecoration(
-          color: Colors.green[800], borderRadius: BorderRadius.circular(15.0)),
+          color: Color(0xff1E7145), borderRadius: BorderRadius.circular(15.0)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

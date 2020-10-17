@@ -18,13 +18,13 @@ class _BooksLibraryState extends State<BooksLibrary> {
     return ListView.builder(
       itemBuilder: (context, index) {
         return Container(
-          // color: Colors.amber,
           width: MediaQuery.of(context).size.width,
           height: 160,
           decoration: BoxDecoration(
+          // color: Colors.amber,
               border: Border(
                   bottom: BorderSide(
-                      color: Colors.green,
+                      color:Color(0xff1E7145),
                       width: 1,
                       style: BorderStyle.solid))),
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -33,7 +33,7 @@ class _BooksLibraryState extends State<BooksLibrary> {
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.green[900],
+                    color: Color(0xff1E7145),
                     borderRadius: BorderRadius.circular(10.0)),
                 width: MediaQuery.of(context).size.width * .33,
                 height: 140,
@@ -69,7 +69,7 @@ class _BooksLibraryState extends State<BooksLibrary> {
                               icon: Icon(
                                 Icons.turned_in,
                                 size: 30,
-                                color: Colors.green[900],
+                                color: Color(0xff1E7145),
                               ),
                               onPressed: () {
                                 return showDialog(
@@ -93,7 +93,7 @@ class _BooksLibraryState extends State<BooksLibrary> {
                                                 .currentState
                                                 .showSnackBar(SnackBar(
                                                     backgroundColor:
-                                                        Colors.green[700],
+                                                        Color(0xff1E7145),
                                                     content: Container(
                                                       height: 30,
                                                       child: Center(
@@ -123,7 +123,7 @@ class _BooksLibraryState extends State<BooksLibrary> {
                                   ? Icon(
                                       Icons.check_circle,
                                       size: 30,
-                                      color: Colors.green[900],
+                                      color: Color(0xff1E7145),
                                     )
                                   : Icon(
                                       Icons.save_alt,
@@ -153,7 +153,7 @@ class _BooksLibraryState extends State<BooksLibrary> {
                         percent: 0.3,
                         // center: Text("90.0%"),
                         linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: Colors.green[800],
+                        progressColor: Color(0xff1E7145),
                       ),
                       Text(
                         '30 %',

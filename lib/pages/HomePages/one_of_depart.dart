@@ -26,7 +26,7 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
         crossAxisCount: 2,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
-        childAspectRatio: .57,
+        childAspectRatio: .62,
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -41,9 +41,9 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                   Container(
                     // margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 2.1,
-                    height: 230,
+                    height: 200,
                     decoration: BoxDecoration(
-                        color: Colors.green[800],
+                        color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Stack(
                       children: <Widget>[
@@ -55,7 +55,7 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                               decoration: BoxDecoration(
                                   // color: Colors.amber,
                                   borderRadius: BorderRadius.circular(10.0)),
-                              height: 230,
+                              height: 200,
                               child: FlutterLogo()),
                         ),
                         Positioned(
@@ -77,41 +77,43 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                       ],
                     ),
                   ),
-                  Container(
-                    // color: Colors.deepPurple,
-                    padding: EdgeInsets.all(5),
-                    // margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 2.1,
-                    height: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Text(
-                              '${DataSource.booksInfo[index]['name'].toString().length <= 20 ? DataSource.booksInfo[index]['name'] : DataSource.booksInfo[index]['name'].toString().substring(0, 18) + '...'}',
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w900),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Wrap(
-                          children: <Widget>[
-                            Text(
-                              '${DataSource.booksInfo[index]['content'].toString().substring(0, 55)}...',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  height: 1.5,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey[700]),
-                            ),
-                          ],
-                        ),
-                      ],
+                  Expanded(
+                                      child: Container(
+                      // color: Colors.deepPurple,
+                      padding: EdgeInsets.all(5),
+                      // margin: EdgeInsets.only(left: 10),
+                      width: MediaQuery.of(context).size.width / 2.1,
+                      height: 80,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                '${DataSource.booksInfo[index]['name'].toString().length <= 20 ? DataSource.booksInfo[index]['name'] : DataSource.booksInfo[index]['name'].toString().substring(0, 18) + '...'}',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w900),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Wrap(
+                            children: <Widget>[
+                              Text(
+                                '${DataSource.booksInfo[index]['content'].toString().substring(0, 55)}...',
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    height: 1.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey[700]),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

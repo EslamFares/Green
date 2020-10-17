@@ -95,36 +95,41 @@ Widget questionWidget(String question) {
   return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: const EdgeInsets.only(top: 8, left: 100.0),
-        child: Center(
-          child: Text(
-            question,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
+        padding: const EdgeInsets.only(top: 8, right: 25.0),
+        child: Row(
+          children: [
+            Text(
+              question,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
+          ],
         ),
       ));
 }
 
 Widget hashtagWidget(List<String> hashtag) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: hashtag
-        .map(
-          (e) => Padding(
-            padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-            child: Chip(
-              label: Text(
-                e,
-                style: TextStyle(color: Colors.blue[900], fontSize: 13),
+  return Padding(
+    padding: const EdgeInsets.only(right: 15),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: hashtag
+          .map(
+            (e) => Padding(
+              padding: const EdgeInsets.only(left: 6.0, right: 6.0),
+              child: Chip(
+                label: Text(
+                  e,
+                  style: TextStyle(color: Colors.blue[900], fontSize: 13),
+                ),
               ),
             ),
-          ),
-        )
-        .toList(),
+          )
+          .toList(),
+    ),
   );
 }
 
@@ -157,7 +162,7 @@ class _QuoteWidgetState extends State<QuoteWidget> {
             height: MediaQuery.of(context).size.height * .47,
             width: MediaQuery.of(context).size.width * .92,
             child: Card(
-                color: Colors.green[900],
+                color: Color(0xff1E7145),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14)),
                 child: Stack(
@@ -218,18 +223,36 @@ class _QuoteWidgetState extends State<QuoteWidget> {
                           ),
                         ),
                       ),
+                    ),
+                    Positioned(
+                      right: 15.5,
+                      top: 10.5,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          height: 45,
+                          width: 45,
+                          decoration: BoxDecoration(
+                              // color: Colors.greenAccent[400],
+                              
+                              border: Border.all(
+                                  color: Colors.greenAccent[400], width: 2),
+                                  shape: BoxShape.circle
+                                  ),
+                        ),
+                      ),
                     )
                   ],
                 )),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 10, right: 10.0),
+          padding: const EdgeInsets.only(top: 5, right: 15.0, left: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 166.0),
+                padding: const EdgeInsets.only(right: 10),
                 child: Text(
                   '1 / 11',
                   style: TextStyle(
@@ -238,6 +261,7 @@ class _QuoteWidgetState extends State<QuoteWidget> {
                       color: Colors.grey),
                 ),
               ),
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Text(

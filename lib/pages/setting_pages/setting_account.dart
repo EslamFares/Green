@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green/pages/setting_pages/accountdata.dart';
 import 'package:green/pages/setting_pages/password.dart';
@@ -8,39 +9,35 @@ class SettingAcountpage extends StatefulWidget {
 }
 
 class _SettingAcountpageState extends State<SettingAcountpage> {
+  GlobalKey<ScaffoldState> scaffoldacountKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
+          key: scaffoldacountKey,
           appBar: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: ThemeData.light().scaffoldBackgroundColor,
             elevation: 0,
             centerTitle: false,
-            title: GestureDetector(
-              onTap: () {
+            title: FlatButton(
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                        color: Color(0xff1E7145),
+                      ),
+                    ],
+                  )),
+              onPressed: () {
                 Navigator.pop(context);
               },
-              child: Container(
-                width: 150,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.green,
-                      size: 25,
-                    ),
-                    Text('رجوع',
-                        style: TextStyle(
-                            color: Colors.green,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16)),
-                  ],
-                ),
-              ),
             ),
           ),
           body: ListView(children: [
@@ -52,7 +49,7 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                     Text(
                       ' الإعدادات',
                       style: TextStyle(
-                          fontSize: 22.0, fontWeight: FontWeight.bold),
+                          fontSize: 22.0, fontWeight: FontWeight.w900),
                     ),
                   ]),
             ),
@@ -68,12 +65,12 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: Colors.white,
-                        border: Border.all(width: 3, color: Colors.green[800])),
+                        border: Border.all(width: 3, color: Color(0xff1E7145))),
                     child: Center(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Container(
-                          color: Colors.green[800],
+                          color: Color(0xff1E7145),
                           height: 90,
                           width: 90,
                           child: Icon(
@@ -88,17 +85,29 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                 ),
               ]),
             ),
-            SizedBox(
-              width: 30,
+            SizedBox(height: 15),
+            Container(
+              width: 120,
+              height: 35,
               child: FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: null,
-                child: Text(
-                  'إضافة صورة',
-                  style: TextStyle(fontSize: 20.0),
+                onPressed: () {
+                  print('add img to you');
+                },
+                child: Container(
+                  width: 120,
+                  decoration: BoxDecoration(
+                      color: Colors.black12,
+                      borderRadius: BorderRadius.circular(5.0)),
+                  child: Center(
+                    child: Text(
+                      'إضافة صورة',
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  ),
                 ),
               ),
             ),
+            SizedBox(height: 15),
             GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -123,18 +132,17 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                       Text(
                         'بيانات حسابي',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 18,
                         ),
                       ),
-                      SizedBox(
-                        width: 130.0,
-                      ),
+                      Spacer(),
                       Icon(
                         Icons.edit,
                         size: 26,
                         color: Colors.grey,
                       ),
+                      SizedBox(width: 20)
                     ],
                   ),
                   Column(children: [
@@ -157,6 +165,8 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                         children: [
                           Text(
                             'username',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
@@ -183,6 +193,8 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                         children: [
                           Text(
                             'info@info.com',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
@@ -200,7 +212,8 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
+                    padding:
+                        const EdgeInsets.only(right: 8.0, bottom: 20, top: 20),
                     child: Icon(
                       Icons.lock,
                       size: 26,
@@ -213,71 +226,117 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                   Text(
                     'كلمة المرور',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 18,
                     ),
                   ),
-                  SizedBox(
-                    width: 140,
-                  ),
+                  Spacer(),
                   Icon(
                     Icons.edit,
                     size: 26,
                     color: Colors.grey,
                   ),
+                  SizedBox(
+                    width: 15,
+                  ),
                 ],
               ),
             ),
             Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: Icon(
-                    Icons.delete,
-                    size: 26,
-                    color: Colors.black,
+            InkWell(
+              onTap: () {
+                return showDialog(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoAlertDialog(
+                    title: Text("حذف جميع التنزيلات"),
+                    content: Text(
+                        'عليك أن تعلم أن حذف التنزيلات عملية حذف لكل ما تم تنزيله في المكتبه'),
+                    actions: [
+                      CupertinoDialogAction(
+                          isDefaultAction: true,
+                          onPressed: () {
+                            print('cancel');
+                            Navigator.pop(context);
+                          },
+                          child: Text("إلغاء")),
+                      CupertinoDialogAction(
+                          isDefaultAction: true,
+                          onPressed: () {
+                            print('remove');
+                            scaffoldacountKey.currentState
+                                .showSnackBar(SnackBar(
+                                    backgroundColor: Color(0xff1E7145),
+                                    content: Container(
+                                      height: 30,
+                                      child: Center(
+                                        child: Text(
+                                          'تم الحذف من المكتبة',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700,
+                                              fontFamily: 'cairo'),
+                                        ),
+                                      ),
+                                    )));
+                            Navigator.pop(context);
+                          },
+                          child: Text("حذف")),
+                    ],
                   ),
-                ),
-                SizedBox(
-                  width: 5.0,
-                ),
-                Text(
-                  'حذف جميع التنزيلات',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(right: 8.0, bottom: 20, top: 20),
+                    child: Icon(
+                      Icons.delete,
+                      size: 26,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  Text(
+                    'حذف جميع التنزيلات',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
+            Padding(
+              padding: const EdgeInsets.only(bottom: 15, top: 15, right: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
                     Icons.exit_to_app,
                     size: 26,
                     color: Colors.black,
                   ),
-                ),
-                SizedBox(
-                  width: 5.0,
-                ),
-                Text(
-                  'تسجيل خروج',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                  SizedBox(
+                    width: 5.0,
                   ),
-                ),
-              ],
+                  Text(
+                    'تسجيل خروج',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
             ),
+            SizedBox(height: 30)
           ]),
         ));
   }

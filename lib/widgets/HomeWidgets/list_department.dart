@@ -5,7 +5,7 @@ import '../../Data/data.dart';
 Widget listDepartment(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 175,
+    height: 160,
     padding: EdgeInsets.symmetric(vertical: 5),
     margin: EdgeInsets.only(right: 5),
     // color: Colors.red,
@@ -14,25 +14,24 @@ Widget listDepartment(BuildContext context) {
         itemCount: 8,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: (){
-               Navigator.of(context).push(
+            onTap: () {
+              Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => OneOfDerpatPage()));
             },
-                      child: Container(
+            child: Container(
               margin: EdgeInsets.only(left: 5, right: 5),
               // color: Colors.amber,
-              height: 190,
-              width: MediaQuery.of(context).size.width / 2.8,
+              width: MediaQuery.of(context).size.width / 2.9,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 2.8,
-                    height: 120,
+                    width: MediaQuery.of(context).size.width / 2.9,
+                    height: 110,
                     decoration: BoxDecoration(
-                        color: Colors.green[800],
+                        color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Center(
                       child: Icon(
@@ -50,7 +49,8 @@ Widget listDepartment(BuildContext context) {
                     child: Center(
                         child: Text(
                       "${DataSource.namesDepart[index]}",
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     )),
                   )
                 ],

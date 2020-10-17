@@ -25,7 +25,7 @@ class _BookInMonthState extends State<BookInMonth> {
         crossAxisCount: 2,
         crossAxisSpacing: 1,
         mainAxisSpacing: 7,
-        childAspectRatio: .8,
+        childAspectRatio: .9,
       ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -53,7 +53,7 @@ class _BookInMonthState extends State<BookInMonth> {
                         children: <Widget>[
                           Center(
                               child: FlutterLogo(
-                            size: 350.0,
+                            size: 300.0,
                           )),
                           Container(
                             height: 240,
@@ -87,11 +87,11 @@ class _BookInMonthState extends State<BookInMonth> {
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       width: MediaQuery.of(context).size.width / 2 - 12,
                       decoration: BoxDecoration(
-                          color: Colors.green[800], //Color(0xff1E7145),
+                          color: Colors.black12, //Color(0xff1E7145),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.0),
                               bottomRight: Radius.circular(20.0))),
-                      height: 50,
+                      height: 40,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -134,7 +134,7 @@ class _BookInMonthState extends State<BookInMonth> {
       flexibleSpace: FlexibleSpaceBar(
           titlePadding: EdgeInsets.only(right: 50, bottom: 10),
           collapseMode: CollapseMode.pin,
-          title: Text('قؤائم الكتب',
+          title: Text('قوائم الكتب',
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 14.0,

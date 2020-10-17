@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class MarkesLibrary extends StatelessWidget {
   const MarkesLibrary({
     Key key,
@@ -14,13 +15,13 @@ class MarkesLibrary extends StatelessWidget {
             Icon(
               Icons.lightbulb_outline,
               size: 50,
-              color: Colors.green,
+              color: Colors.green[700]
             ),
             SizedBox(height: 10),
             Text(
               'لا توجد علامات مرجعية',
               style: TextStyle(
-                  color: Colors.green[700],
+                  color:Color(0xff1E7145),
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
             )

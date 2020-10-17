@@ -45,7 +45,7 @@ class _DepartmentsPageState extends State<DepartmentsPage> {
       leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.green[800],
+            color: Color(0xff1E7145),
             size: 30,
           ),
           onPressed: () {
@@ -74,7 +74,7 @@ class _DepartmentsPageState extends State<DepartmentsPage> {
                 children: <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                        color: Colors.green[700],
+                        color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(15.0)),
                     width: MediaQuery.of(context).size.width / 3 - 5,
                     height: 115,

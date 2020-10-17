@@ -81,7 +81,7 @@ class Board extends StatelessWidget {
                                         shape: BoxShape.circle),
                                   ),
                                 ),
-                                Expanded(flex: 5, child: Text('moneer')),
+                                Expanded(flex: 5, child: Text('Alaa')),
                                 Expanded(
                                   flex: 3,
                                   child: Container(
@@ -127,7 +127,7 @@ class Board extends StatelessWidget {
                                         shape: BoxShape.circle),
                                   ),
                                 ),
-                                Expanded(flex: 5, child: Text('moneer')),
+                                Expanded(flex: 5, child: Text('medhat')),
                                 Expanded(
                                   flex: 3,
                                   child: Container(
@@ -177,7 +177,7 @@ class Board extends StatelessWidget {
                                         shape: BoxShape.circle),
                                   ),
                                 ),
-                                Expanded(flex: 5, child: Text('Moneer')),
+                                Expanded(flex: 5, child: Text('Ahmed')),
                                 Expanded(
                                   flex: 3,
                                   child: Container(
@@ -290,7 +290,7 @@ class Board extends StatelessWidget {
                                         shape: BoxShape.circle),
                                   ),
                                 ),
-                                Expanded(flex: 5, child: Text('moneer')),
+                                Expanded(flex: 5, child: Text('msahar_3')),
                                 Expanded(
                                   flex: 3,
                                   child: Container(
@@ -336,7 +336,7 @@ class Board extends StatelessWidget {
                                         shape: BoxShape.circle),
                                   ),
                                 ),
-                                Expanded(flex: 5, child: Text('moneer')),
+                                Expanded(flex: 5, child: Text('saharr')),
                                 Expanded(
                                   flex: 3,
                                   child: Container(

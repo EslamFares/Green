@@ -16,30 +16,24 @@ class _UseragreementState extends State<Useragreement> {
               backgroundColor: ThemeData.light().scaffoldBackgroundColor,
               elevation: 0,
               centerTitle: false,
-              title: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Container(
-                  width: 150,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.green,
-                        size: 25,
-                      ),
-                      Text('رجوع',
-                          style: TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16)),
-                    ],
-                  ),
-                ),
-              ),
+               title: FlatButton(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                      color: Color(0xff1E7145),
+                    ),
+                  ],
+                )),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
             ),
             body: Container(
                 padding: EdgeInsets.only(right: 15),

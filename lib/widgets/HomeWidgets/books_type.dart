@@ -6,9 +6,9 @@ import '../../Data/data.dart';
 Widget booksType(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 300,
+    height: 275,
     padding: EdgeInsets.symmetric(vertical: 2),
-    margin: EdgeInsets.only(right: 5,bottom: 20),
+    margin: EdgeInsets.only(right: 5,bottom: 10),
     // color: Colors.red,
     child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -29,9 +29,9 @@ Widget booksType(BuildContext context) {
                   Container(
                     margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 2.1,
-                    height: 210,
+                    height: 190,
                     decoration: BoxDecoration(
-                        color: Colors.green[800],
+                        color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Stack(
                       children: <Widget>[
@@ -43,7 +43,7 @@ Widget booksType(BuildContext context) {
                               decoration: BoxDecoration(
                                   // color: Colors.amber,
                                   borderRadius: BorderRadius.circular(10.0)),
-                              height: 200,
+                              height: 185,
                               child: FlutterLogo()),
                         ),
                         Positioned(

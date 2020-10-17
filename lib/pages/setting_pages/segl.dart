@@ -4,12 +4,25 @@ import 'package:green/widgets/SettingWidgets/seglWidgets/book_idea_in_segl.dart'
 import 'package:green/widgets/SettingWidgets/seglWidgets/books_in_segl.dart';
 import 'package:green/widgets/SettingWidgets/seglWidgets/bottom_setting_Segl.dart';
 
+import '../../loading_page.dart';
+
 class SgelPage extends StatefulWidget {
   @override
   _SgelPageState createState() => _SgelPageState();
 }
 
 class _SgelPageState extends State<SgelPage> {
+   bool loading = true;
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        loading = false;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -20,29 +33,23 @@ class _SgelPageState extends State<SgelPage> {
           backgroundColor: ThemeData.light().scaffoldBackgroundColor,
           elevation: 0,
           centerTitle: false,
-          title: GestureDetector(
-            onTap: () {
+           title: FlatButton(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                      color: Color(0xff1E7145),
+                    ),
+                  ],
+                )),
+            onPressed: () {
               Navigator.pop(context);
             },
-            child: Container(
-              width: 150,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.green,
-                    size: 25,
-                  ),
-                  Text('رجوع',
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16)),
-                ],
-              ),
-            ),
           ),
           actions: <Widget>[
             actionAppBarButton(
@@ -53,7 +60,8 @@ class _SgelPageState extends State<SgelPage> {
                 })
           ],
         ),
-        body: Container(
+        body:loading
+            ? LoadingPage(): Container(
           padding: EdgeInsets.only(right: 15),
           height: MediaQuery.of(context).size.height -
               AppBar().preferredSize.height,
@@ -73,7 +81,7 @@ class _SgelPageState extends State<SgelPage> {
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '8',
+                      '20',
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
@@ -97,14 +105,14 @@ class _SgelPageState extends State<SgelPage> {
               Row(
                 children: <Widget>[
                   Text(
-                    'أفكار الكتب',
+                    'مراجعات الكتب',
                     style:
                         TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
                   ),
                 ],
               ),
               BookIdeaInSegl(),
-              SizedBox(height: 20),
+              SizedBox(height: 50),
             ],
           ),
         ),
