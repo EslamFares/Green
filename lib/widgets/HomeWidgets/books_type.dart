@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:green/pages/HomePages/show_book.dart';
+import 'package:green/pages/HomePages/read_book.dart';
 import '../../Data/data.dart';
 
 Widget booksType(BuildContext context) {
@@ -17,7 +17,7 @@ Widget booksType(BuildContext context) {
           return InkWell(
             onTap: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ShowBook()));
+                  .push(MaterialPageRoute(builder: (context) => ReadbookPage()));
             },
             child: Container(
               // color: Colors.amber,

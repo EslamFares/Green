@@ -1,34 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:green/pages/HomePages/show_book_data.dart';
 
-class ShowBook extends StatefulWidget {
+import 'open_book.dart';
+
+class ReadbookPage extends StatefulWidget {
   @override
-  _ShowBookState createState() => _ShowBookState();
+  _ReadbookPageState createState() => _ReadbookPageState();
 }
 
-class _ShowBookState extends State<ShowBook> {
-  bool fontSizeShow = false;
+class _ReadbookPageState extends State<ReadbookPage> {
   bool listenBok = false;
-  double _currentSliderValue = 14;
   double _musicValue = 0;
-  String labelSlider(double currentSliderValue) {
-    String label = '';
-    if (currentSliderValue == 14) {
-      label = 'صغير جدا';
-    } else if (currentSliderValue == 16) {
-      label = 'صغير ';
-    } else if (currentSliderValue == 18) {
-      label = 'عادى';
-    } else if (currentSliderValue == 20) {
-      label = 'كبير ';
-    } else if (currentSliderValue == 22) {
-      label = 'كبير جدا ';
-    } else if (currentSliderValue == 24) {
-      label = 'ضخم';
-    } else
-      label = '';
-    return label;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,10 +106,7 @@ class _ShowBookState extends State<ShowBook> {
                                     Text(
                                       '${ShowBookData.showBookData[0]['for']}',
                                       style: TextStyle(
-                                          color: Colors.green,
-                                          fontSize: _currentSliderValue > 18
-                                              ? _currentSliderValue
-                                              : 18),
+                                          color: Colors.green, fontSize: 18),
                                     ),
                                   ],
                                 ),
@@ -142,10 +121,7 @@ class _ShowBookState extends State<ShowBook> {
                                     Text(
                                       '${ShowBookData.showBookData[0]['writer']}',
                                       style: TextStyle(
-                                          color: Colors.green,
-                                          fontSize: _currentSliderValue > 18
-                                              ? _currentSliderValue
-                                              : 18),
+                                          color: Colors.green, fontSize: 18),
                                     ),
                                   ],
                                 ),
@@ -167,14 +143,6 @@ class _ShowBookState extends State<ShowBook> {
                   ),
                 ],
               ),
-              fontSizeShow
-                  ? fontSizeSlider(context)
-                  : Positioned(
-                      bottom: 15,
-                      left: 50,
-                      right: 50,
-                      child: Container(
-                          width: 50, height: 50, color: Colors.transparent)),
               listenBok
                   ? musicSlider(context)
                   : Positioned(
@@ -194,7 +162,6 @@ class _ShowBookState extends State<ShowBook> {
       children: [
         Text(
           '$path',
-          style: TextStyle(fontSize: _currentSliderValue),
         ),
       ],
     );
@@ -203,8 +170,8 @@ class _ShowBookState extends State<ShowBook> {
   Widget bottomSheet(BuildContext context) {
     return Positioned(
       bottom: 10,
-      right: 50,
-      left: 50,
+      right: 40,
+      left: 40,
       child: Container(
         width: MediaQuery.of(context).size.width / 1.4,
         height: 55,
@@ -220,23 +187,27 @@ class _ShowBookState extends State<ShowBook> {
               height: 50,
               child: FlatButton(
                 onPressed: () {
-                  setState(() {
-                    listenBok = false;
-                    fontSizeShow = !fontSizeShow;
-                  });
-                  print('fontSizeShow $fontSizeShow');
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>OpenBookpage()));
                 },
                 child: Container(
                     // color: Colors.amber,
                     width: (MediaQuery.of(context).size.width / 1.4) / 2.1 - 5,
                     height: 50,
                     child: Center(
-                      child: Text(
-                        'ع',
-                        style: TextStyle(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.subject,
                             color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w800),
+                            size: 30,
+                          ),
+                          SizedBox(width: 5),
+                          Text('قراءة',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 16,
+                                  color: Colors.white)),
+                        ],
                       ),
                     )),
               ),
@@ -252,7 +223,6 @@ class _ShowBookState extends State<ShowBook> {
               child: FlatButton(
                 onPressed: () {
                   setState(() {
-                    fontSizeShow = false;
                     listenBok = !listenBok;
                   });
                 },
@@ -260,10 +230,20 @@ class _ShowBookState extends State<ShowBook> {
                   // color: Colors.purple,
                   width: (MediaQuery.of(context).size.width / 1.4) / 2.1 - 5,
                   height: 50,
-                  child: Icon(
-                    Icons.headset,
-                    color: Colors.white,
-                    size: 30,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.headset,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(width: 5),
+                      Text('استماع',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16,
+                              color: Colors.white)),
+                    ],
                   ),
                 ),
               ),
@@ -363,11 +343,8 @@ class _ShowBookState extends State<ShowBook> {
                           color: Colors.black12,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
-                          Icons.replay_10,
-                          size: 25,
-                          color: Colors.grey
-                        ))),
+                        child: Icon(Icons.replay_10,
+                            size: 25, color: Colors.grey))),
                 Container(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 3,
@@ -378,7 +355,10 @@ class _ShowBookState extends State<ShowBook> {
                           color: Colors.black12,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(Icons.play_arrow,size: 35,))),
+                        child: Icon(
+                          Icons.play_arrow,
+                          size: 35,
+                        ))),
                 Container(
                     height: 50,
                     width: MediaQuery.of(context).size.width / 3,
@@ -390,76 +370,10 @@ class _ShowBookState extends State<ShowBook> {
                           shape: BoxShape.circle,
                         ),
                         child: Icon(Icons.replay_5,
-                          size: 25,
-                          color: Colors.grey))),
+                            size: 25, color: Colors.grey))),
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Positioned fontSizeSlider(BuildContext context) {
-    return Positioned(
-      bottom: 10,
-      left: 30,
-      right: 30,
-      child: Material(
-        elevation: 20,
-        borderRadius: BorderRadius.circular(20.0),
-        child: Container(
-          height: 150,
-          width: MediaQuery.of(context).size.width - 60,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 90),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'ع',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      fontFamily:
-                          DefaultTextStyle.of(context).style.fontFamily),
-                ),
-                SizedBox(width: 15),
-                Container(
-                    padding: EdgeInsets.all(2),
-                    width: (MediaQuery.of(context).size.width - 60) / 1.4,
-                    height: 80,
-                    // color: Colors.amber,
-                    child: Slider(
-                      value: _currentSliderValue,
-                      min: 14,
-                      max: 24,
-                      divisions: 5,
-                      label: labelSlider(_currentSliderValue),
-                      onChanged: (double value) {
-                        setState(() {
-                          _currentSliderValue = value;
-                        });
-                        print(_currentSliderValue.toString().substring(0, 2));
-                      },
-                    )),
-                SizedBox(width: 10),
-                Text(
-                  'ع',
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w900,
-                      fontFamily:
-                          DefaultTextStyle.of(context).style.fontFamily),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

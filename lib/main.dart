@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'cairo',
+        bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
         primaryTextTheme: TextTheme(
             headline6: TextStyle(color: Colors.black, fontFamily: 'cairo')),
         primaryIconTheme: IconThemeData(color: Colors.black),

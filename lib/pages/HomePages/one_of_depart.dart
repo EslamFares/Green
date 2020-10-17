@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
-import 'package:green/pages/HomePages/show_book.dart';
+import 'package:green/pages/HomePages/read_book.dart';
 
 class OneOfDerpatPage extends StatefulWidget {
   @override
@@ -31,7 +31,7 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return GestureDetector(
-            onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ShowBook()));},
+            onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ReadbookPage()));},
                       child: Container(
               // color: Colors.amber,
               child: Column(

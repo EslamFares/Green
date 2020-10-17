@@ -12,7 +12,8 @@ class Arrangement extends StatelessWidget {
           body: ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 8),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -57,7 +58,7 @@ class Arrangement extends StatelessWidget {
                               Text(
                                 '4185',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 23),
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               Expanded(
                                 flex: 4,
@@ -100,7 +101,7 @@ class Arrangement extends StatelessWidget {
                               Text(
                                 '4186',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 23),
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               Expanded(
                                 flex: 4,
@@ -143,7 +144,7 @@ class Arrangement extends StatelessWidget {
                               Text(
                                 '4187',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 23),
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               Expanded(
                                 flex: 4,
@@ -186,7 +187,7 @@ class Arrangement extends StatelessWidget {
                               Text(
                                 '4185',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 23),
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               Expanded(
                                 flex: 4,

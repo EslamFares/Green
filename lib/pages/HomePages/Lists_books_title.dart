@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
-import 'package:green/pages/HomePages/show_book.dart';
+import 'package:green/pages/HomePages/read_book.dart';
 
 class ListsOfBooksByTitle extends StatefulWidget {
   final String appbarTitle;
@@ -17,7 +17,8 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: CustomScrollView(
-            semanticChildCount: 4, slivers: <Widget>[appbar(context,widget.appbarTitle), body()]),
+            semanticChildCount: 4,
+            slivers: <Widget>[appbar(context, widget.appbarTitle), body()]),
       ),
     );
   }
@@ -33,8 +34,11 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return GestureDetector(
-            onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ShowBook()));},
-                      child: Container(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ReadbookPage()));
+            },
+            child: Container(
               // color: Colors.amber,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -126,7 +130,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
     );
   }
 
-  SliverAppBar appbar(BuildContext context,String appbarTitle) {
+  SliverAppBar appbar(BuildContext context, String appbarTitle) {
     return SliverAppBar(
       backgroundColor: Colors.white,
       floating: false,
@@ -135,7 +139,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
       expandedHeight: 100.0,
       automaticallyImplyLeading: false,
       titleSpacing: 15.0,
-      flexibleSpace:  FlexibleSpaceBar(
+      flexibleSpace: FlexibleSpaceBar(
           titlePadding: EdgeInsets.only(right: 50, bottom: 10),
           collapseMode: CollapseMode.pin,
           title: Text(appbarTitle,
