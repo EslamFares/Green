@@ -18,7 +18,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   bool loading = true;
   @override
   void initState() {
-    _tabController = TabController(vsync: this, length: 3, initialIndex: 2);
+    _tabController = TabController(vsync: this, length: 3, initialIndex: 0);
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         loading = false;
@@ -88,22 +88,23 @@ class _ProfileScreenState extends State<ProfileScreen>
         body: loading
             ? LoadingPage()
             : NestedScrollView(
-                  //   controller: _scrollController,
-                  headerSliverBuilder:
-                      (BuildContext context, bool innerViewIsScrolled) {
-                    return <Widget>[
-                      appbarSliver(innerViewIsScrolled),
-                    ];
-                  },
-                  body: TabBarView(
-                    children: <Widget>[
-                      LineCharts(),
-                      Arrangement(),
-                      Board(),
-                    ],
-                    controller: _tabController,
-                  ),
+                //   controller: _scrollController,
+                headerSliverBuilder:
+                    (BuildContext context, bool innerViewIsScrolled) {
+                  return <Widget>[
+                    appbarSliver(innerViewIsScrolled),
+                  ];
+                },
+                body: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
+                  children: <Widget>[
+                    LineCharts(),
+                    Arrangement(),
+                    Board(),
+                  ],
+                  controller: _tabController,
                 ),
+              ),
       ),
     );
   }
@@ -126,12 +127,12 @@ class _ProfileScreenState extends State<ProfileScreen>
                           borderRadius: BorderRadius.circular(100),
                           color: Colors.white,
                           border:
-                              Border.all(width: 3, color: Colors.green[800])),
+                              Border.all(width: 3, color: Color(0xff1E7145))),
                       child: Center(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Container(
-                            color: Colors.green[800],
+                            color: Color(0xff1E7145),
                             height: 90,
                             width: 90,
                             child: Icon(
@@ -194,7 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                         fontSize: 15.0,
                                         fontWeight: FontWeight.normal,
                                         color: Colors.white)),
-                                color: Colors.green[800],
+                                color: Color(0xff1E7145),
                               ),
                             ),
                           ),
@@ -238,30 +239,118 @@ class _ProfileScreenState extends State<ProfileScreen>
                   ),
                 ),
               ),
-              //    ),
+                 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0, top: 18),
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            color: Colors.green,
+                    child: Container(
+                      // color: Colors.red,
+                      height: 30,
+                      width: 60,
+                      child: Stack(
+                        children: [
+                           Positioned(
+                            left: 20,
+                            bottom: 0,
                             child: Center(
-                              child: Text('أخضر ',
-                                  style: TextStyle(
-                                      fontSize: 9.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff1E7145),
+                                    shape: BoxShape.circle,
+                                    // border: Border.all(
+                                    //     width: 2, color: Color(0xff1E7145))
+                                        ),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                            Positioned(
+                            left: 15,
+                            bottom: 0,
+                            child: Center(
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                    shape: BoxShape.circle,
+                                    // border: Border.all(
+                                    //     width: 2, color: Color(0xff1E7145))
+                                        ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 10,
+                            bottom: 0,
+                            child: Center(
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff1E7145),
+                                    shape: BoxShape.circle,
+                                    // border: Border.all(
+                                    //     width: 2, color: Color(0xff1E7145))
+                                        ),
+                              ),
+                            ),
+                          ),
+                           Positioned(
+                            left: 5,
+                            bottom: 0,
+                            child: Center(
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                    shape: BoxShape.circle,
+                                    // border: Border.all(
+                                    //     width: 2, color: Color(0xff1E7145))
+                                        ),
+                              ),
+                            ),
+                          ),
+                           
+                          Positioned(
+                            left: 2.5,
+                            bottom: 0,
+                            child: Center(
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        width: 2, color: Color(0xff1E7145))),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 6,
+                            bottom: 3.5,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Container(
+                                height: 23,
+                                width: 23,
+                                color: Color(0xff1E7145),
+                                child: Center(
+                                  child: Text('أخضر ',
+                                      style: TextStyle(
+                                          fontSize: 9.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -286,37 +375,52 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
             ]),
       ),
-      expandedHeight: 360.0,
+      expandedHeight: 370.0,
       pinned: true,
-
       floating: true,
-      elevation: 0.0,
+      elevation: 5.0,
       forceElevated: innerViewIsScrolled,
-      bottom: TabBar(
-        unselectedLabelColor: Colors.grey,
-        indicator: BoxDecoration(
-            borderRadius: BorderRadius.circular(60), color: Colors.green[800]),
-        tabs: <Widget>[
-          Tab(
-            child: Text(
-              "الرصيد",
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+              child: TabBar(
+                unselectedLabelColor: Colors.grey,
+                indicatorWeight: 1,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Color(0xff1E7145),
+                ),
+                tabs: <Widget>[
+                  Tab(
+                    child: Text(
+                      "الرصيد",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      "الترتيب",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      "اللوحة",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+                controller: _tabController,
+              ),
             ),
-          ),
-          Tab(
-            child: Text(
-              "الترتيب",
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Tab(
-            child: Text(
-              "اللوحة",
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-        controller: _tabController,
+          ],
+        ),
       ),
     );
   }

@@ -10,6 +10,8 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+       height: MediaQuery.of(context).size.height -
+                AppBar().preferredSize.height ,
       color: Colors.white,
       child: Stack(
         alignment: Alignment.center,
@@ -18,6 +20,7 @@ class _LoadingPageState extends State<LoadingPage> {
             height: MediaQuery.of(context).size.height -
                 AppBar().preferredSize.height -
                 56,
+                color: Colors.white,
             child: Center(
               child: Text(
                 'أخضر',
