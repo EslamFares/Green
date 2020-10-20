@@ -96,7 +96,7 @@ class _ChartsInfoState extends State<LineCharts> {
                             FlSpot(4, 0),
                             FlSpot(5, 6),
                             FlSpot(5, 3),
-                            // FlSpot(5, 3),
+                            FlSpot(6, 2),
                           ],
                           isCurved: false,
                           barWidth: 2,
@@ -247,12 +247,12 @@ class _ChartsInfoState extends State<LineCharts> {
                         LineChartBarData(
                           spots: [
                             FlSpot(0, 1),
-                            FlSpot(0, 2),
+                            FlSpot(1, 2),
                             FlSpot(3, 2),
                             FlSpot(4, 1),
                             FlSpot(5, 6),
                             // FlSpot(6, 4),
-                            //   FlSpot(5, 3),
+                              // FlSpot(5, 3),
                           ],
                           isCurved: false,
                           barWidth: 2,

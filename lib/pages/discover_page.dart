@@ -1,3 +1,5 @@
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import '../Data/discoverModel.dart';
 import '../loading_page.dart';
@@ -147,6 +149,8 @@ class QuoteWidget extends StatefulWidget {
 
 class _QuoteWidgetState extends State<QuoteWidget> {
   bool favourite = false;
+  final FlareControls flareControls = FlareControls();
+  // bool isLiked = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -156,11 +160,13 @@ class _QuoteWidgetState extends State<QuoteWidget> {
             setState(() {
               favourite = !favourite;
             });
+            flareControls.play("like");
           },
           child: Container(
             margin: EdgeInsets.only(top: 10),
             height: MediaQuery.of(context).size.height * .47,
             width: MediaQuery.of(context).size.width * .92,
+            // color: Colors.red,
             child: Card(
                 color: Color(0xff1E7145),
                 shape: RoundedRectangleBorder(
@@ -234,14 +240,33 @@ class _QuoteWidgetState extends State<QuoteWidget> {
                           width: 45,
                           decoration: BoxDecoration(
                               // color: Colors.greenAccent[400],
-                              
+
                               border: Border.all(
                                   color: Colors.greenAccent[400], width: 2),
-                                  shape: BoxShape.circle
-                                  ),
+                              shape: BoxShape.circle),
                         ),
                       ),
-                    )
+                    ),
+
+                    //========================== like insta ==========
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.only(top: 10),
+                        height: MediaQuery.of(context).size.height * .47,
+                        width: MediaQuery.of(context).size.width * .92,
+                        child: Center(
+                          child: SizedBox(
+                            width: 120,
+                            height: 120,
+                            child: FlareActor(
+                              'assets/images/instagram_like.flr',
+                              controller: flareControls,
+                              animation: 'idle',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 )),
           ),
