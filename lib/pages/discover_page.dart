@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:green/pages/setting_pages/discoversearch.dart';
+
 import '../Data/discoverModel.dart';
 import '../loading_page.dart';
 
@@ -42,13 +44,22 @@ class _DiscoverPageState extends State<DiscoverPage> {
               ),
             ),
             actions: [
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  size: 30,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DiscoverSearch()));
+                },
+                child: IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DiscoverSearch()));
+                  },
+                  color: Colors.black,
                 ),
-                onPressed: () {},
-                color: Colors.black,
               ),
             ],
           ),
@@ -234,11 +245,10 @@ class _QuoteWidgetState extends State<QuoteWidget> {
                           width: 45,
                           decoration: BoxDecoration(
                               // color: Colors.greenAccent[400],
-                              
+
                               border: Border.all(
                                   color: Colors.greenAccent[400], width: 2),
-                                  shape: BoxShape.circle
-                                  ),
+                              shape: BoxShape.circle),
                         ),
                       ),
                     )

@@ -92,7 +92,7 @@ class _ShowBookState extends State<ShowBook> {
                                     Text('18 دقيقه'),
                                     SizedBox(width: 30),
                                     Icon(
-                                      Icons.bookmark_outline,
+                                      Icons.bookmark,
                                       color: Colors.green,
                                       size: 30,
                                     ),
@@ -363,11 +363,8 @@ class _ShowBookState extends State<ShowBook> {
                           color: Colors.black12,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
-                          Icons.replay_10,
-                          size: 25,
-                          color: Colors.grey
-                        ))),
+                        child: Icon(Icons.replay_10,
+                            size: 25, color: Colors.grey))),
                 Container(
                     height: 60,
                     width: MediaQuery.of(context).size.width / 3,
@@ -378,7 +375,10 @@ class _ShowBookState extends State<ShowBook> {
                           color: Colors.black12,
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(Icons.play_arrow,size: 35,))),
+                        child: Icon(
+                          Icons.play_arrow,
+                          size: 35,
+                        ))),
                 Container(
                     height: 50,
                     width: MediaQuery.of(context).size.width / 3,
@@ -390,8 +390,7 @@ class _ShowBookState extends State<ShowBook> {
                           shape: BoxShape.circle,
                         ),
                         child: Icon(Icons.replay_5,
-                          size: 25,
-                          color: Colors.grey))),
+                            size: 25, color: Colors.grey))),
               ],
             ),
           ],

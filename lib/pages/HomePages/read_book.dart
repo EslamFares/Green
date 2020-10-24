@@ -71,15 +71,15 @@ class _ReadbookPageState extends State<ReadbookPage> {
                                       size: 30,
                                     ),
                                     SizedBox(width: 10),
-                                    Text('18 دقيقه'),
+                                    Text('18 دقيقة'),
                                     SizedBox(width: 30),
                                     Icon(
-                                      Icons.bookmark_outline,
+                                      Icons.bookmark,
                                       color: Colors.green,
                                       size: 30,
                                     ),
                                     SizedBox(width: 10),
-                                    Text('9 صفحه')
+                                    Text('9 صفحة')
                                   ],
                                 ),
                               ),
@@ -168,7 +168,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
   }
 
   Widget bottomSheet(BuildContext context) {
-    return Positioned( 
+    return Positioned(
       bottom: 10,
       right: 40,
       left: 40,
@@ -187,7 +187,8 @@ class _ReadbookPageState extends State<ReadbookPage> {
               height: 50,
               child: FlatButton(
                 onPressed: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>OpenBookpage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => OpenBookpage()));
                 },
                 child: Container(
                     // color: Colors.amber,
