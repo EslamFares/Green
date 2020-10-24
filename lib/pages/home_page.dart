@@ -97,33 +97,30 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget actionAppBarButton() {
-    return FlatButton(
-      // color: Colors.red,
-     
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => NotificationPage()),
-        );
-      },
-      child: Container(
-        width: 40,
-        height: 40,
-        //  color: Colors.amber,
-        child: Center(
-          child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: Colors.black12.withOpacity(.1),
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-              child: Transform.rotate(
-                  angle: -0.5,
-                  child: Icon(
-                    Icons.notifications_none,
-                    size: 30,
-                  ))),
-        ),
+    return Container(
+      margin: EdgeInsets.only(left: 5),
+      width: 40,
+      child: FlatButton(
+        // color: Colors.red,
+       padding: EdgeInsets.all(0),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => NotificationPage()),
+          );
+        },
+        child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.black12.withOpacity(.1),
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+            child: Transform.rotate(
+                angle: -0.5,
+                child: Icon(
+                  Icons.notifications_none,
+                  size: 30,
+                ))),
       ),
     );
   }

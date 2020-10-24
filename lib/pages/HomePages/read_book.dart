@@ -24,8 +24,13 @@ class _ReadbookPageState extends State<ReadbookPage> {
               CustomScrollView(
                 slivers: <Widget>[
                   SliverAppBar(
+                //     centerTitle: true,
+                //    title: Text(
+                //   'ابدأ بالاهم ولو كان صعبا',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900,color:  Color(0xff1E7145)),
+                // ),
                       // elevation: 2,
-                      backgroundColor: Color(0xff1E7145),
+                      backgroundColor:Colors.white,// Color(0xff1E7145),
                       floating: true,
                       pinned: true,
                       snap: false,
@@ -34,7 +39,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
                       leading: IconButton(
                           icon: Icon(
                             Icons.close,
-                            color: Colors.white,
+                            color: Colors.grey,
                             size: 30,
                           ),
                           onPressed: () {
@@ -176,7 +181,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
         width: MediaQuery.of(context).size.width / 1.4,
         height: 55,
         decoration: BoxDecoration(
-            color: Colors.green[800],
+            color:  Color(0xff1E7145),
             borderRadius: BorderRadius.circular(50.0)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,9 +219,9 @@ class _ReadbookPageState extends State<ReadbookPage> {
               ),
             ),
             Container(
-              width: 3,
+              width: 1,
               height: 60,
-              color: Colors.green,
+              color: Colors.grey,
             ),
             Container(
               width: (MediaQuery.of(context).size.width / 1.4) / 2.1 - 5,
@@ -538,12 +543,12 @@ class _ReadbookPageState extends State<ReadbookPage> {
                 ),
               ),
               Positioned(
-                  bottom: 115,
+                  bottom: 100,
                   right: MediaQuery.of(context).size.width / 2 - 110,
                   left: MediaQuery.of(context).size.width / 2 - 110,
                   child: Container(
                     width: 240,
-                    height: 70,
+                    height: 60,
                     // color: Colors.amber,
                     child: Column(
                       children: [
