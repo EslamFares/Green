@@ -89,7 +89,7 @@ class _ShowBookState extends State<ShowBook> {
                                       size: 30,
                                     ),
                                     SizedBox(width: 10),
-                                    Text('18 دقيقه'),
+                                    Text('18 دقيقة'),
                                     SizedBox(width: 30),
                                     Icon(
                                       Icons.bookmark,
@@ -97,7 +97,7 @@ class _ShowBookState extends State<ShowBook> {
                                       size: 30,
                                     ),
                                     SizedBox(width: 10),
-                                    Text('9 صفحه')
+                                    Text('9 صفحة')
                                   ],
                                 ),
                               ),

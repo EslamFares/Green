@@ -60,9 +60,9 @@ class _ProfileScreenState extends State<ProfileScreen>
           actions: <Widget>[
             Container(
               margin: EdgeInsets.only(left: 5),
-                 width: 40,
-                height: 40,
-                // color: Colors.red,
+              width: 40,
+              height: 40,
+              // color: Colors.red,
               child: FlatButton(
                 padding: EdgeInsets.all(0),
                 onPressed: () {
@@ -432,7 +432,6 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   Future showDialogCountries(BuildContext context) {
     return showDialog(
-
       context: context,
       builder: (context) {
         return AlertDialog(
@@ -440,20 +439,20 @@ class _ProfileScreenState extends State<ProfileScreen>
                 borderRadius: BorderRadius.circular(25.0)),
             title: Directionality(
               textDirection: TextDirection.rtl,
-                          child: TextFormField(
-                
+              child: TextFormField(
                 textDirection: TextDirection.rtl,
-                decoration: InputDecoration(hintText: '...اختر دولتك',
-                prefixIcon:Icon(
-                      Icons.search,
-                      color: Colors.black54,
-                      size: 30,
-                    ),
-                    suffixIcon: Icon(
-                      Icons.highlight_off,
-                      color: Colors.black54,
-                      size: 25,
-                    ),
+                decoration: InputDecoration(
+                  hintText: '...اختر دولتك',
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black54,
+                    size: 30,
+                  ),
+                  suffixIcon: Icon(
+                    Icons.highlight_off,
+                    color: Colors.black54,
+                    size: 25,
+                  ),
                 ),
               ),
             ),
@@ -492,7 +491,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                   indexCountryChose == int.parse(index)
                       ? Icon(
                           Icons.check_box,
-                          color:  Color(0xff1E7145),
+                          color: Color(0xff1E7145),
                           size: 30,
                         )
                       : Container(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green/pages/HomePages/show_book_data.dart';
 
+import 'Listenpodcast.dart';
 import 'open_book.dart';
 
 class ReadbookPage extends StatefulWidget {
@@ -9,8 +10,8 @@ class ReadbookPage extends StatefulWidget {
 }
 
 class _ReadbookPageState extends State<ReadbookPage> {
-  bool listenBok = false;
-  double _musicValue = 0;
+  // bool listenBok = false;
+  // double _musicValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +25,13 @@ class _ReadbookPageState extends State<ReadbookPage> {
               CustomScrollView(
                 slivers: <Widget>[
                   SliverAppBar(
-                //     centerTitle: true,
-                //    title: Text(
-                //   'ابدأ بالاهم ولو كان صعبا',
-                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900,color:  Color(0xff1E7145)),
-                // ),
+                      //     centerTitle: true,
+                      //    title: Text(
+                      //   'ابدأ بالاهم ولو كان صعبا',
+                      //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900,color:  Color(0xff1E7145)),
+                      // ),
                       // elevation: 2,
-                      backgroundColor:Colors.white,// Color(0xff1E7145),
+                      backgroundColor: Colors.white, // Color(0xff1E7145),
                       floating: true,
                       pinned: true,
                       snap: false,
@@ -148,14 +149,15 @@ class _ReadbookPageState extends State<ReadbookPage> {
                   ),
                 ],
               ),
-              listenBok
-                  ? musicSlider(context)
-                  : Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                          width: 50, height: 50, color: Colors.transparent)),
+              // listenBok
+              //  ? musicSlider(context)
+              // : Positioned(
+              //     bottom: 0,
+              //    left: 0,
+              //    right: 0,
+              //  child:
+              //   Container(
+              //    width: 50, height: 50, color: Colors.transparent)),
               bottomSheet(context)
             ],
           )),
@@ -181,7 +183,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
         width: MediaQuery.of(context).size.width / 1.4,
         height: 55,
         decoration: BoxDecoration(
-            color:  Color(0xff1E7145),
+            color: Color(0xff1E7145),
             borderRadius: BorderRadius.circular(50.0)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -228,9 +230,12 @@ class _ReadbookPageState extends State<ReadbookPage> {
               height: 50,
               child: FlatButton(
                 onPressed: () {
-                  setState(() {
-                    listenBok = !listenBok;
-                  });
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ListenPodCast()));
+                  //  setState(() {
+
+                  //  listenBok = !listenBok;
+                  // });
                 },
                 child: Container(
                   // color: Colors.purple,
@@ -261,7 +266,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
     );
   }
 
-  Positioned musicSlider(BuildContext context) {
+  /* Positioned musicSlider(BuildContext context) {
     return Positioned(
       bottom: 0,
       left: 0,
@@ -320,7 +325,6 @@ class _ReadbookPageState extends State<ReadbookPage> {
                                 (MediaQuery.of(context).size.width / 1.7)) /
                             2 -
                         5,
-                    // color: Colors.teal,
                     child: Center(
                       child: Text(
                         '14:00',
@@ -383,7 +387,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
         ),
       ),
     );
-  }
+  } */
 
   PreferredSize bottomAppBar(BuildContext context) {
     return PreferredSize(

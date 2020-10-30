@@ -1,6 +1,10 @@
+import 'dart:ui';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:green/pages/HomePages/contant_openpage.dart';
+
+import 'Listenpodcast.dart';
 
 class Data {
   final String title;
@@ -77,6 +81,8 @@ class _OpenBookpageState extends State<OpenBookpage>
     with SingleTickerProviderStateMixin {
   Color _color = Colors.white;
   bool isChanged = false;
+  bool _visible = false;
+  double _textSize = 13;
   ScrollController _scrollController;
   AnimationController _hidFabAnimController;
 
@@ -146,15 +152,23 @@ class _OpenBookpageState extends State<OpenBookpage>
                 centerTitle: true,
                 actions: [
                   InkWell(
+                    onTap: () {
+                      print('search');
+                      bottomSheetSearch(context);
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: SizedBox(
                         width: 40,
                         height: 40,
                         child: RawMaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            print('search');
+                            bottomSheetSearch(context);
+                          },
                           elevation: 2.0,
-                          fillColor: isChanged ? Colors.black : Colors.white,
+                          fillColor:
+                              isChanged ? Colors.black : Colors.grey[300],
                           child: Icon(
                             Icons.more_vert,
                             color: Color(0xff1E7145),
@@ -171,41 +185,102 @@ class _OpenBookpageState extends State<OpenBookpage>
                 opacity: _hidFabAnimController,
                 child: ScaleTransition(
                   scale: _hidFabAnimController,
-                  child: FloatingActionButton.extended(
-                      backgroundColor: Color(0xff1E7145),
-                      onPressed: () {},
-                      label: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Contant()));
-                            },
-                            child: Icon(
-                              Icons.subject,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 70,
-                          ),
-                          Text(
-                            'ع ',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          SizedBox(
-                            width: 70,
-                          ),
-                          Icon(
-                            Icons.headset,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Visibility(
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
                             color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
                           ),
-                        ],
-                      )),
+                          margin: EdgeInsets.only(right: 50, left: 50),
+                          padding: EdgeInsets.only(right: 10, left: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "ع",
+                                style: TextStyle(fontSize: 11),
+                              ),
+                              Expanded(
+                                child: Slider(
+                                  value: _textSize,
+                                  onChanged: (n) {
+                                    setState(() => _textSize = n);
+                                  },
+                                  min: 10,
+                                  max: 20,
+                                ),
+                              ),
+                              Text(
+                                "ع",
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ],
+                          ),
+                        ),
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        visible: _visible,
+                      ),
+                      FloatingActionButton.extended(
+                        backgroundColor: Color(0xff1E7145),
+                        onPressed: () {},
+                        label: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Contant()));
+                              },
+                              child: Icon(
+                                Icons.subject,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 70,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _visible = !_visible;
+                                });
+                              },
+                              child: Text(
+                                'ع ',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 70,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ListenPodCast()));
+                              },
+                              child: Icon(
+                                Icons.headset,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               floatingActionButtonLocation:
@@ -227,51 +302,53 @@ class _OpenBookpageState extends State<OpenBookpage>
                             TextSpan(
                               text: '${list[i].body}\n\n',
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: _textSize,
                                   color:
                                       isChanged ? Colors.white : Colors.black),
                             ),
                             TextSpan(
                               text: '${list[i].body2}\n\n',
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: _textSize,
                                   color:
                                       isChanged ? Colors.white : Colors.black),
                             ),
                             TextSpan(
                               text: '${list[i].footer}',
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: _textSize,
                                   color:
                                       isChanged ? Colors.white : Colors.black),
                             ),
                           ]),
                         )),
-                    Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Row(
-                              children: list
-                                  .asMap()
-                                  .map((index, e) {
-                                    return MapEntry(
-                                      index,
-                                      AnimatedBar(
-                                        position: index,
-                                        currentIndex: i,
-                                      ),
-                                    );
-                                  })
-                                  .values
-                                  .toList(),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            )
-                          ],
-                        )),
+                    Positioned(
+                      child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              Row(
+                                children: list
+                                    .asMap()
+                                    .map((index, e) {
+                                      return MapEntry(
+                                        index,
+                                        ButtomBar(
+                                          position: index,
+                                          currentIndex: i,
+                                        ),
+                                      );
+                                    })
+                                    .values
+                                    .toList(),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              )
+                            ],
+                          )),
+                    ),
                   ]),
 //
                 ],
@@ -284,11 +361,11 @@ class _OpenBookpageState extends State<OpenBookpage>
   }
 }
 
-class AnimatedBar extends StatelessWidget {
+class ButtomBar extends StatelessWidget {
   final int currentIndex;
   final int position;
 
-  const AnimatedBar({
+  const ButtomBar({
     Key key,
     @required this.currentIndex,
     this.position,
@@ -306,8 +383,8 @@ class AnimatedBar extends StatelessWidget {
                 _buildContainer(
                   double.infinity,
                   position <= currentIndex
-                      ? Colors.green
-                      : Colors.green.withOpacity(0.5),
+                      ? Color(0xff1E7145)
+                      : Colors.grey[300],
                 ),
                 //
               ],
@@ -332,4 +409,64 @@ class AnimatedBar extends StatelessWidget {
       ),
     );
   }
+}
+
+Future bottomSheetSearch(BuildContext context) {
+  return showMaterialModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    builder: (context, scrollController) => Container(
+      height: MediaQuery.of(context).size.height * .25,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))),
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 3),
+          Divider(
+            endIndent: MediaQuery.of(context).size.width / 2 - 25,
+            indent: MediaQuery.of(context).size.width / 2 - 20,
+            thickness: 3,
+            height: 5,
+            color: Colors.grey[900],
+          ),
+          Container(
+            height: (MediaQuery.of(context).size.height * .25) / 2.5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'مشاركة الكتاب ',
+                  style: TextStyle(fontWeight: FontWeight.w800),
+                )
+              ],
+            ),
+          ),
+          Divider(
+            endIndent: 15.0,
+            indent: 15.0,
+            thickness: 1.5,
+            height: 2,
+            color: Colors.grey,
+          ),
+          Container(
+            height: (MediaQuery.of(context).size.height * .25) / 2.2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'إضافة الكتاب',
+                  style: TextStyle(fontWeight: FontWeight.w800),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
