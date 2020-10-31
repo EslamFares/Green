@@ -264,6 +264,7 @@ class _SettingAcountpageState extends State<SettingAcountpage> {
                           onPressed: () {
                             print('remove');
                             scaffoldacountKey.currentState
+                                // ignore: deprecated_member_use
                                 .showSnackBar(SnackBar(
                                     backgroundColor: Color(0xff1E7145),
                                     content: Container(

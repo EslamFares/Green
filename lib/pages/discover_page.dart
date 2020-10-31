@@ -29,9 +29,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Colors.white,
           appBar: AppBar(
             elevation: 0.0,
-            backgroundColor: ThemeData.light().scaffoldBackgroundColor,
+            backgroundColor:Colors.white,// ThemeData.light().scaffoldBackgroundColor,
             title: Padding(
               padding: const EdgeInsets.only(right: 2.0),
               child: Align(

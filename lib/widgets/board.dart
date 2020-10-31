@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:green/widgets/SettingWidgets/fullboard.dart';
 
+import 'SettingWidgets/accountWidgets/name_in_borad.dart';
+
 class Board extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -49,135 +51,26 @@ class Board extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '1',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 10,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                border: Border.all(color: Colors.green[800]),
-                                shape: BoxShape.circle),
-                          ),
-                        ),
-                        Expanded(flex: 5, child: Text('Alaa')),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 8,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0))),
-                          ),
-                        )
-                      ],
+                
+                    nameInBord(context, 4185, 'Eslam Fares',1),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
                     ),
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '2',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 10,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                border: Border.all(color: Colors.green[800]),
-                                shape: BoxShape.circle),
-                          ),
-                        ),
-                        Expanded(flex: 5, child: Text('medhat')),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 8,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0))),
-                          ),
-                        )
-                      ],
+                    nameInBord(context, 4185, 'Afnan',8),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
                     ),
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '3',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 10,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                border: Border.all(color: Colors.green[800]),
-                                shape: BoxShape.circle),
-                          ),
-                        ),
-                        Expanded(flex: 5, child: Text('Ahmed')),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 8,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0))),
-                          ),
-                        )
-                      ],
+                    nameInBord(context, 4185, 'Ahmed',10),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
                     ),
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                    thickness: 1,
-                  ),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Fullboard()));
+                          MaterialPageRoute(builder: (context) => Fullboard('عالميًا')));
                     },
                     child: Container(
                       padding: EdgeInsets.only(bottom: 10),
@@ -237,135 +130,30 @@ class Board extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '1',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 10,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                border: Border.all(color: Colors.green[800]),
-                                shape: BoxShape.circle),
-                          ),
-                        ),
-                        Expanded(flex: 5, child: Text('msahar_3')),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 8,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0))),
-                          ),
-                        )
-                      ],
+                  nameInBord(context, 1, 'Abo Nwaf',8),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
                     ),
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '2',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 10,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                border: Border.all(color: Colors.green[800]),
-                                shape: BoxShape.circle),
-                          ),
-                        ),
-                        Expanded(flex: 5, child: Text('saharr')),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 8,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0))),
-                          ),
-                        )
-                      ],
+                    nameInBord(context, 2, 'fhd',4),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
                     ),
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '3',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 23),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 10,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                border: Border.all(color: Colors.green[800]),
-                                shape: BoxShape.circle),
-                          ),
-                        ),
-                        Expanded(flex: 5, child: Text('Moneer')),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: MediaQuery.of(context).size.width / 10,
-                            width: MediaQuery.of(context).size.width / 8,
-                            decoration: BoxDecoration(
-                                color: Colors.green[800],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0))),
-                          ),
-                        )
-                      ],
+                    nameInBord(context, 3, 'Skhr',7),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
                     ),
-                  ),
-                  Divider(
-                    height: 1,
-                    color: Colors.grey,
-                    thickness: 1,
-                  ),
-                  InkWell(
+                    nameInBord(context, 4, 'hassan',9),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey,
+                    ),
+                 InkWell(
                     onTap: () {
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Fullboard()));
+                          MaterialPageRoute(builder: (context) => Fullboard( 'محليًا')));
                     },
                     child: Container(
                       padding: EdgeInsets.only(bottom: 10),

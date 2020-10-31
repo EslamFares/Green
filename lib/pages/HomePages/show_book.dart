@@ -209,7 +209,7 @@ class _ShowBookState extends State<ShowBook> {
         width: MediaQuery.of(context).size.width / 1.4,
         height: 55,
         decoration: BoxDecoration(
-            color: Colors.green[800],
+            color:  Color(0xff1E7145),
             borderRadius: BorderRadius.circular(50.0)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -242,9 +242,9 @@ class _ShowBookState extends State<ShowBook> {
               ),
             ),
             Container(
-              width: 3,
+              width: 1,
               height: 60,
-              color: Colors.green,
+              color: Colors.grey,
             ),
             Container(
               width: (MediaQuery.of(context).size.width / 1.4) / 2.1 - 5,
@@ -304,7 +304,7 @@ class _ShowBookState extends State<ShowBook> {
                         5,
                     child: Center(
                       child: Text(
-                        '${_musicValue.toString().length > 4 ? _musicValue.toString().substring(0, 5) : _musicValue}',
+                        '${_musicValue.toString().length > 4 ? _musicValue.toString().substring(0, 4) : _musicValue}',
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.green,
@@ -322,7 +322,7 @@ class _ShowBookState extends State<ShowBook> {
                         value: _musicValue,
                         min: 0,
                         max: 14,
-                        divisions: 20,
+                        // divisions: 20,
                         onChanged: (double value) {
                           setState(() {
                             _musicValue = value;

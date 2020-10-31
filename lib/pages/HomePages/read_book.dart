@@ -261,7 +261,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
             ),
           ],
         ),
-        // child: C,
+      
       ),
     );
   }
@@ -547,6 +547,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
                 ),
               ),
               Positioned(
+                top: 230.0+65.0+15.0,
                   bottom: 100,
                   right: MediaQuery.of(context).size.width / 2 - 110,
                   left: MediaQuery.of(context).size.width / 2 - 110,

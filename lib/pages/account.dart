@@ -40,6 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           iconTheme: new IconThemeData(color: Colors.black),
@@ -115,270 +116,22 @@ class _ProfileScreenState extends State<ProfileScreen>
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         collapseMode: CollapseMode.pin,
-        background:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
-                Widget>[
-          Center(
-            child: Stack(children: [
-              ClipRRect(
-                child: Container(
-                  height: 105,
-                  width: 105,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.white,
-                      border: Border.all(width: 3, color: Color(0xff1E7145))),
-                  child: Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Container(
-                        color: Color(0xff1E7145),
-                        height: 90,
-                        width: 90,
-                        child: Icon(
-                          Icons.person,
-                          size: 60,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ]),
-          ),
-          Center(
-              child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Username',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 220,
-                height: 45,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(
-                      Icons.person,
-                      color: Colors.grey,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('العضوية العادية',
-                          style: TextStyle(
-                              fontSize: 11.0,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.grey)),
-                    ),
-                    Container(
-                      height: 45,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(80),
-                        child: Container(
-                          height: 0,
-                          width: 90,
-                          child: RaisedButton(
-                            onPressed: () {},
-                            child: Text('ترقية',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.white)),
-                            color: Color(0xff1E7145),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Center(
-            child: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: FlatButton(
-                  onPressed: () {
-                    showDialogCountries(context);
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                    width: 130,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Color(0xffdcdfe3),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 35,
-                          height: 25,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.0),
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      countryFlags[indexCountryChose]['flag']),
-                                  fit: BoxFit.cover)),
-                        ),
-                        Text(countryFlags[indexCountryChose]['name'],
-                            style: TextStyle(
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black)),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 16,
-                        ),
-                      ],
-                    ),
-                  ),
-                )),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0, top: 18),
-                child: Container(
-                  // color: Colors.red,
-                  height: 30,
-                  width: 60,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 20,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              color: Color(0xff1E7145),
-                              shape: BoxShape.circle,
-                              // border: Border.all(
-                              //     width: 2, color: Color(0xff1E7145))
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 15,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                              // border: Border.all(
-                              //     width: 2, color: Color(0xff1E7145))
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 10,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              color: Color(0xff1E7145),
-                              shape: BoxShape.circle,
-                              // border: Border.all(
-                              //     width: 2, color: Color(0xff1E7145))
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 5,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                              // border: Border.all(
-                              //     width: 2, color: Color(0xff1E7145))
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 2.5,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    width: 2, color: Color(0xff1E7145))),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 6,
-                        bottom: 3.5,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Container(
-                            height: 23,
-                            width: 23,
-                            color: Color(0xff1E7145),
-                            child: Center(
-                              child: Text('أخضر ',
-                                  style: TextStyle(
-                                      fontSize: 9.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 18.0),
+        background: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              userImg(),
+              Center(
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '50',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  'Username',
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 18.0),
-                child: Text(' نقطة',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black)),
-              ),
-            ],
-          ),
-        ]),
+              )),
+              accountType(),
+              userCountry(),
+              a5derPoints(),
+            ]),
       ),
       expandedHeight: 370.0,
       pinned: true,
@@ -393,31 +146,45 @@ class _ProfileScreenState extends State<ProfileScreen>
               padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
               child: TabBar(
                 unselectedLabelColor: Colors.grey,
-                indicatorWeight: 1,
+                indicatorPadding: EdgeInsets.all(5),
+                
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Color(0xff1E7145),
+
                 ),
                 tabs: <Widget>[
-                  Tab(
-                    child: Text(
-                      "الرصيد",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Container(
+                    width: MediaQuery.of(context).size.width/3,
+                    height: 35,
+                    child: Center(
+                      child: Text(
+                        "الرصيد",
+                        style:
+                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      "الترتيب",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Container(
+                    width: MediaQuery.of(context).size.width/3,
+                    height: 35,
+                    child: Center(
+                      child: Text(
+                        "الترتيب",
+                        style:
+                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      "اللوحة",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                 Container(
+                    width: MediaQuery.of(context).size.width/3,
+                    height: 35,
+                    child: Center(
+                      child: Text(
+                        "اللوحة",
+                        style:
+                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ],
@@ -427,6 +194,270 @@ class _ProfileScreenState extends State<ProfileScreen>
           ],
         ),
       ),
+    );
+  }
+
+  Center userImg() {
+    return Center(
+      child: Stack(children: [
+        ClipRRect(
+          child: Container(
+            height: 105,
+            width: 105,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.white,
+                border: Border.all(width: 3, color: Color(0xff1E7145))),
+            child: Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Container(
+                  color: Color(0xff1E7145),
+                  height: 90,
+                  width: 90,
+                  child: Icon(
+                    Icons.person,
+                    size: 60,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+
+  Row accountType() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 220,
+          height: 45,
+          decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(30))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(
+                Icons.person,
+                color: Colors.grey,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('العضوية العادية',
+                    style: TextStyle(
+                        fontSize: 11.0,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey)),
+              ),
+              Container(
+                height: 45,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(80),
+                  child: Container(
+                    height: 0,
+                    width: 90,
+                    child: RaisedButton(
+                      onPressed: () {},
+                      child: Text('ترقية',
+                          style: TextStyle(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white)),
+                      color: Color(0xff1E7145),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Center userCountry() {
+    return Center(
+      child: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: FlatButton(
+            onPressed: () {
+              showDialogCountries(context);
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 5),
+              width: 130,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Color(0xffdcdfe3),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    width: 35,
+                    height: 25,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                countryFlags[indexCountryChose]['flag']),
+                            fit: BoxFit.cover)),
+                  ),
+                  Text(countryFlags[indexCountryChose]['name'],
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black)),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                  ),
+                ],
+              ),
+            ),
+          )),
+    );
+  }
+
+  Row a5derPoints() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 10.0, top: 18),
+          child: Container(
+            // color: Colors.red,
+            height: 30,
+            width: 60,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 20,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Color(0xff1E7145),
+                        shape: BoxShape.circle,
+                        // border: Border.all(
+                        //     width: 2, color: Color(0xff1E7145))
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 15,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        // border: Border.all(
+                        //     width: 2, color: Color(0xff1E7145))
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 10,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Color(0xff1E7145),
+                        shape: BoxShape.circle,
+                        // border: Border.all(
+                        //     width: 2, color: Color(0xff1E7145))
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 5,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        // border: Border.all(
+                        //     width: 2, color: Color(0xff1E7145))
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 2.5,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border:
+                              Border.all(width: 2, color: Color(0xff1E7145))),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 6,
+                  bottom: 3.5,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Container(
+                      height: 23,
+                      width: 23,
+                      color: Color(0xff1E7145),
+                      child: Center(
+                        child: Text('أخضر ',
+                            style: TextStyle(
+                                fontSize: 9.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white)),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 18.0),
+          child: Text(
+            '50',
+            style: TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 18.0),
+          child: Text(' نقطة',
+              style: TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
+        ),
+      ],
     );
   }
 

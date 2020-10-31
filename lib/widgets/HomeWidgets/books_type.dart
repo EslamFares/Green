@@ -52,14 +52,25 @@ Widget booksType(BuildContext context) {
                           child: Container(
                               padding: EdgeInsets.only(right: 8),
                               width: MediaQuery.of(context).size.width / 2.1,
+                             decoration: BoxDecoration(
                               color: Colors.black26,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight:  Radius.circular(10)
+                              )),
                               height: 30,
-                              child: Text(
-                                '${DataSource.booksInfo[index]['writer']}',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 13),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${DataSource.booksInfo[index]['writer']}',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 13),
+                                  ),
+                                ],
                               )),
                         ),
                       ],

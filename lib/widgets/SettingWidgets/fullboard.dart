@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 
-class Fullboard extends StatefulWidget {
-  @override
-  _FullboardState createState() => _FullboardState();
-}
+import 'accountWidgets/countrydata.dart';
+import 'accountWidgets/name_in_borad.dart';
 
-class _FullboardState extends State<Fullboard> {
+class Fullboard extends StatelessWidget {
+  final String appBarTitle;
+  Fullboard(this.appBarTitle);
   @override
   Widget build(BuildContext context) {
+    List names = [
+      'Eslam Fares',
+      "Afnan",
+      'zain',
+      'nour',
+      'ali',
+      'esraa',
+      'shimaa',
+      'ashraf',
+      'Ahmed',
+      'Eman',
+      'Gamela',
+      'Gehan'
+    ];
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -50,7 +65,7 @@ class _FullboardState extends State<Fullboard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'عالميًا',
+                    appBarTitle,
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
@@ -68,55 +83,24 @@ class _FullboardState extends State<Fullboard> {
                       AppBar().preferredSize.height -
                       90,
                   width: MediaQuery.of(context).size.width,
-                  child: ListView(
-                    children: [
-                      for (int i = 0; i < 15; i++) ...[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                '1',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 23),
-                              ),
-                              Expanded(
-                                flex: 4,
-                                child: Container(
-                                  height:
-                                      MediaQuery.of(context).size.width / 10,
-                                  width: MediaQuery.of(context).size.width / 10,
-                                  decoration: BoxDecoration(
-                                      color: Color(0xff1E7145),
-                                      border: Border.all(
-                                        color: Color(0xff1E7145),
-                                      ),
-                                      shape: BoxShape.circle),
-                                ),
-                              ),
-                              Expanded(flex: 5, child: Text('afnan')),
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  height:
-                                      MediaQuery.of(context).size.width / 10,
-                                  width: MediaQuery.of(context).size.width / 8,
-                                  decoration: BoxDecoration(
-                                      color: Color(0xff1E7145),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(8.0))),
-                                ),
-                              )
-                            ],
+                  child: ListView.builder(
+                    itemCount: countryFlags.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          nameInBord(context, index + 1,
+                              names[index], index),
+                          Divider(
+                            height: 1,
+                            color: Colors.grey,
                           ),
-                        ),
-                        Divider(
-                          height: 1,
-                          color: Colors.grey,
-                        ),
-                      ]
-                    ],
+                          Divider(
+                            height: 1,
+                            color: Colors.grey,
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               )

@@ -112,11 +112,11 @@ class _HomePageState extends State<HomePage> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: Colors.black12.withOpacity(.1),
+              color: Colors.black12.withOpacity(.07),
               borderRadius: BorderRadius.circular(50.0),
             ),
             child: Transform.rotate(
-                angle: -0.5,
+                angle: -0.3,
                 child: Icon(
                   Icons.notifications_none,
                   size: 30,

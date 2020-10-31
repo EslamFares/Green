@@ -79,18 +79,18 @@ class OpenBookpage extends StatefulWidget {
 
 class _OpenBookpageState extends State<OpenBookpage>
     with SingleTickerProviderStateMixin {
+  // ignore: unused_field
   Color _color = Colors.white;
   bool isChanged = false;
   bool _visible = false;
-  double _textSize = 13;
+  double _textSize = 14;
   ScrollController _scrollController;
   AnimationController _hidFabAnimController;
-
+  
   @override
   void dispose() {
     _scrollController.dispose();
     _hidFabAnimController.dispose();
-
     super.dispose();
   }
 
@@ -118,6 +118,7 @@ class _OpenBookpageState extends State<OpenBookpage>
   }
 
   Widget build(BuildContext context) {
+    int curentPage=0;
     return Directionality(
         textDirection: TextDirection.rtl,
         child: StatefulBuilder(
@@ -140,6 +141,7 @@ class _OpenBookpageState extends State<OpenBookpage>
                   onTap: () {
                     setState(() {
                       isChanged = !isChanged;
+                      // ignore: unnecessary_statements
                       isChanged == true ? _color = Colors.white : Colors.black;
                     });
                     print('clicked');
@@ -168,7 +170,7 @@ class _OpenBookpageState extends State<OpenBookpage>
                           },
                           elevation: 2.0,
                           fillColor:
-                              isChanged ? Colors.black : Colors.grey[300],
+                              isChanged ? Color(0xff2D2D2D) : Colors.grey[300],
                           child: Icon(
                             Icons.more_vert,
                             color: Color(0xff1E7145),
@@ -178,7 +180,9 @@ class _OpenBookpageState extends State<OpenBookpage>
                         ),
                       ),
                     ),
-                  )
+                  ),
+                                    SizedBox(width:10),
+
                 ],
               ),
               floatingActionButton: FadeTransition(
@@ -196,7 +200,7 @@ class _OpenBookpageState extends State<OpenBookpage>
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20.0)),
                           ),
-                          margin: EdgeInsets.only(right: 50, left: 50),
+                          margin: EdgeInsets.only(right: 40, left: 40),
                           padding: EdgeInsets.only(right: 10, left: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -211,8 +215,8 @@ class _OpenBookpageState extends State<OpenBookpage>
                                   onChanged: (n) {
                                     setState(() => _textSize = n);
                                   },
-                                  min: 10,
-                                  max: 20,
+                                  min: 12,
+                                  max: 25,
                                 ),
                               ),
                               Text(
@@ -228,55 +232,93 @@ class _OpenBookpageState extends State<OpenBookpage>
                         visible: _visible,
                       ),
                       FloatingActionButton.extended(
-                        backgroundColor: Color(0xff1E7145),
-                        onPressed: () {},
-                        label: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Contant()));
-                              },
-                              child: Icon(
-                                Icons.subject,
-                                color: Colors.white,
+                        backgroundColor: Colors.transparent,
+                        onPressed: null,
+                        elevation: 0,
+                        label: Container(
+
+                          decoration: BoxDecoration(
+                          color: Color(0xff1E7145),
+                          borderRadius: BorderRadius.circular(50.0)
+                          ),
+                          
+                          width: MediaQuery.of(context).size.width-100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                 width :(MediaQuery.of(context).size.width-100)/5,
+                                  height: 50,
+                                child: FlatButton(
+                                padding: EdgeInsets.all(0),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Contant(dark: isChanged,)));
+                                  },
+                                  child: Container(
+                                    width :(MediaQuery.of(context).size.width-100)/5,
+                                    height: 50,
+                                    // color:Colors.amber,
+                                    child: Icon(
+                                      Icons.subject,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 70,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  _visible = !_visible;
-                                });
-                              },
-                              child: Text(
-                                'ع ',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
+                              
+                             Container(
+                                width :(MediaQuery.of(context).size.width-100)/5,
+                                  height: 50,
+                               child: FlatButton(
+                                padding: EdgeInsets.all(0),
+                                  onPressed: () {
+                                    setState(() {
+                                      _visible = !_visible;
+                                    });
+                                  },
+                                  child: Container(
+                                     width :(MediaQuery.of(context).size.width-100)/5,
+                                    height: 50,
+                                    // color:Colors.blue,
+                                    child: Center(
+                                      child: Text(
+                                        'ع ',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                             ),
+                             
+                               Container(
+                                  width :(MediaQuery.of(context).size.width-100)/5,
+                                  height: 50,
+                                 child: FlatButton(
+                              padding: EdgeInsets.all(0),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ListenPodCast()));
+                                  },
+                                  child: Container(
+                                    width :(MediaQuery.of(context).size.width-100)/5,
+                                    height: 50,
+                                    // color: Colors.red,
+                                    child: Icon(
+                                      Icons.headset,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 70,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ListenPodCast()));
-                              },
-                              child: Icon(
-                                Icons.headset,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+                               ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -285,9 +327,20 @@ class _OpenBookpageState extends State<OpenBookpage>
               ),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerFloat,
-              body: PageView(children: [
+              body: PageView(
+                onPageChanged: (int page){
+                  print(page);
+                  setState((){
+                    curentPage = page;
+                  });
+                },
+                children: [
                 for (int i = 0; i < list.length; i++) ...[
-                  ListView(controller: _scrollController, children: [
+                 
+                  ListView(
+
+                    controller: _scrollController,
+                   children: [
                     Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: RichText(
@@ -322,13 +375,39 @@ class _OpenBookpageState extends State<OpenBookpage>
                             ),
                           ]),
                         )),
-                    Positioned(
-                      child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Row(
+                    // Padding(
+                    //     padding: const EdgeInsets.all(20.0),
+                    //     child: Column(
+                    //       mainAxisAlignment: MainAxisAlignment.end,
+                    //       children: <Widget>[
+                    //         Row(
+                    //           children: list
+                    //               .asMap()
+                    //               .map((index, e) {
+                    //                 return MapEntry(
+                    //                   index,
+                    //                   ButtomBar(
+                    //                     position: index,
+                    //                     currentIndex: i,
+                    //                   ),
+                    //                 );
+                    //               })
+                    //               .values
+                    //               .toList(),
+                    //         ),
+                    //         SizedBox(
+                    //           height: 10,
+                    //         )
+                    //       ],
+                    //     )),
+                  ]),
+                ],
+              ]),
+
+              bottomSheet: Container(
+                height: 10,
+                // color: Colors.red,
+                child:   Row(
                                 children: list
                                     .asMap()
                                     .map((index, e) {
@@ -336,25 +415,14 @@ class _OpenBookpageState extends State<OpenBookpage>
                                         index,
                                         ButtomBar(
                                           position: index,
-                                          currentIndex: i,
+                                          currentIndex: curentPage,
                                         ),
                                       );
                                     })
                                     .values
                                     .toList(),
                               ),
-                              SizedBox(
-                                height: 10,
-                              )
-                            ],
-                          )),
-                    ),
-                  ]),
-//
-                ],
-              ]),
-
-              // bottomSheet:
+              )
             );
           },
         ));
@@ -379,7 +447,7 @@ class ButtomBar extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Stack(
-              children: <Widget>[
+                            children: <Widget>[
                 _buildContainer(
                   double.infinity,
                   position <= currentIndex

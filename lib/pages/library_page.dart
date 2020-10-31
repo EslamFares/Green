@@ -32,9 +32,10 @@ class _MyLibraryPageState extends State<MyLibraryPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         key: scafolldBookLibrary,
         appBar: AppBar(
-            backgroundColor: ThemeData.light().scaffoldBackgroundColor,
+            backgroundColor:Colors.white,// ThemeData.light().scaffoldBackgroundColor,
             elevation: 0,
             title: Text(
               'مكتبتى',
