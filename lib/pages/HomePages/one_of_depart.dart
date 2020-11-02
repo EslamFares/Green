@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
 import 'package:green/pages/HomePages/read_book.dart';
@@ -54,9 +56,14 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                           child: Container(
                               decoration: BoxDecoration(
                                   // color: Colors.amber,
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                        DataSource.booksInfo[Random().nextInt(DataSource.booksInfo.length)]['imgurl']),
+                                    fit: BoxFit.contain),
                                   borderRadius: BorderRadius.circular(10.0)),
                               height: 200,
-                              child: FlutterLogo()),
+                              // child: FlutterLogo(),
+                              ),
                         ),
                         Positioned(
                           bottom: 0,

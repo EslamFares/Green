@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -41,9 +43,14 @@ class BooksInSegl extends StatelessWidget {
                           child: Container(
                               decoration: BoxDecoration(
                                   // color: Colors.amber,
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                        DataSource.booksInfo[Random().nextInt(DataSource.booksInfo.length)]['imgurl']),
+                                    fit: BoxFit.contain),
                                   borderRadius: BorderRadius.circular(10.0)),
                               height: 230,
-                              child: FlutterLogo()),
+                              // child: FlutterLogo(),
+                              ),
                         ),
                         Positioned(
                           top: 7,
@@ -65,7 +72,7 @@ class BooksInSegl extends StatelessWidget {
                               child: Icon(
                                 Icons.turned_in_not,
                                 size: 30,
-                                color: Colors.green,
+                                color: Color(0xff1E7145),
                               )),
                         ),
                         Positioned(

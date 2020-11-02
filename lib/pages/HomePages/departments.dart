@@ -60,7 +60,7 @@ class _DepartmentsPageState extends State<DepartmentsPage> {
           crossAxisCount: 3,
           mainAxisSpacing: 5,
           crossAxisSpacing: 5,
-          childAspectRatio: .8),
+          childAspectRatio: .85),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return InkWell(
@@ -76,13 +76,25 @@ class _DepartmentsPageState extends State<DepartmentsPage> {
                     decoration: BoxDecoration(
                         color: Color(0xff1E7145),
                         borderRadius: BorderRadius.circular(15.0)),
-                    width: MediaQuery.of(context).size.width / 3 - 5,
-                    height: 115,
-                    child: Icon(
-                      DataSource.departInfo[index]['icon'],
-                      color: Colors.white,
-                      size: 85,
-                    ),
+                    width: MediaQuery.of(context).size.width / 3.1 - 5,
+                    height: 110,
+                    child: Center(
+                        child: Container(
+                      width: (MediaQuery.of(context).size.width / 2.9) * 1,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        // color: Colors.red,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                DataSource.departInfo[index]['icon']),
+                            fit: BoxFit.contain),
+                      ),
+                    )),
+                    //  Icon(
+                    //   DataSource.departInfo[index]['icon'],
+                    //   color: Colors.white,
+                    //   size: 85,
+                    // ),
                   ),
                   SizedBox(height: 5),
                   Row(

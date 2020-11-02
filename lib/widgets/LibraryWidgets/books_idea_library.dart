@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:green/Data/data.dart';
 
 class BooksIdeaLibrary extends StatefulWidget {
   final GlobalKey<ScaffoldState> scafolldBookLibrary;
@@ -33,10 +36,14 @@ class _BooksIdeaLibraryState extends State<BooksIdeaLibrary> {
               Container(
                 decoration: BoxDecoration(
                     color: Color(0xff1E7145),
+                    image: DecorationImage(
+                        image: NetworkImage(DataSource.booksInfo[Random()
+                            .nextInt(DataSource.booksInfo.length)]['imgurl']),
+                        fit: BoxFit.contain),
                     borderRadius: BorderRadius.circular(10.0)),
                 width: MediaQuery.of(context).size.width * .33,
                 height: 140,
-                child: FlutterLogo(),
+                // child: FlutterLogo(),
               ),
               SizedBox(width: 10),
               Expanded(

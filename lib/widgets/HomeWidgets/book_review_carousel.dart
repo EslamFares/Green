@@ -6,7 +6,8 @@ import 'bookreveiw_carouselchild.dart';
 Widget bookReviewCarousel(BuildContext context) {
     return Container(
               width: MediaQuery.of(context).size.width,
-              height: 210,
+              height: 200,
+              // color: Colors.red,
               child: Carousel(
                 images: [
                   bookReveiwCarouselChild(context, 0),

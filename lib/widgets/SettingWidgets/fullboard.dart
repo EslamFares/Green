@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'accountWidgets/countrydata.dart';
@@ -88,8 +90,9 @@ class Fullboard extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
+                          //=================
                           nameInBord(context, index + 1,
-                              names[index], index),
+                              names[Random().nextInt(names.length)], index),
                           Divider(
                             height: 1,
                             color: Colors.grey,

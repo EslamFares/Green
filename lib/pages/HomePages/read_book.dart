@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green/Data/data.dart';
 import 'package:green/pages/HomePages/show_book_data.dart';
 
 import 'Listenpodcast.dart';
@@ -261,7 +262,6 @@ class _ReadbookPageState extends State<ReadbookPage> {
             ),
           ],
         ),
-      
       ),
     );
   }
@@ -515,7 +515,14 @@ class _ReadbookPageState extends State<ReadbookPage> {
                           child: Container(
                             height: 200,
                             width: 240,
-                            child: FlutterLogo(),
+                            decoration: BoxDecoration(
+                              // color: Colors.amber,
+                              image: DecorationImage(
+                                  image: NetworkImage(DataSource.booksInfo[1]
+                                      ['imgurl']),
+                                  fit: BoxFit.contain),
+                            ),
+                            // child: FlutterLogo(),
                           ),
                         ),
                         Positioned(
@@ -547,7 +554,7 @@ class _ReadbookPageState extends State<ReadbookPage> {
                 ),
               ),
               Positioned(
-                top: 230.0+65.0+15.0,
+                  top: 230.0 + 65.0 + 15.0,
                   bottom: 100,
                   right: MediaQuery.of(context).size.width / 2 - 110,
                   left: MediaQuery.of(context).size.width / 2 - 110,

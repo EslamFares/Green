@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green/Data/data.dart';
 import 'package:green/pages/HomePages/show_book_data.dart';
 
 class ShowBook extends StatefulWidget {
@@ -590,7 +591,14 @@ class _ShowBookState extends State<ShowBook> {
                           child: Container(
                             height: 200,
                             width: 240,
-                            child: FlutterLogo(),
+                              decoration: BoxDecoration(
+                              // color: Colors.amber,
+                              image: DecorationImage(
+                                  image: NetworkImage(DataSource.booksInfo[1]
+                                      ['imgurl']),
+                                  fit: BoxFit.contain),
+                            ),
+                            // child: FlutterLogo(),
                           ),
                         ),
                         Positioned(

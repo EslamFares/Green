@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green/Data/data.dart';
 
 class ListenPodCast extends StatefulWidget {
   @override
@@ -50,8 +51,14 @@ class _ListenPodCastState extends State<ListenPodCast> {
                       child: Container(
                         height: MediaQuery.of(context).size.height * .4 - 35,
                         width: MediaQuery.of(context).size.width - 50,
-                        // color: Colors.amber,
-                        child: FlutterLogo(),
+                        decoration: BoxDecoration(
+                          // color: Colors.amber,
+                          image: DecorationImage(
+                              image: NetworkImage(DataSource.booksInfo[1]
+                                  ['imgurl']),
+                              fit: BoxFit.contain),
+                        ),
+                        // child: FlutterLogo(),
                       ),
                     ),
                     Positioned(
@@ -250,10 +257,8 @@ class _ListenPodCastState extends State<ListenPodCast> {
                 height: 60,
                 width: 150,
                 decoration: BoxDecoration(
-                color:Color(0xff1E7145),
-                borderRadius: BorderRadius.circular(50.0)
-
-                ),
+                    color: Color(0xff1E7145),
+                    borderRadius: BorderRadius.circular(50.0)),
                 child: Icon(
                   Icons.subject,
                   size: 35,

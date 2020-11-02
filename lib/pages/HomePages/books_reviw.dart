@@ -58,7 +58,7 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
       listItems.add(
         Container(
           width: MediaQuery.of(context).size.width,
-          height: 150,
+          height: 120,
           decoration: BoxDecoration(
               // color: Colors.amber,
               border: Border(
@@ -66,7 +66,7 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
                       color: Color(0xff1E7145),
                       width: 1,
                       style: BorderStyle.solid))),
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: InkWell(
             onTap: () {
@@ -75,7 +75,19 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
             },
             child: Row(
               children: <Widget>[
-                stackContainer(index),
+                Container(
+                  
+                  width: 130,
+                  height: 130,
+                  decoration: BoxDecoration(
+                    color: Color(0xff1E7145),
+                    image: DecorationImage(
+                        image: NetworkImage(DataSource.bookReviewsicon[index]),
+                        fit: BoxFit.cover),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+                // stackContainer(index),
                 SizedBox(width: 10),
                 Expanded(
                     child: Column(
@@ -143,7 +155,7 @@ class _BooksReviewPageState extends State<BooksReviewPage> {
       width: 130,
       height: 150,
       decoration: BoxDecoration(
-          color:Color(0xff1E7145), borderRadius: BorderRadius.circular(15.0)),
+          color: Color(0xff1E7145), borderRadius: BorderRadius.circular(15.0)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

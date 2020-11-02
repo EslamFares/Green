@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green/pages/HomePages/read_book.dart';
@@ -8,7 +10,7 @@ Widget booksType(BuildContext context) {
     width: MediaQuery.of(context).size.width,
     height: 275,
     padding: EdgeInsets.symmetric(vertical: 2),
-    margin: EdgeInsets.only(right: 5,bottom: 10),
+    margin: EdgeInsets.only(right: 5, bottom: 10),
     // color: Colors.red,
     child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -16,8 +18,8 @@ Widget booksType(BuildContext context) {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ReadbookPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ReadbookPage()));
             },
             child: Container(
               // color: Colors.amber,
@@ -39,12 +41,19 @@ Widget booksType(BuildContext context) {
                           top: 0,
                           left: 0,
                           right: 0,
+                          bottom: 0,
                           child: Container(
-                              decoration: BoxDecoration(
-                                  // color: Colors.amber,
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              height: 185,
-                              child: FlutterLogo()),
+                            decoration: BoxDecoration(
+                                // color: Colors.amber,
+                                borderRadius: BorderRadius.circular(10.0),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        DataSource.booksInfo[Random().nextInt(DataSource.booksInfo.length)]['imgurl']),
+                                    fit: BoxFit.contain),
+                                    ),
+                            height: 185,
+                            // child: FlutterLogo(),
+                          ),
                         ),
                         Positioned(
                           bottom: 1,
@@ -52,12 +61,11 @@ Widget booksType(BuildContext context) {
                           child: Container(
                               padding: EdgeInsets.only(right: 8),
                               width: MediaQuery.of(context).size.width / 2.1,
-                             decoration: BoxDecoration(
-                              color: Colors.black26,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(10),
-                                bottomRight:  Radius.circular(10)
-                              )),
+                              decoration: BoxDecoration(
+                                  color: Colors.black26,
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(10))),
                               height: 30,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,

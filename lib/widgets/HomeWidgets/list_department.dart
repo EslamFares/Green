@@ -5,8 +5,7 @@ import '../../Data/data.dart';
 Widget listDepartment(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 160,
-    padding: EdgeInsets.symmetric(vertical: 5),
+    height: 140,
     margin: EdgeInsets.only(right: 5),
     // color: Colors.red,
     child: ListView.builder(
@@ -21,25 +20,38 @@ Widget listDepartment(BuildContext context) {
             child: Container(
               margin: EdgeInsets.only(left: 5, right: 5),
               // color: Colors.amber,
-              width: MediaQuery.of(context).size.width / 2.9,
+              width: MediaQuery.of(context).size.width / 3,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 2.9,
-                    height: 110,
+                    width: MediaQuery.of(context).size.width / 3,
+                    height: 100,
                     decoration: BoxDecoration(
-                        color: Color(0xff1E7145),
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Center(
-                      child: Icon(
-                        DataSource.iconDepart[index],
-                        color: Colors.white,
-                        size: 70,
-                      ),
+                      color: Color(0xff1E7145),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
+                    child: Center(
+                        child: Container(
+                      width: (MediaQuery.of(context).size.width / 2.9) * 1,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        // color: Colors.red,
+                        image: DecorationImage(
+                            image: NetworkImage(DataSource.departInfo[index]['icon']),
+                            fit: BoxFit.contain),
+                      ),
+                    )
+
+                        //   Icon(
+                        // DataSource.iconDepart[index],
+                        //     color: Colors.white,
+                        //     size: 70,
+                        //   ),
+
+                        ),
                   ),
                   Container(
                     // color: Colors.blue,
@@ -48,7 +60,7 @@ Widget listDepartment(BuildContext context) {
                     height: 30,
                     child: Center(
                         child: Text(
-                      "${DataSource.namesDepart[index]}",
+                      "${DataSource.departInfo[index]['name']}",
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                     )),

@@ -41,44 +41,49 @@ class _BookInMonthState extends State<BookInMonth> {
                   top: 0,
                   left: 0,
                   right: 0,
+                  bottom: 0,
                   child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xff1E7145).withOpacity(.7),
+                    decoration: BoxDecoration(
+                        color:
+                             Color(0xff1E7145).withOpacity(.7),
                         borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      height: 192,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        fit: StackFit.expand,
-                        children: <Widget>[
-                          Center(
-                              child: FlutterLogo(
-                            size: 300.0,
-                          )),
-                          Container(
-                            height: 240,
-                            decoration: BoxDecoration(
-                                color: Colors.green[900].withOpacity(.4),
-                                borderRadius: BorderRadius.circular(20.0)),
-                          ),
-                          Center(
-                              child: Container(
-                            width: MediaQuery.of(context).size.width / 2,
-                            height: 120,
-                            // color: Colors.amber,
-                            child: Center(
-                              child: Text(
-                                'مجد التاجر في كيسة ومجد العالم في كتبة',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w800),
-                              ),
-                            ),
-                          ))
-                        ],
-                      )),
+                        image: DecorationImage(
+                            image: NetworkImage(DataSource.imageMonthe[index]),
+                            fit: BoxFit.cover)),
+                    height: 192,
+                    // child: Stack(
+                    //   alignment: Alignment.center,
+                    //   fit: StackFit.expand,
+                    //   children: <Widget>[
+                    //     Center(
+                    //         child: FlutterLogo(
+                    //       size: 300.0,
+                    //     )),
+                    //     Container(
+                    //       height: 240,
+                    //       decoration: BoxDecoration(
+                    //           color: Colors.green[900].withOpacity(.4),
+                    //           borderRadius: BorderRadius.circular(20.0)),
+                    //     ),
+                    //     Center(
+                    //         child: Container(
+                    //       width: MediaQuery.of(context).size.width / 2,
+                    //       height: 120,
+                    //       // color: Colors.amber,
+                    //       child: Center(
+                    //         child: Text(
+                    //           'مجد التاجر في كيسة ومجد العالم في كتبة',
+                    //           textAlign: TextAlign.center,
+                    //           style: TextStyle(
+                    //               color: Colors.white,
+                    //               fontSize: 16,
+                    //               fontWeight: FontWeight.w800),
+                    //         ),
+                    //       ),
+                    //     ))
+                    //   ],
+                    // )
+                  ),
                 ),
                 Positioned(
                   bottom: 0,
@@ -91,7 +96,7 @@ class _BookInMonthState extends State<BookInMonth> {
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.0),
                               bottomRight: Radius.circular(20.0))),
-                      height: 40,
+                      height: 35,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -104,7 +109,7 @@ class _BookInMonthState extends State<BookInMonth> {
                           ),
                           Center(
                               child: Text(
-                            '6',
+                            '${index+1}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,

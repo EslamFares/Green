@@ -13,7 +13,7 @@ class DiscoverPage extends StatefulWidget {
 
 class _DiscoverPageState extends State<DiscoverPage> {
   bool loading = true;
-
+  
   @override
   void initState() {
     super.initState();
@@ -163,6 +163,7 @@ class _QuoteWidgetState extends State<QuoteWidget> {
   bool favourite = false;
   final FlareControls flareControls = FlareControls();
   // bool isLiked = false;
+  int loveNum = 9;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -301,8 +302,7 @@ class _QuoteWidgetState extends State<QuoteWidget> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0),
-                child: Text(
-                  '10',
+                child: Text('${favourite?loveNum++:loveNum--}',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                 ),
               ),

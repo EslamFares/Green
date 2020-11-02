@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:green/Data/data.dart';
 
 Widget monthLists(BuildContext context) {
   return Container(
@@ -25,45 +26,49 @@ Widget monthLists(BuildContext context) {
                   top: 0,
                   left: 0,
                   right: 0,
+                  bottom: 0,
                   child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xff1E7145).withOpacity(.7),
+                    decoration: BoxDecoration(
+                        // color: Colors.amber,//0xff1E7145).withOpacity(.7),
                         borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      height: 210,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        fit: StackFit.expand,
-                        children: <Widget>[
-                          Center(
-                              child: FlutterLogo(
-                            size: 350.0,
-                          )),
-                          Container(
-                            height: 240,
-                            decoration: BoxDecoration(
-                                color: Color(0xff1E7145).withOpacity(.4),
-                                borderRadius: BorderRadius.circular(20.0)),
-                          ),
-                          Center(
-                              child: Container(
-                            width:
-                                (MediaQuery.of(context).size.width / 1.9) / 1.1,
-                            height: 120,
-                            // color: Colors.amber,
-                            child: Center(
-                              child: Text(
-                                'مجد التاجر في كيسة ومجد العالم في كتبة',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ))
-                        ],
-                      )),
+                        image: DecorationImage(
+                            image: NetworkImage(DataSource.imageMonthe[index]),
+                            fit: BoxFit.cover)),
+                    height: 210,
+                    // child: Stack(
+                    //   alignment: Alignment.center,
+                    //   fit: StackFit.expand,
+                    //   children: <Widget>[
+                    //     Center(
+                    //         child: FlutterLogo(
+                    //       size: 350.0,
+                    //     )),
+                    //     Container(
+                    //       height: 240,
+                    //       decoration: BoxDecoration(
+                    //           color: Color(0xff1E7145).withOpacity(.4),
+                    //           borderRadius: BorderRadius.circular(20.0)),
+                    //     ),
+                    //     Center(
+                    //         child: Container(
+                    //       width:
+                    //           (MediaQuery.of(context).size.width / 1.9) / 1.1,
+                    //       height: 120,
+                    //       // color: Colors.amber,
+                    //       child: Center(
+                    //         child: Text(
+                    //           'مجد التاجر في كيسة ومجد العالم في كتبة',
+                    //           textAlign: TextAlign.center,
+                    //           style: TextStyle(
+                    //               color: Colors.white,
+                    //               fontSize: 18,
+                    //               fontWeight: FontWeight.bold),
+                    //         ),
+                    //       ),
+                    //     ))
+                    //   ],
+                    // ),
+                  ),
                 ),
                 Positioned(
                   bottom: 0,
@@ -89,7 +94,7 @@ Widget monthLists(BuildContext context) {
                           ),
                           Center(
                               child: Text(
-                            '6',
+                            '${index+1}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,

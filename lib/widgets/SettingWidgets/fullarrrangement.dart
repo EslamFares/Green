@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'accountWidgets/countrydata.dart';
@@ -6,9 +8,24 @@ import 'accountWidgets/name_in_borad.dart';
 class FullArrangement extends StatelessWidget {
   final String appBarTitle;
   FullArrangement(this.appBarTitle);
-   @override
+  @override
   Widget build(BuildContext context) {
-    List names = ['Eslam Fares',"Afnan",'zain','nour','ali','esraa','shimaa','ashraf','Ahmed','Eman','Gamela','Gehan'];
+    List<String> names = [
+      'Eslam Fares',
+      "Afnan",
+      'zain',
+      'nour',
+      'ali',
+      'esraa',
+      'shimaa',
+      'ashraf',
+      'Ahmed',
+      'EA',
+      'Gamela',
+      'Gehan'
+    ];
+
+    
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -68,7 +85,9 @@ class FullArrangement extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          nameInBord(context, index+1, names.reversed.toList()[index], index),
+                          //=======================================
+                          nameInBord(context, index + 1,
+                              names[Random().nextInt(names.length)], index),
                           Divider(
                             height: 1,
                             color: Colors.grey,
@@ -89,7 +108,4 @@ class FullArrangement extends StatelessWidget {
       ),
     );
   }
-
-
 }
-
