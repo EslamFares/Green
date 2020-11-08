@@ -5,7 +5,7 @@ import '../../Data/data.dart';
 Widget listDepartment(BuildContext context) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 140,
+    height: 150,
     margin: EdgeInsets.only(right: 5),
     // color: Colors.red,
     child: ListView.builder(
@@ -26,9 +26,9 @@ Widget listDepartment(BuildContext context) {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(left: 10),
+                    // margin: EdgeInsets.only(left: 10),
                     width: MediaQuery.of(context).size.width / 3,
-                    height: 100,
+                    height: 110,
                     decoration: BoxDecoration(
                       color: Color(0xff1E7145),
                       borderRadius: BorderRadius.circular(10.0),
@@ -40,30 +40,41 @@ Widget listDepartment(BuildContext context) {
                       decoration: BoxDecoration(
                         // color: Colors.red,
                         image: DecorationImage(
-                            image: NetworkImage(DataSource.departInfo[index]['icon']),
+                            image: NetworkImage(
+                                DataSource.departInfo[index]['icon']),
                             fit: BoxFit.contain),
                       ),
                     )
-
                         //   Icon(
                         // DataSource.iconDepart[index],
                         //     color: Colors.white,
                         //     size: 70,
                         //   ),
-
                         ),
                   ),
                   Container(
                     // color: Colors.blue,
-                    margin: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: 30,
+                    // margin: EdgeInsets.only(left: 10),
+                    width:  MediaQuery.of(context).size.width / 3,
+                    height: 35,
                     child: Center(
-                        child: Text(
-                      "${DataSource.departInfo[index]['name']}",
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                             
+                      DataSource.departInfo[index]['name'].toString().length >
+                              17
+                          ? '${DataSource.departInfo[index]['name'].toString().substring(0, 14)}..'
+                          : DataSource.departInfo[index]['name'].toString()
+                      // "${DataSource.departInfo[index]['name']}"
+                      ,
                       style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-                    )),
+                              TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
+                    ),
+                          ],
+                        )),
                   )
                 ],
               ),

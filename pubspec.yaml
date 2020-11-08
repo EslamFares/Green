@@ -54,7 +54,6 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/images/images/
     - assets/socialMediaIcon/
     - assets/notification/no_notification.png
     - assets/images/instagram_like.flr

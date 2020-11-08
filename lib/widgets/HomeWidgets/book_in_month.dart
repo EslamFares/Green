@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
 
+import 'month_lists.dart';
+
 class BookInMonth extends StatefulWidget {
   @override
   _BookInMonthState createState() => _BookInMonthState();
@@ -101,7 +103,7 @@ class _BookInMonthState extends State<BookInMonth> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'كتب مايو المفتوحة',
+                         'كتب ${ monthName(index + 1)} المفتوحة',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,

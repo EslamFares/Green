@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:green/Data/data.dart';
 
 Widget monthLists(BuildContext context) {
+  
+
   return Container(
     width: MediaQuery.of(context).size.width,
     height: 220,
@@ -86,7 +88,7 @@ Widget monthLists(BuildContext context) {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'كتب مايو المفتوحة',
+                            'كتب ${ monthName(index + 1)} المفتوحة',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
@@ -94,7 +96,7 @@ Widget monthLists(BuildContext context) {
                           ),
                           Center(
                               child: Text(
-                            '${index+1}',
+                            '${index + 1}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
@@ -109,3 +111,48 @@ Widget monthLists(BuildContext context) {
         }),
   );
 }
+String monthName(int index) {
+    String month = 'مايو';
+    switch (index) {
+      case 1:
+        month = 'يناير';
+        break;
+      case 2:
+        month = 'فبراير';
+        break;
+      case 3:
+        month = 'مارس';
+        break;
+      case 4:
+        month = 'إبريل';
+        break;
+      case 5:
+        month = 'مايو';
+        break;
+      case 6:
+        month = 'يونيو';
+        break;
+      case 7:
+        month = 'يوليو';
+        break;
+      case 8:
+        month = 'أغسطس';
+        break;
+      case 9:
+        month = 'سبتمبر';
+        break;
+      case 10:
+        month = 'أكتوبر';
+        break;
+      case 11:
+        month = 'نوفمبر';
+        break;
+      case 12:
+        month = 'ديسمبر';
+        break;
+      default:
+        month = 'مايو';
+        break;
+    }
+    return month;
+  }

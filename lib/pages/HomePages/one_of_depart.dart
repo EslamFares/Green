@@ -33,8 +33,11 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return GestureDetector(
-            onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ReadbookPage()));},
-                      child: Container(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ReadbookPage()));
+            },
+            child: Container(
               // color: Colors.amber,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,17 +56,20 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                           top: 0,
                           left: 0,
                           right: 0,
+                          bottom: 25,
                           child: Container(
-                              decoration: BoxDecoration(
-                                  // color: Colors.amber,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                        DataSource.booksInfo[Random().nextInt(DataSource.booksInfo.length)]['imgurl']),
+                            decoration: BoxDecoration(
+                                // color: Colors.amber,
+                                image: DecorationImage(
+                                    image: NetworkImage(DataSource.booksInfo[
+                                            Random().nextInt(
+                                                DataSource.booksInfo.length)]
+                                        ['imgurl']),
                                     fit: BoxFit.contain),
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              height: 200,
-                              // child: FlutterLogo(),
-                              ),
+                                borderRadius: BorderRadius.circular(10.0)),
+                            height: 200,
+                            // child: FlutterLogo(),
+                          ),
                         ),
                         Positioned(
                           bottom: 0,
@@ -71,19 +77,18 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                           child: Container(
                               padding: EdgeInsets.only(right: 8),
                               width: MediaQuery.of(context).size.width / 2.1,
-                             decoration: BoxDecoration(
-                              color: Colors.black26,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(10),
-                                bottomRight:  Radius.circular(10)
-                              )),
+                              decoration: BoxDecoration(
+                                  color: Colors.black26,
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(10))),
                               height: 30,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '${DataSource.booksInfo[index]['writer']}',
+                                    '${DataSource.booksInfo[index]['writer'].toString().length <= 18 ? DataSource.booksInfo[index]['writer'] : "${DataSource.booksInfo[index]['writer'].toString().substring(0, 16)}.."}',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -96,7 +101,7 @@ class _OneOfDerpatPageState extends State<OneOfDerpatPage> {
                     ),
                   ),
                   Expanded(
-                                      child: Container(
+                    child: Container(
                       // color: Colors.deepPurple,
                       padding: EdgeInsets.all(5),
                       // margin: EdgeInsets.only(left: 10),

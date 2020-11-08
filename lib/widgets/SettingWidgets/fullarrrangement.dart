@@ -11,18 +11,18 @@ class FullArrangement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> names = [
-      'Eslam Fares',
+    'Eslam Fares',
       "Afnan",
       'zain',
       'nour',
-      'ali',
-      'esraa',
+      'Abd-Elgwad',
+      'Ebrahim',
       'shimaa',
       'ashraf',
       'Ahmed',
-      'EA',
+      'Rayan',
       'Gamela',
-      'Gehan'
+      'Malek'
     ];
 
     

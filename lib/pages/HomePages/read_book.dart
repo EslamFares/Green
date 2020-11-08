@@ -470,7 +470,8 @@ class _ReadbookPageState extends State<ReadbookPage> {
 
   FlexibleSpaceBar topAppBar(BuildContext context) {
     return FlexibleSpaceBar(
-      titlePadding: EdgeInsets.only(right: 50, bottom: 110),
+      // title: Text('text'),
+      // titlePadding: EdgeInsets.only(right: 50, bottom: 110),
       collapseMode: CollapseMode.pin,
       centerTitle: true,
       background: Container(
@@ -517,10 +518,13 @@ class _ReadbookPageState extends State<ReadbookPage> {
                             width: 240,
                             decoration: BoxDecoration(
                               // color: Colors.amber,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              ),
                               image: DecorationImage(
-                                  image: NetworkImage(DataSource.booksInfo[1]
-                                      ['imgurl']),
-                                  fit: BoxFit.contain),
+                                  image: NetworkImage(
+                                      DataSource.booksInfo[1]['imgurl']),
+                                  fit: BoxFit.cover),
                             ),
                             // child: FlutterLogo(),
                           ),
@@ -554,8 +558,8 @@ class _ReadbookPageState extends State<ReadbookPage> {
                 ),
               ),
               Positioned(
-                  top: 230.0 + 65.0 + 15.0,
-                  bottom: 100,
+                  top: 65.0 + 230.0 + 15.0, //top img+ hight img + space
+                  bottom: 120,
                   right: MediaQuery.of(context).size.width / 2 - 110,
                   left: MediaQuery.of(context).size.width / 2 - 110,
                   child: Container(

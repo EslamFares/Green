@@ -16,9 +16,8 @@ Widget bookReviewCarousel(BuildContext context) {
                   bookReveiwCarouselChild(context, 3),
                   bookReveiwCarouselChild(context, 4),
                 ],
-                dotSize: 4.0,
+                dotSize: 6.0,
                 dotSpacing: 15.0,
-                
                 dotColor: Colors.grey,
                 dotPosition: DotPosition.bottomCenter,
                 dotIncreasedColor: Colors.green[900],

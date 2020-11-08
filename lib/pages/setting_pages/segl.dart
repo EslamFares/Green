@@ -12,7 +12,7 @@ class SgelPage extends StatefulWidget {
 }
 
 class _SgelPageState extends State<SgelPage> {
-   bool loading = true;
+  bool loading = true;
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 1), () {
@@ -28,12 +28,14 @@ class _SgelPageState extends State<SgelPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: ThemeData.light().scaffoldBackgroundColor,
+          backgroundColor:
+              Colors.white, // ThemeData.light().scaffoldBackgroundColor,
           elevation: 0,
           centerTitle: false,
-           title: FlatButton(
+          title: FlatButton(
             child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
@@ -60,62 +62,63 @@ class _SgelPageState extends State<SgelPage> {
                 })
           ],
         ),
-        body:loading
-            ? LoadingPage(): Container(
-          padding: EdgeInsets.only(right: 15),
-          height: MediaQuery.of(context).size.height -
-              AppBar().preferredSize.height,
-          width: MediaQuery.of(context).size.width,
-          // color: Colors.red,
-          child: ListView(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        body: loading
+            ? LoadingPage()
+            : Container(
+                padding: EdgeInsets.only(right: 15),
+                height: MediaQuery.of(context).size.height -
+                    AppBar().preferredSize.height,
+                width: MediaQuery.of(context).size.width,
+                // color: Colors.red,
+                child: ListView(
                   children: <Widget>[
-                    Text(
-                      'السجل',
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'السجل',
+                            style: TextStyle(
+                                fontSize: 20.0, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '20',
+                            style: TextStyle(
+                                fontSize: 20.0, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      '20',
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                    SizedBox(height: 15),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            'الكتب',
+                            style: TextStyle(
+                                fontSize: 18.0, fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
                     ),
+                    BooksInSegl(),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'مراجعات الكتب',
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w700),
+                        ),
+                      ],
+                    ),
+                    BookIdeaInSegl(),
+                    SizedBox(height: 50),
                   ],
                 ),
               ),
-              SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      'الكتب',
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-              ),
-              BooksInSegl(),
-              Row(
-                children: <Widget>[
-                  Text(
-                    'مراجعات الكتب',
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
-                  ),
-                ],
-              ),
-              BookIdeaInSegl(),
-              SizedBox(height: 50),
-            ],
-          ),
-        ),
       ),
     );
   }

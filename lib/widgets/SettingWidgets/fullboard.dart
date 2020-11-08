@@ -15,14 +15,14 @@ class Fullboard extends StatelessWidget {
       "Afnan",
       'zain',
       'nour',
-      'ali',
-      'esraa',
+      'Abd-Elgwad',
+      'Ebrahim',
       'shimaa',
       'ashraf',
       'Ahmed',
-      'Eman',
+      'Rayan',
       'Gamela',
-      'Gehan'
+      'Malek'
     ];
 
     return Directionality(

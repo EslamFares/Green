@@ -59,6 +59,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                           top: 0,
                           left: 0,
                           right: 0,
+                          bottom:25,
                           child: Container(
                               decoration: BoxDecoration(
                                   // color: Colors.amber,
@@ -90,7 +91,7 @@ class _ListsOfBooksByTitleState extends State<ListsOfBooksByTitle> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '${DataSource.booksInfo[index]['writer']}',
+                                     '${DataSource.booksInfo[index]['writer'].toString().length <= 18 ? DataSource.booksInfo[index]['writer'] : "${DataSource.booksInfo[index]['writer'].toString().substring(0, 16)}.."}',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,

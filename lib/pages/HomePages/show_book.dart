@@ -210,7 +210,7 @@ class _ShowBookState extends State<ShowBook> {
         width: MediaQuery.of(context).size.width / 1.4,
         height: 55,
         decoration: BoxDecoration(
-            color:  Color(0xff1E7145),
+            color: Color(0xff1E7145),
             borderRadius: BorderRadius.circular(50.0)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -591,12 +591,15 @@ class _ShowBookState extends State<ShowBook> {
                           child: Container(
                             height: 200,
                             width: 240,
-                              decoration: BoxDecoration(
+                            decoration: BoxDecoration(
                               // color: Colors.amber,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              ),
                               image: DecorationImage(
-                                  image: NetworkImage(DataSource.booksInfo[1]
-                                      ['imgurl']),
-                                  fit: BoxFit.contain),
+                                  image: NetworkImage(
+                                      DataSource.booksInfo[1]['imgurl']),
+                                  fit: BoxFit.cover),
                             ),
                             // child: FlutterLogo(),
                           ),
@@ -630,7 +633,9 @@ class _ShowBookState extends State<ShowBook> {
                 ),
               ),
               Positioned(
-                  bottom: 115,
+                  
+                  top: 65.0 + 230.0+15.0,//top img+ hight img + space
+                  bottom: 120,
                   right: MediaQuery.of(context).size.width / 2 - 110,
                   left: MediaQuery.of(context).size.width / 2 - 110,
                   child: Container(
