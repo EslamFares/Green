@@ -86,7 +86,7 @@ class _OpenBookpageState extends State<OpenBookpage>
   double _textSize = 14;
   ScrollController _scrollController;
   AnimationController _hidFabAnimController;
-  
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -118,312 +118,327 @@ class _OpenBookpageState extends State<OpenBookpage>
   }
 
   Widget build(BuildContext context) {
-    int curentPage=0;
+    int curentPage = 0;
     return Directionality(
         textDirection: TextDirection.rtl,
         child: StatefulBuilder(
           builder: (context, setState) {
             return Scaffold(
-              backgroundColor: isChanged ? _color = Colors.black : Colors.white,
-              appBar: AppBar(
-                leading: IconButton(
-                    icon: Icon(
-                      Icons.close,
-                      color: Color(0xff1E7145),
-                      size: 25,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
-                elevation: 0.0,
-                backgroundColor: isChanged ? Colors.black : Colors.white,
-                title: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isChanged = !isChanged;
-                      // ignore: unnecessary_statements
-                      isChanged == true ? _color = Colors.white : Colors.black;
-                    });
-                    print('clicked');
-                  },
-                  child: Icon(
-                    Icons.lightbulb_outline,
-                    color: Color(0xff1E7145),
-                  ),
-                ),
-                centerTitle: true,
-                actions: [
-                  InkWell(
+                backgroundColor:
+                    isChanged ? _color = Colors.black : Colors.white,
+                appBar: AppBar(
+                  leading: IconButton(
+                      icon: Icon(
+                        Icons.close,
+                        color: Color(0xff1E7145),
+                        size: 25,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                  elevation: 0.0,
+                  backgroundColor: isChanged ? Colors.black : Colors.white,
+                  title: GestureDetector(
                     onTap: () {
-                      print('search');
-                      bottomSheetSearch(context);
+                      setState(() {
+                        isChanged = !isChanged;
+                        // ignore: unnecessary_statements
+                        isChanged == true
+                            ? _color = Colors.white
+                            : Colors.black;
+                      });
+                      print('clicked');
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 10.0),
-                      child: SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: RawMaterialButton(
-                          onPressed: () {
-                            print('search');
-                            bottomSheetSearch(context);
-                          },
-                          elevation: 2.0,
-                          fillColor:
-                              isChanged ? Color(0xff2D2D2D) : Colors.grey[300],
-                          child: Icon(
-                            Icons.more_vert,
-                            color: Color(0xff1E7145),
+                    child: Icon(
+                      Icons.lightbulb_outline,
+                      color: Color(0xff1E7145),
+                    ),
+                  ),
+                  centerTitle: true,
+                  actions: [
+                    InkWell(
+                      onTap: () {
+                        print('search');
+                        bottomSheet(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: SizedBox(
+                          width: 40,
+                          height: 40,
+                          child: RawMaterialButton(
+                            onPressed: () {
+                              print('search');
+                              bottomSheet(context);
+                            },
+                            elevation: 2.0,
+                            fillColor: isChanged
+                                ? Color(0xff2D2D2D)
+                                : Colors.grey[300],
+                            child: Icon(
+                              Icons.more_vert,
+                              color: Color(0xff1E7145),
+                            ),
+                            padding: EdgeInsets.all(5.0),
+                            shape: CircleBorder(),
                           ),
-                          padding: EdgeInsets.all(5.0),
-                          shape: CircleBorder(),
                         ),
                       ),
                     ),
-                  ),
-                                    SizedBox(width:10),
-
-                ],
-              ),
-              floatingActionButton: FadeTransition(
-                opacity: _hidFabAnimController,
-                child: ScaleTransition(
-                  scale: _hidFabAnimController,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Visibility(
-                        child: Container(
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                          ),
-                          margin: EdgeInsets.only(right: 40, left: 40),
-                          padding: EdgeInsets.only(right: 10, left: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "ع",
-                                style: TextStyle(fontSize: 11),
-                              ),
-                              Expanded(
-                                child: Slider(
-                                  value: _textSize,
-                                  onChanged: (n) {
-                                    setState(() => _textSize = n);
-                                  },
-                                  min: 12,
-                                  max: 25,
+                    SizedBox(width: 10),
+                  ],
+                ),
+                floatingActionButton: FadeTransition(
+                  opacity: _hidFabAnimController,
+                  child: ScaleTransition(
+                    scale: _hidFabAnimController,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Visibility(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                            ),
+                            margin: EdgeInsets.only(right: 40, left: 40),
+                            padding: EdgeInsets.only(right: 10, left: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "ع",
+                                  style: TextStyle(fontSize: 11),
                                 ),
-                              ),
-                              Text(
-                                "ع",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                            ],
-                          ),
-                        ),
-                        maintainSize: true,
-                        maintainAnimation: true,
-                        maintainState: true,
-                        visible: _visible,
-                      ),
-                      FloatingActionButton.extended(
-                        backgroundColor: Colors.transparent,
-                        onPressed: null,
-                        elevation: 0,
-                        label: Container(
-
-                          decoration: BoxDecoration(
-                          color: Color(0xff1E7145),
-                          borderRadius: BorderRadius.circular(50.0)
-                          ),
-                          
-                          width: MediaQuery.of(context).size.width-100,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                 width :(MediaQuery.of(context).size.width-100)/5,
-                                  height: 50,
-                                child: FlatButton(
-                                padding: EdgeInsets.all(0),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Contant(dark: isChanged,)));
-                                  },
-                                  child: Container(
-                                    width :(MediaQuery.of(context).size.width-100)/5,
-                                    height: 50,
-                                    // color:Colors.amber,
-                                    child: Icon(
-                                      Icons.subject,
-                                      color: Colors.white,
-                                    ),
+                                Expanded(
+                                  child: Slider(
+                                    value: _textSize,
+                                    onChanged: (n) {
+                                      setState(() => _textSize = n);
+                                    },
+                                    min: 12,
+                                    max: 25,
                                   ),
                                 ),
-                              ),
-                              
-                             Container(
-                                width :(MediaQuery.of(context).size.width-100)/5,
+                                Text(
+                                  "ع",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ],
+                            ),
+                          ),
+                          maintainSize: true,
+                          maintainAnimation: true,
+                          maintainState: true,
+                          visible: _visible,
+                        ),
+                        FloatingActionButton.extended(
+                          backgroundColor: Colors.transparent,
+                          onPressed: null,
+                          elevation: 0,
+                          label: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xff1E7145),
+                                borderRadius: BorderRadius.circular(50.0)),
+                            width: MediaQuery.of(context).size.width - 100,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: (MediaQuery.of(context).size.width -
+                                          100) /
+                                      5,
                                   height: 50,
-                               child: FlatButton(
-                                padding: EdgeInsets.all(0),
-                                  onPressed: () {
-                                    setState(() {
-                                      _visible = !_visible;
-                                    });
-                                  },
-                                  child: Container(
-                                     width :(MediaQuery.of(context).size.width-100)/5,
-                                    height: 50,
-                                    // color:Colors.blue,
-                                    child: Center(
-                                      child: Text(
-                                        'ع ',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                  child: FlatButton(
+                                    padding: EdgeInsets.all(0),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Contant(
+                                                    dark: isChanged,
+                                                  )));
+                                    },
+                                    child: Container(
+                                      width:
+                                          (MediaQuery.of(context).size.width -
+                                                  100) /
+                                              5,
+                                      height: 50,
+                                      // color:Colors.amber,
+                                      child: Icon(
+                                        Icons.subject,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
                                 ),
-                             ),
-                             
-                               Container(
-                                  width :(MediaQuery.of(context).size.width-100)/5,
+                                Container(
+                                  width: (MediaQuery.of(context).size.width -
+                                          100) /
+                                      5,
                                   height: 50,
-                                 child: FlatButton(
-                              padding: EdgeInsets.all(0),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => ListenPodCast()));
-                                  },
-                                  child: Container(
-                                    width :(MediaQuery.of(context).size.width-100)/5,
-                                    height: 50,
-                                    // color: Colors.red,
-                                    child: Icon(
-                                      Icons.headset,
-                                      color: Colors.white,
+                                  child: FlatButton(
+                                    padding: EdgeInsets.all(0),
+                                    onPressed: () {
+                                      setState(() {
+                                        _visible = !_visible;
+                                      });
+                                    },
+                                    child: Container(
+                                      width:
+                                          (MediaQuery.of(context).size.width -
+                                                  100) /
+                                              5,
+                                      height: 50,
+                                      // color:Colors.blue,
+                                      child: Center(
+                                        child: Text(
+                                          'ع ',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                              ),
-                               ),
-                            ],
+                                ),
+                                Container(
+                                  width: (MediaQuery.of(context).size.width -
+                                          100) /
+                                      5,
+                                  height: 50,
+                                  child: FlatButton(
+                                    padding: EdgeInsets.all(0),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ListenPodCast()));
+                                    },
+                                    child: Container(
+                                      width:
+                                          (MediaQuery.of(context).size.width -
+                                                  100) /
+                                              5,
+                                      height: 50,
+                                      // color: Colors.red,
+                                      child: Icon(
+                                        Icons.headset,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerFloat,
-              body: PageView(
-                onPageChanged: (int page){
-                  print(page);
-                  setState((){
-                    curentPage = page;
-                  });
-                },
-                children: [
-                for (int i = 0; i < list.length; i++) ...[
-                 
-                  ListView(
-
-                    controller: _scrollController,
-                   children: [
-                    Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                              text: '${list[i].title}\n\n',
-                              style: TextStyle(
-                                  fontSize: 23.0,
-                                  color:
-                                      isChanged ? Colors.white : Colors.black),
+                floatingActionButtonLocation:
+                    FloatingActionButtonLocation.centerFloat,
+                body: PageView(
+                    onPageChanged: (int page) {
+                      print(page);
+                      setState(() {
+                        curentPage = page;
+                      });
+                    },
+                    children: [
+                      for (int i = 0; i < list.length; i++) ...[
+                        ListView(controller: _scrollController, children: [
+                          Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: RichText(
+                                text: TextSpan(children: [
+                                  TextSpan(
+                                    text: '${list[i].title}\n\n',
+                                    style: TextStyle(
+                                        fontSize: 23.0,
+                                        color: isChanged
+                                            ? Colors.white
+                                            : Colors.black),
+                                  ),
+                                  TextSpan(
+                                    text: '${list[i].body}\n\n',
+                                    style: TextStyle(
+                                        fontSize: _textSize,
+                                        color: isChanged
+                                            ? Colors.white
+                                            : Colors.black),
+                                  ),
+                                  TextSpan(
+                                    text: '${list[i].body2}\n\n',
+                                    style: TextStyle(
+                                        fontSize: _textSize,
+                                        color: isChanged
+                                            ? Colors.white
+                                            : Colors.black),
+                                  ),
+                                  TextSpan(
+                                    text: '${list[i].footer}',
+                                    style: TextStyle(
+                                        fontSize: _textSize,
+                                        color: isChanged
+                                            ? Colors.white
+                                            : Colors.black),
+                                  ),
+                                ]),
+                              )),
+                          // Padding(
+                          //     padding: const EdgeInsets.all(20.0),
+                          //     child: Column(
+                          //       mainAxisAlignment: MainAxisAlignment.end,
+                          //       children: <Widget>[
+                          //         Row(
+                          //           children: list
+                          //               .asMap()
+                          //               .map((index, e) {
+                          //                 return MapEntry(
+                          //                   index,
+                          //                   ButtomBar(
+                          //                     position: index,
+                          //                     currentIndex: i,
+                          //                   ),
+                          //                 );
+                          //               })
+                          //               .values
+                          //               .toList(),
+                          //         ),
+                          //         SizedBox(
+                          //           height: 10,
+                          //         )
+                          //       ],
+                          //     )),
+                        ]),
+                      ],
+                    ]),
+                bottomSheet: Container(
+                  height: 10,
+                  // color: Colors.red,
+                  child: Row(
+                    children: list
+                        .asMap()
+                        .map((index, e) {
+                          return MapEntry(
+                            index,
+                            ButtomBar(
+                              position: index,
+                              currentIndex: curentPage,
                             ),
-                            TextSpan(
-                              text: '${list[i].body}\n\n',
-                              style: TextStyle(
-                                  fontSize: _textSize,
-                                  color:
-                                      isChanged ? Colors.white : Colors.black),
-                            ),
-                            TextSpan(
-                              text: '${list[i].body2}\n\n',
-                              style: TextStyle(
-                                  fontSize: _textSize,
-                                  color:
-                                      isChanged ? Colors.white : Colors.black),
-                            ),
-                            TextSpan(
-                              text: '${list[i].footer}',
-                              style: TextStyle(
-                                  fontSize: _textSize,
-                                  color:
-                                      isChanged ? Colors.white : Colors.black),
-                            ),
-                          ]),
-                        )),
-                    // Padding(
-                    //     padding: const EdgeInsets.all(20.0),
-                    //     child: Column(
-                    //       mainAxisAlignment: MainAxisAlignment.end,
-                    //       children: <Widget>[
-                    //         Row(
-                    //           children: list
-                    //               .asMap()
-                    //               .map((index, e) {
-                    //                 return MapEntry(
-                    //                   index,
-                    //                   ButtomBar(
-                    //                     position: index,
-                    //                     currentIndex: i,
-                    //                   ),
-                    //                 );
-                    //               })
-                    //               .values
-                    //               .toList(),
-                    //         ),
-                    //         SizedBox(
-                    //           height: 10,
-                    //         )
-                    //       ],
-                    //     )),
-                  ]),
-                ],
-              ]),
-
-              bottomSheet: Container(
-                height: 10,
-                // color: Colors.red,
-                child:   Row(
-                                children: list
-                                    .asMap()
-                                    .map((index, e) {
-                                      return MapEntry(
-                                        index,
-                                        ButtomBar(
-                                          position: index,
-                                          currentIndex: curentPage,
-                                        ),
-                                      );
-                                    })
-                                    .values
-                                    .toList(),
-                              ),
-              )
-            );
+                          );
+                        })
+                        .values
+                        .toList(),
+                  ),
+                ));
           },
         ));
   }
@@ -447,7 +462,7 @@ class ButtomBar extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Stack(
-                            children: <Widget>[
+              children: <Widget>[
                 _buildContainer(
                   double.infinity,
                   position <= currentIndex
@@ -479,7 +494,7 @@ class ButtomBar extends StatelessWidget {
   }
 }
 
-Future bottomSheetSearch(BuildContext context) {
+Future bottomSheet(BuildContext context) {
   return showMaterialModalBottomSheet(
     context: context,
     backgroundColor: Colors.transparent,
