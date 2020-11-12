@@ -7,7 +7,6 @@ import 'helpcenter.dart';
 class Data {
   final String image;
   final String title;
-
   Data({this.image, this.title});
 }
 
@@ -50,24 +49,24 @@ class _HelpPageState extends State<HelpPage> {
             backgroundColor: ThemeData.light().scaffoldBackgroundColor,
             elevation: 0,
             centerTitle: false,
-             title: FlatButton(
-            child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Icons.arrow_back,
-                      size: 30,
-                      color: Color(0xff1E7145),
-                    ),
-                  ],
-                )),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+            title: FlatButton(
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                        color: Color(0xff1E7145),
+                      ),
+                    ],
+                  )),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -187,10 +186,10 @@ class _HelpPageState extends State<HelpPage> {
         elevation: 5,
         borderRadius: BorderRadius.all(Radius.circular(15)),
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             print('soical');
           },
-                  child: Container(
+          child: Container(
             margin: EdgeInsets.only(left: 10),
             padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
             height: MediaQuery.of(context).size.width / 5,

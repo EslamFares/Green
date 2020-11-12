@@ -423,21 +423,11 @@ class _OpenBookpageState extends State<OpenBookpage>
                 bottomSheet: Container(
                   height: 10,
                   // color: Colors.red,
-                  child: Row(
-                    children: list
-                        .asMap()
-                        .map((index, e) {
-                          return MapEntry(
-                            index,
-                            ButtomBar(
-                              position: index,
-                              currentIndex: curentPage,
-                            ),
-                          );
-                        })
-                        .values
-                        .toList(),
-                  ),
+                  child: Row(children: [
+                    for (int index = 0; index < list.length; index++) ...[
+                      ButtomBar(position: index, currentIndex: curentPage),
+                    ]
+                  ]),
                 ));
           },
         ));
@@ -458,23 +448,16 @@ class ButtomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 1.5),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Stack(
-              children: <Widget>[
-                _buildContainer(
-                  double.infinity,
-                  position <= currentIndex
-                      ? Color(0xff1E7145)
-                      : Colors.grey[300],
-                ),
-                //
-              ],
-            );
-          },
-        ),
-      ),
+          padding: const EdgeInsets.symmetric(horizontal: 1.5),
+          child: Stack(
+            children: <Widget>[
+              _buildContainer(
+                double.infinity,
+                position <= currentIndex ? Color(0xff1E7145) : Colors.grey[300],
+              ),
+              //
+            ],
+          )),
     );
   }
 
