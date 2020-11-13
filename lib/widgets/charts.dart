@@ -37,10 +37,24 @@ class _ChartsInfoState extends State<LineCharts> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text(
+                        'آخر أسبوع',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w700),
+                      ),
                       Row(
-                         mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                            '11',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                            ),
+                          ),
                           Text(
                             ' نقطة ',
                             style: TextStyle(
@@ -51,21 +65,7 @@ class _ChartsInfoState extends State<LineCharts> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            '11',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                            ),
-                          )
                         ],
-                      ),
-                      Text(
-                        'آخر أسبوع',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
@@ -90,6 +90,7 @@ class _ChartsInfoState extends State<LineCharts> {
                       lineBarsData: [
                         LineChartBarData(
                           spots: [
+                            //لما ال x بصفر حط ال y بواحد
                             FlSpot(0, 1),
                             FlSpot(0, 1),
                             FlSpot(3, 1),
@@ -114,6 +115,7 @@ class _ChartsInfoState extends State<LineCharts> {
                             showTitles: true,
                             reservedSize: 4,
                             getTitles: (value) {
+                              //x axis ترتيب
                               switch (value.toInt()) {
                                 case 0:
                                   return 'Sun';
@@ -135,6 +137,7 @@ class _ChartsInfoState extends State<LineCharts> {
                                   return '';
                               }
                             }),
+                        // y axis
                         leftTitles: SideTitles(
                           showTitles: false,
                           getTitles: (value) {
@@ -195,8 +198,22 @@ class _ChartsInfoState extends State<LineCharts> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Text(
+                        'آخر شهر',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w700),
+                      ),
                       Row(
                         children: [
+                          Text(
+                            '17',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                            ),
+                          ),
                           Text(
                             ' نقطة ',
                             style: TextStyle(
@@ -207,21 +224,7 @@ class _ChartsInfoState extends State<LineCharts> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            '17',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                            ),
-                          )
                         ],
-                      ),
-                      Text(
-                        'آخر شهر',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),
@@ -252,7 +255,7 @@ class _ChartsInfoState extends State<LineCharts> {
                             FlSpot(4, 1),
                             FlSpot(5, 6),
                             // FlSpot(6, 4),
-                              // FlSpot(5, 3),
+                            // FlSpot(5, 3),
                           ],
                           isCurved: false,
                           barWidth: 2,
@@ -351,8 +354,22 @@ class _ChartsInfoState extends State<LineCharts> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Text(
+                        'آخر سنة',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w700),
+                      ),
                       Row(
                         children: [
+                          Text(
+                            '20',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                            ),
+                          ),
                           Text(
                             ' نقطة ',
                             style: TextStyle(
@@ -363,21 +380,7 @@ class _ChartsInfoState extends State<LineCharts> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            '20',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
-                            ),
-                          )
                         ],
-                      ),
-                      Text(
-                        'آخر سنة',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w700),
                       ),
                     ],
                   ),

@@ -2,7 +2,6 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:green/pages/setting_pages/discoversearch.dart';
-
 import '../Data/discoverModel.dart';
 import '../loading_page.dart';
 
@@ -13,7 +12,6 @@ class DiscoverPage extends StatefulWidget {
 
 class _DiscoverPageState extends State<DiscoverPage> {
   bool loading = true;
-  
   @override
   void initState() {
     super.initState();
@@ -29,10 +27,11 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: Colors.white,
+          backgroundColor: Colors.white,
           appBar: AppBar(
             elevation: 0.0,
-            backgroundColor:Colors.white,// ThemeData.light().scaffoldBackgroundColor,
+            backgroundColor:
+                Colors.white, // ThemeData.light().scaffoldBackgroundColor,
             title: Padding(
               padding: const EdgeInsets.only(right: 2.0),
               child: Align(
@@ -302,7 +301,8 @@ class _QuoteWidgetState extends State<QuoteWidget> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0),
-                child: Text('${favourite?loveNum++:loveNum--}',
+                child: Text(
+                  '${favourite ? loveNum++ : loveNum--}',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                 ),
               ),
